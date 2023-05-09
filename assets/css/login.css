@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+*{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.title{
+  font-family: "Sora";
+  font-size: 3em;
+}
+
+.bg-image {
+  background-image: url('../../gambar/pnb.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.bimbingan {
+    font-family: "Sora";
+    font-size: 32px;
+}
+
+.button{
+  background-color: #2F6888;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  height: 37px;
+  padding: 5px;
+}
+
+.button:hover{
+  background-color: #008deb;
+  color: #fff;
+  transition: .10s;
+}
+
+.judul{
+  color: #2F6888;
+}
+
+.kotak-text{
+  background-color: #2F6888;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  height: 60px;
+  padding: 5px;
+}
