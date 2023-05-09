@@ -43,11 +43,11 @@
     </ul>
 
     <!-- Right navbar links -->
-    <!-- <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
         <a class="btn btn-danger" href="../logout.php" role="button">
           <i class="fas fa-sign-out-alt mx-1"></i>Logout
         </a>
-    </ul> -->
+    </ul>
   </nav>
   <div class="wrapper">
     <!-- Main Sidebar Container -->
