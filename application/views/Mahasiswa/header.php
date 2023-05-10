@@ -40,6 +40,7 @@
     <ul class="profile-user navbar-nav ml-auto">
           <li class="nama-user nav-link">
           <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="profile img-circle mx-2">
+          <!-- Harusnya nampilin Username tapi blm ada -->
             <a class="user-image text-white" href=""><?= $this->session->userdata('Nim') ?></a>
           </li>
     </ul>
@@ -61,7 +62,8 @@
             <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-          <a href="#" class="d-block text-white"><?= $this->session->userdata('Username') ?></a>
+          <!-- Harusnya nampilin Username tapi blm ada -->
+          <a href="#" class="d-block text-white"><?= $this->session->userdata('Nim') ?></a>
         </div>
         </div>
         <!-- Sidebar Menu -->

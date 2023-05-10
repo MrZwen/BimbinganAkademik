@@ -11,11 +11,14 @@ class Mlogin extends CI_Model
         if ($query->num_rows()>0)
         { 
             $data=$query->row();
+                $Nim=$data->Nim; //Harusnya Username cuma belum ada
 				$Role=$data->Role;
 				$array=array(
+                    'Nim'=> $Nim,
 					'Role'=>$Role
 				);
              $this->session->set_userdata($array);
+            //  var_dump($this->session->all_userdata());
             redirect('cutama/tampilanK','refresh'); 
         }
         else{
