@@ -6,6 +6,8 @@
   <title>Dashboard Mahasiswa</title>
  <!-- Google Font: Source Sans Pro -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+ <!-- Sweet Alerts -->
+ <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- Ionicons -->
@@ -38,7 +40,7 @@
     <ul class="profile-user navbar-nav ml-auto">
           <li class="nama-user nav-link">
           <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="profile img-circle mx-2">
-            <a class="user-image text-white" href="">Nama User</a>
+            <a class="user-image text-white" href=""><?= $this->session->userdata('Nim') ?></a>
           </li>
     </ul>
   </nav>
@@ -59,7 +61,7 @@
             <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-          <a href="#" class="d-block text-white">Nama User</a>
+          <a href="#" class="d-block text-white"><?= $this->session->userdata('Username') ?></a>
         </div>
         </div>
         <!-- Sidebar Menu -->
@@ -100,7 +102,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="javascript:void(0)" onClick="logout();" class="nav-link text-white">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>
                   Log Out
@@ -114,3 +116,32 @@
       <!-- /.sidebar -->
   </div>
   </aside>
+
+  <!-- <script language="javascript">
+	function logout()
+	{
+    
+		if (confirm("Apakah yakin keluar sistem"))
+		{
+			//jalankan	
+      
+		}	
+	}
+</script> -->
+
+<script language="javascript">
+  function logout(){
+    Swal.fire({
+    title: 'Apakah yakin ingin keluar sistem?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, Logout!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+        window.open("<?php echo base_url(); ?>clogin/logout","_self");
+    }
+  })
+  }
+</script>

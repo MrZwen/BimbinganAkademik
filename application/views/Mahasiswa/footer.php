@@ -3,7 +3,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url('assets/plugins/jquery-ui/jquery-ui.min.js')?>"></script>
 <!-- Sweet Alerts -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
