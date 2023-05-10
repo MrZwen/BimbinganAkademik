@@ -43,11 +43,11 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <!-- <ul class="navbar-nav ml-auto">
         <a class="btn btn-danger" href="../logout.php" role="button">
           <i class="fas fa-sign-out-alt mx-1"></i>Logout
         </a>
-    </ul>
+    </ul> -->
   </nav>
   <div class="wrapper">
     <!-- Main Sidebar Container -->
@@ -182,15 +182,6 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Active js -->
-<script>
-  $(document).ready(function() {
-    $("nav .nav-link").click(function(){
-      $("nav").find(".active").removeClass("active");
-      $(this).addClass("active");
-    })
-  });
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
