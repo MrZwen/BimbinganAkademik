@@ -38,16 +38,15 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="" class="nav-link">Home</a>
       </li>
     </ul>
 
     <!-- Right navbar links -->
-    <!-- <ul class="navbar-nav ml-auto">
-        <a class="btn btn-danger" href="../logout.php" role="button">
-          <i class="fas fa-sign-out-alt mx-1"></i>Logout
-        </a>
-    </ul> -->
+    <ul class="profile-user navbar-nav ml-auto">
+          <img src="<?= base_url('gambar/logopoltek.png') ?>" class="profile img-circle mx-2">
+          <span class="user-image text-white" href="">Nama User</span>
+    </ul>
   </nav>
   <div class="wrapper">
     <!-- Main Sidebar Container -->
