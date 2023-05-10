@@ -12,6 +12,7 @@
 
 .atas{
     background-color: #2F6888;
+    border: none;
 }
 
 .profile{
@@ -20,8 +21,13 @@
 }
 
 .user-image{
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: white;
-  padding-top: 2px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: white;
+    padding-top: 2px;
+}
+
+.info{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
