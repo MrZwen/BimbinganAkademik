@@ -117,25 +117,13 @@
   </div>
   </aside>
 
-  <!-- <script language="javascript">
-	function logout()
-	{
-    
-		if (confirm("Apakah yakin keluar sistem"))
-		{
-			//jalankan	
-      
-		}	
-	}
-</script> -->
-
 <script language="javascript">
   function logout(){
     Swal.fire({
     title: 'Apakah yakin ingin keluar sistem?',
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
+    confirmButtonColor: '#2F6888',
     cancelButtonColor: '#d33',
     confirmButtonText: 'Ya, Logout!'
   }).then((result) => {
