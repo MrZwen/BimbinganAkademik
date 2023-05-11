@@ -71,16 +71,16 @@
                                 </div>
                                 <form id="formlogin" name="formlogin" method="post" action="<?php echo base_url('Clogin/proseslogin'); ?>">
                                     <div class="form-group mb-3">
-                                        <input id="username" type="text" placeholder="username" required="" name="username" class="form-control  border-0 shadow-sm px-4">
+                                        <input id="username" type="text" placeholder="Username" required="" name="username" class="form-control border-0 shadow-sm px-4">
                                     </div>
                                     <div class="form-group mb-3">
-                                        <input id="password" type="password" placeholder="Password" required="" name="password" class="form-control  border-0 shadow-sm px-4 text-primary">
+                                        <input id="password" type="password" placeholder="Password" required="" name="password" class="form-control border-0 shadow-sm px-4">
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
                                         <input id="customCheck1" type="checkbox" checked class="custom-control-input">
                                         <label for="customCheck1" class="custom-control-label">Remember password</label>
                                     </div>
-                                    <a type="button" class="button" onclick="proseslogin();">SIGN IN</a>
+                                    <a type="button" class="button" onclick="proseslogin();">Sign In</a>
 
                                 </form>
                             </div>
