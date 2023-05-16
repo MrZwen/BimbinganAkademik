@@ -14,18 +14,58 @@
         <form id="formedit" method="post" class="form-horizontal" action="?page=322&amp;language=id&amp;action=editdata" enctype="multipart/form-data">
             <input type="hidden" name="id" size="50" value="1d884ca9-7d5b-3458-eeb3-3038750b88d8">
             <br>
-            <!--<img src="files/mahasiswa/IMG_20210825_154515-1.JPG" alt="Foto Profil" class="img-rounded" style="width:130px;height:150px"><br/>
-										<br><input type="file" name="image" name="image" style="width:99%;"/>-->
-
-            <img src="files/mahasiswa/IMG_20210825_154515-1.JPG" alt="Foto Profil" class="img-rounded" style="width:130px;height:150px"><br>
+            <img src="<?=  base_url('assets/dist/img/avatar.png') ?>" alt="Foto Profil" class="img-circle" style="width:130px;height:150px"><br>
             <br><input type="hidden" name="photo_current" size="50" class="form-control" value="files/mahasiswa/IMG_20210825_154515-1.JPG">
             <button type="button" class="btn btn-warning btn-xs" onclick="" style="margin-bottom:10px" data-loading-text="Memuat..."><i class="fa fa-trash-o"></i> Hapus Foto</button>
             <input id="avatar" name="avatar" type="file">
             <br><button type="submit" name="button" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
-            <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..."><i class="fa fa-edit"></i> Edit Profil</button>
+            <!-- Modal -->
+            <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..." data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i> Edit Profil</button>
         </form>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-bold" id="exampleModalLabel">Edit Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <label for="">NIM</label>
+                        <input type="text" class="form-control mb-3">
+                        <label for="">Nama Mahasiswa</label>
+                        <input type="text" class="form-control mb-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="">Handphone</label>
+                                <input type="number" class="form-control mb-3">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control mb-3">
+                            </div>
+                        </div>
+                        <label for="">Alamat</label>
+                        <input type="text" class="form-control mb-3">
+                        <label for="">Nama Orang Tua</label>
+                        <input type="text" class="form-control mb-3">
+                        <label for="">Telp Orang Tua</label>
+                        <input type="number" class="form-control">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" style="">Simpan</button>
+                </div>
+                </div>
+            </div>
+        </div>
         <br>
-        <table class="table ">
+        <div class="card-body">
+        <table class="table">
             <tbody>
                 <tr>
                     <td width="15%">Nim</td>
@@ -67,4 +107,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>
