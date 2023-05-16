@@ -24,11 +24,5 @@ class Cutama extends CI_Controller
         $data['konten'] = $this->load->view('mahasiswa/datadiri', '', TRUE);
         $this->load->view('mahasiswa/tampilanMahasiswa', $data);
     }
-
-    function datadiriM()
-    {
-        $data['konten']=$this->load->view('mahasiswa/header', '', TRUE);
-        $this->load->view('mahasiswa/datadiri',$data);
-    }
     
 }
