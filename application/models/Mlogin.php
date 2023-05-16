@@ -6,15 +6,15 @@ class Mlogin extends CI_Model
         $username=$this->input->post('username');
         $password=$this->input->post('password');
 
-        $sql="select * from akun INNER JOIN mahasiswa ON akun.id_akun = mahasiswa.id_akun where username='".$username."'and password='".$password."'"; //merubah nim jadi username dan melakukan inner join agar nama mahasiswa yang tampil pada dashboard
+        $sql="select * from akun where username='".$username."'and password='".$password."'"; //vlidasi login username dan password
         $query=$this->db->query($sql);
         if ($query->num_rows()>0)
         { 
             $data=$query->row();
-                $Nama=$data->Nama; //sudah ku ubah jadi nama yang ada pada table mahasiswa
+                $id_akun=$data->id_akun; //ku ubah jadi id akun biar dan ku pindah session username nya di mvalidasi
 				$Role=$data->Role;
 				$array=array(
-                    'Nama'=>$Nama,
+                    'id_akun'=>$id_akun,
 					'Role'=>$Role
 				);
              $this->session->set_userdata($array);

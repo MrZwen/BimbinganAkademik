@@ -135,9 +135,11 @@
         </section>
         <!-- /.content -->
       </div>
-  <!-- /.sidebar -->
+      <!-- /.sidebar -->
+    </aside>
   </div>
-  </aside>
+</body>
+
 
   <script language="javascript">
     function logout() {

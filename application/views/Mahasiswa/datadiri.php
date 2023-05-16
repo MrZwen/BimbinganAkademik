@@ -1,10 +1,15 @@
 <!-- menampilkan data diri/ identitas mahasiswa tetapi belum terkoneksi database -->
-<div class="tab-content">
-    <div class="tab-pane active" id="Mahasiswa-1">
-        <h1>
-            Profil Mahasiswa
-            <small></small>
-        </h1>
+<div class="content-header layout-fixed">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Data Diri</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="tab-content p-0">
         <form id="formedit" method="post" class="form-horizontal" action="?page=322&amp;language=id&amp;action=editdata" enctype="multipart/form-data">
             <input type="hidden" name="id" size="50" value="1d884ca9-7d5b-3458-eeb3-3038750b88d8">
             <br>
@@ -19,7 +24,7 @@
             <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..."><i class="fa fa-edit"></i> Edit Profil</button>
         </form>
         <br>
-        <table class="table table-striped">
+        <table class="table ">
             <tbody>
                 <tr>
                     <td width="15%">Nim</td>
@@ -47,7 +52,7 @@
                     <td>E-mail</td>
                     <td>:</td>
                     <td>krisnaastika71@gmail.com</td>
-                    <td></td>
+
                 </tr>
                 <tr>
                     <td>Nama Orangtua</td>
@@ -56,7 +61,6 @@
                     <td></td>
                     <td>telepon Orangtua</td>
                     <td>:</td>
-                    <td></td>
                     <td></td>
                 </tr>
             </tbody>
