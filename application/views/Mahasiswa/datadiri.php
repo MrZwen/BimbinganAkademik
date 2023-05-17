@@ -1,13 +1,12 @@
 <!-- menampilkan data diri/ identitas mahasiswa tetapi belum terkoneksi database -->
-<div class="content-header layout-fixed">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Data Diri</h1>
-                <hr>
-            </div>
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2 border-bottom">
+          <div class="col-sm-6">
+            <h1 class="m-0">Data Diri</h1>
+          </div>
         </div>
-    </div>
+      </div>
 </div>
 <div class="card-body">
     <div class="tab-content p-0">
@@ -20,10 +19,10 @@
             <input id="avatar" name="avatar" type="file">
             <br><button type="submit" name="button" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
             <!-- Modal -->
-            <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..." data-toggle="modal" data-target="#exampleModal"><i class="fa fa-edit"></i> Edit Profil</button>
+            <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..." data-toggle="modal" data-target="#editProfile"><i class="fa fa-edit"></i> Edit Profil</button>
         </form>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
