@@ -8,7 +8,7 @@ class mdatadiri extends CI_Model
         $this->db->where('id_akun', $id_akun); 
         $this->db->update('mahasiswa', $data);
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');
-        redirect('cutama/tampilanK', 'refresh');
+        redirect('cutama/tampilanM', 'refresh');
     }
     function tampildatam()
 	{

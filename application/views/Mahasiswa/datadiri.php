@@ -119,45 +119,65 @@
 </div>
 </div>
 <br>
-<div class="card-body">
-    <table class="table">
-        <tbody>
-            <tr>
-                <td width="15%">Nim</td>
-                <td width="2%">:</td>
-                <td width="30%"><?php echo $user->Nim ?></td>
-                <td width="3%"></td>
-                <td width="15%">Alamat</td>
-                <td width="2%">:</td>
-                <td width="30%"><?php echo $user->Alamat ?></td>
-            </tr>
-            <tr>
-                <td>Nama Mahasiswa</td>
-                <td>:</td>
-                <td><?php echo $user->Nama ?></td>
-                <td></td>
-                <td>E-mail</td>
-                <td>:</td>
-                <td><?php echo $user->Email ?></td>
-            </tr>
-            <tr>
-                <td>Handphone</td>
-                <td>:</td>
-                <td><?php echo $user->NoHp ?></td>
-                <td></td>
-                <td>Telepon Orangtua</td>
-                <td>:</td>
-                <td><?php echo $user->TelpOrangTua ?></td>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-bold">Data Diri Mahasiswa</h3>
+                <?php 
+                    $pesan=$this->session->flashdata('pesan');
+                    if ($pesan=="")
+                    {
+                    echo "";	
+                    }
+                    else
+                    {
+                ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong><?php echo $pesan; ?></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                <?php
+                    }
+                ?>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td width="15%">Nim</td>
+                        <td width="2%">:</td>
+                        <td width="30%"><?php echo $user->Nim ?></td>
+                        <td width="3%"></td>
+                        <td width="15%">Alamat</td>
+                        <td width="2%">:</td>
+                        <td width="30%"><?php echo $user->Alamat ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Mahasiswa</td>
+                        <td>:</td>
+                        <td><?php echo $user->Nama ?></td>
+                        <td></td>
+                        <td>E-mail</td>
+                        <td>:</td>
+                        <td><?php echo $user->Email ?></td>
+                    </tr>
+                    <tr>
+                        <td>Handphone</td>
+                        <td>:</td>
+                        <td><?php echo $user->NoHp ?></td>
+                        <td></td>
+                        <td>Telepon Orangtua</td>
+                        <td>:</td>
+                        <td><?php echo $user->TelpOrangTua ?></td>
 
-            </tr>
-            <tr>
-                <td>Nama Orangtua</td>
-                <td>:</td>
-                <td><?php echo $user->NamaOrangTua ?></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
+                    </tr>
+                    <tr>
+                        <td>Nama Orangtua</td>
+                        <td>:</td>
+                        <td><?php echo $user->NamaOrangTua ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
