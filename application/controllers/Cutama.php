@@ -21,7 +21,10 @@ class Cutama extends CI_Controller
     function tampilanM()
     {
         $this->mvalidasi->validasiM();
-        $data['konten'] = $this->load->view('mahasiswa/datadiri', '', TRUE);
+        $this->load->model('mdatadiri');
+        $datalist['user']=$this->mdatadiri->tampildatam();
+
+        $data['konten'] = $this->load->view('mahasiswa/datadiri',$datalist, TRUE);
         $this->load->view('mahasiswa/tampilanMahasiswa', $data);
     }
     
