@@ -127,27 +127,27 @@
                 <td width="2%">:</td>
                 <td width="30%"><?php echo $user->Nim ?></td>
                 <td width="3%"></td>
-                <td width="15%">NIK</td>
+                <td width="15%">Alamat</td>
                 <td width="2%">:</td>
-                <td width="30%"></td>
+                <td width="30%"><?php echo $user->Alamat ?></td>
             </tr>
             <tr>
                 <td>Nama Mahasiswa</td>
                 <td>:</td>
                 <td><?php echo $user->Nama ?></td>
                 <td></td>
-                <td>Alamat</td>
+                <td>E-mail</td>
                 <td>:</td>
-                <td><?php echo $user->Alamat ?></td>
+                <td><?php echo $user->Email ?></td>
             </tr>
             <tr>
                 <td>Handphone</td>
                 <td>:</td>
                 <td><?php echo $user->NoHp ?></td>
                 <td></td>
-                <td>E-mail</td>
+                <td>Telepon Orangtua</td>
                 <td>:</td>
-                <td><?php echo $user->Email ?></td>
+                <td><?php echo $user->TelpOrangTua ?></td>
 
             </tr>
             <tr>
@@ -155,9 +155,6 @@
                 <td>:</td>
                 <td><?php echo $user->NamaOrangTua ?></td>
                 <td></td>
-                <td>telepon Orangtua</td>
-                <td>:</td>
-                <td><?php echo $user->TelpOrangTua ?></td>
             </tr>
         </tbody>
     </table>

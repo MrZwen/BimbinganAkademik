@@ -27,7 +27,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <!-- Navbar -->
-  <nav class="atas main-header navbar navbar-expand navbar-dark ">
+  <nav class="atas main-header navbar navbar-expand navbar-dark sticky-top">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
