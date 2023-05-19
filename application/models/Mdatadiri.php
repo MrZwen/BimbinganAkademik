@@ -26,13 +26,30 @@ class mdatadiri extends CI_Model
 		$this->db->where('id_akun', $id_akun); // menentukan kondisi WHERE
 		$query = $this->db->get('mahasiswa'); // mengambil satu data dari tabel 'users'
 		return $query->row();
-    }
+	}
+
     function tampildatad()
     {
         $id_akun = $this->session->userdata('id_akun');
         $this->db->where('id_akun', $id_akun); // menentukan kondisi WHERE
         $query = $this->db->get('dosen'); // mengambil satu data dari tabel 'dosen'
         return $query->row();
+    }
+
+    function tampildataK()
+    {
+        $sql="SELECT * FROM mahasiswa";
+        $query=$this->db->query($sql);
+        if($query->num_rows()>0){
+            foreach($query->result() as $data){
+                $hasil[] = $data;
+            }
+        }
+        else
+        {
+            $hasil = "";
+        }
+        return $hasil;
     }
 }
 

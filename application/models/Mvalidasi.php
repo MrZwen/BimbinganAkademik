@@ -5,6 +5,15 @@ class Mvalidasi extends CI_Model
 	{
 
 		if ($this->session->userdata('Role') == 'kaprodi') {
+			$id_akun = $this->session->userdata('id_akun');
+			$sql = "select * from akun INNER JOIN kaprodi ON akun.id_akun = kaprodi.id_akun where kaprodi.id_akun ='" . $id_akun . "'"; // melakukan inner join agar nama Kaprodi yang login tampil pada dashboard
+			$query = $this->db->query($sql);
+			$data = $query->row();
+			$Nama = $data->Nama;
+			$array = array(
+				'Nama' => $Nama,
+			);
+			$this->session->set_userdata($array);
 		} else {
 			redirect('cutama/tampilanD', 'refresh');
 		}

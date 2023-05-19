@@ -5,12 +5,16 @@ class Cutama extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mvalidasi');
+        $this->load->model('mdatadiri');
 
     }
     function tampilanK()
     {
         $this->mvalidasi->validasiK();
-        $this->load->view('tampilanKaprodi');
+        $datalist['hasil']=$this->mdatadiri->tampildataK();
+
+        $data['konten'] = $this->load->view('kaprodi/dashboard',$datalist, TRUE);
+        $this->load->view('kaprodi/tampilanKaprodi', $data);
     }
     function tampilanD()
     {
@@ -31,5 +35,6 @@ class Cutama extends CI_Controller
         $data['konten'] = $this->load->view('mahasiswa/datadiri',$datalist, TRUE);
         $this->load->view('mahasiswa/tampilanMahasiswa', $data);
     }
+    
     
 }
