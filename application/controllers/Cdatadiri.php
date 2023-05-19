@@ -10,6 +10,11 @@
     {
         $this->mdatadiri->updatedatadiri(); 
         $this->updatedatadiri(); 
-    }
+    }  
+    function updatedatadirid() 
+    {
+        $this->mdatadiri->updatedatadirid(); 
+        $this->updatedatadirid(); 
+    }  
 } 
 ?>

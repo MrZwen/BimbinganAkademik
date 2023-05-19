@@ -9,14 +9,6 @@ class Mvalidasi extends CI_Model
 			redirect('cutama/tampilanD', 'refresh');
 		}
 	}
-	function validasiD()
-	{
-
-		if ($this->session->userdata('Role') == 'dosen') {
-		} else {
-			redirect('cutama/tampilanM', 'refresh');
-		}
-	}
 	function validasiM()
 	{
 		if ($this->session->userdata('Role') == 'mahasiswa') {
@@ -34,5 +26,22 @@ class Mvalidasi extends CI_Model
 			redirect('clogin/formlogin', 'refresh');
 		}
 	}
+	function validasiD()
+	{
+		if ($this->session->userdata('Role') == 'dosen') {
+			$id_akun = $this->session->userdata('id_akun');
+			$sql = "select * from akun INNER JOIN dosen ON akun.id_akun = dosen.id_akun where dosen.id_akun='" . $id_akun . "'"; // melakukan inner join agar nama dosen yang tampil pada dashboard
+			$query = $this->db->query($sql);
+			$data = $query->row();
+			$Nama = $data->Nama;
+			$array = array(
+				'Nama' => $Nama,
+			);
+			$this->session->set_userdata($array);
+		} else {
+			redirect('cutama/tampilanM', 'refresh');
+		}
+	}
+	
 	
 }
