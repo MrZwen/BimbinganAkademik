@@ -74,7 +74,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item ">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cutama/tampilanM');?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-reugler fa-user"></i>
                 <p>
                   Data Diri
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cbimbingan/formbimbingan') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
                   Bimbingan
