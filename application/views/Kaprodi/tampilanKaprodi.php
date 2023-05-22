@@ -34,7 +34,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-flex">
-        <a href="" class="nav-link justify-content-between">Home</a>
+        <a href="<?php echo base_url('Cutama/tampilanK');?>" class="nav-link justify-content-between">Home</a>
       </li>
     </ul>
 

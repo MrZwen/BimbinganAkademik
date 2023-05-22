@@ -6,17 +6,20 @@ class Cutama extends CI_Controller
         parent::__construct();
         $this->load->model('mvalidasi');
         $this->load->model('mdatadiri');
+        $this->load->model('mjumlah');
 
     }
-    function tampilanK()
+    public function tampilanK()
     {
         $this->mvalidasi->validasiK();
+        $count = $this->mjumlah->countM();
         $datalist['hasil']=$this->mdatadiri->tampildataK();
 
         $data['konten'] = $this->load->view('kaprodi/dashboard',$datalist, TRUE);
+        $data['count'] = $count;
         $this->load->view('kaprodi/tampilanKaprodi', $data);
     }
-    function tampilanD()
+    public function tampilanD()
     {
         $this->mvalidasi->validasiD();
         $this->load->model('mdatadiri');
@@ -26,7 +29,7 @@ class Cutama extends CI_Controller
         $this->load->view('dosen/tampilanDosen', $data);
     }
 
-    function tampilanM()
+    public function tampilanM()
     {
         $this->mvalidasi->validasiM();
         $this->load->model('mdatadiri');

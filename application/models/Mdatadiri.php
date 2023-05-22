@@ -38,16 +38,11 @@ class mdatadiri extends CI_Model
 
     function tampildataK()
     {
-        $sql="SELECT * FROM mahasiswa";
-        $query=$this->db->query($sql);
-        if($query->num_rows()>0){
-            foreach($query->result() as $data){
-                $hasil[] = $data;
-            }
-        }
-        else
-        {
-            $hasil = "";
+        $query = $this->db->get('mahasiswa');
+        if($query->num_rows() > 0){
+            $hasil = $query->result();
+        }else{
+            $hasil = [];
         }
         return $hasil;
     }

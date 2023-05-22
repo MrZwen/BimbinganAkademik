@@ -193,6 +193,16 @@
     $('#example2').DataTable();
 });
 </script>
+
+<!-- Active js -->
+<script>
+  // $(document).ready(function() {
+  //   $("nav .nav-link").click(function(){
+  //     $("nav").find(".active").removeClass("active");
+  //     $(this).addClass("active");
+  //   })
+  // });
+</script>
 <!-- DataTables -->
 <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.js')  ?>"></script>
 <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')  ?>"></script>
