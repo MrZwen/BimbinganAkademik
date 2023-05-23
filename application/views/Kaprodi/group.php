@@ -23,13 +23,6 @@
             $('#NID').focus();
             return false;
         }
-
-        var NIM = $('#NIM').val();
-        if (NIM == "") {
-            alert("NIM masih kosong");
-            $('#NIM').focus();
-            return false;
-        }
         var semester = $('#semester').val();
         if (semester == "") {
             alert("Semester masih kosong");
@@ -58,16 +51,8 @@
                     <div class="card-body">
                         <form action="">
                             <div class="mb-3">
-                                <label for="namagroup">Nama Group</label>
-                                <input type="text" class="form-control" name="namagroup" id="namagroup" placeholder="Masukkan Nama Group...">
-                            </div>
-                            <div class="mb-3">
                                 <label for="NID">NID</label>
                                 <input type="text" class="form-control" name="NID" id="NID" placeholder="Masukkan NIDN...">
-                            </div>
-                            <div class="mb-3">
-                                <label for="NIM">NIM</label>
-                                <input type="text" class="form-control" name="NIM" id="NID" placeholder="Masukkan NIM...">
                             </div>
                             <div class="mb-3">
                                 <label for="semester">Semester</label>
@@ -97,10 +82,11 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>No</th>
-                                    <th>Nama Group</th>
+                                    <th>Nama Dosen</th>
                                     <th>Nama Anggota</th>
                                     <th>Semester</th>
                                     <th>Tahun Ajaran</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <?php 
@@ -115,10 +101,13 @@
                             <tbody>
                                 <tr class="text-center">
                                     <td><?= $no; ?></td>
-                                    <td><?= $data->namagroup ?></td>
-                                    <td><?= $data->NIM ?></td>
+                                    <td><?= $data->NamaDosen ?></td>
+                                    <td><?= $data->Nama ?></td>
                                     <td><?= $data->semester ?></td>
                                     <td><?= $data->tahunajaran ?></td>
+                                    <td>
+                                        <a href="" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                    </td>
                                 </tr>
                             </tbody>
                             <?php
