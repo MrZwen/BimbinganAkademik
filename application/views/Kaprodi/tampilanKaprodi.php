@@ -74,7 +74,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item ">
-              <a href="" class="nav-link text-white">
+              <a href="<?= base_url('Creport/ReportK'); ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
                  Report Mahasiswa
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?= base_url('Criwayat/RiwayatK'); ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-history"></i>
                 <p>
                   Riwayat
@@ -90,7 +90,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?= base_url('Cgroup/GroupBimbingan'); ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Group Bimbingan
@@ -98,7 +98,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?= base_url('Cskbimbingan/TampilSK'); ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-regular fa-book"></i>
                 <p>
                   Informasi SK
