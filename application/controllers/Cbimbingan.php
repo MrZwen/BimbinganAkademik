@@ -1,14 +1,21 @@
 <?php 
 class Cbimbingan extends CI_Controller 
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('mbimbingan');
+
+    }
     function formbimbingan () {
-        $data['konten']=$this->load->view('Mahasiswa/formBimbingan','',TRUE);
+        $this->load->model('mdatadiri');
+        $datalist['user']=$this->mbimbingan->tampilformb(); 
+        $data['konten']=$this->load->view('Mahasiswa/formBimbingan',$datalist,TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa',$data);
     }
 
     function simpanbimbingan() 
     {
-        $this->load->model('mbimbingan');
         $this->mbimbingan->simpanbimbingan(); 
         $this->simpanbimbingan(); 
     }

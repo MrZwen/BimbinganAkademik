@@ -9,26 +9,28 @@
 </div>
 <script lenguage="javascript">
     function prosessimpan() {
-        // var DosenPembimbing = $('#DosenPembimbing').val();
-        // if (DosenPembimbing == "") {
-        //     alert("Dosen Pembimbing masih kosong");
-        //     $('#DosenPembimbing').focus();
-        //     return false;
-        // }
+        var Beasiswa = document.getElementById("Beasiswa");
+        var SuratPeringatan = document.getElementById("SuratPeringatan");
 
-        // var TahunAjaran = $('#TahunAjaran').val();
-        // if (TahunAjaran == "") {
-        //     alert("TahunAjaran masih kosong");
-        //     $('#TahunAjaran').focus();
-        //     return false;
-        // }
-
-        // var Semester = $('#Semester').val();
-        // if (Semester == "") {
-        //     alert("Semester masih kosong");
-        //     $('#Semester').focus();
-        //     return false;
-        // }
+        var DosenPembimbing = $('#DosenPembimbing').val();
+        if (DosenPembimbing == "") {
+            alert("Dosen Pembimbing masih kosong");
+            $('#DosenPembimbing').focus();
+            return false;
+        }
+        var TahunAjaran = $('#TahunAjaran').val();
+        if (TahunAjaran == "") {
+            alert("Tahun Ajaran masih kosong");
+            $('#TahunAjaran').focus();
+            return false;
+        }
+       
+        var Semester = $('#Semester').val();
+        if (Semester == "") {
+            alert("Semester IPK masih kosong");
+            $('#Semester').focus();
+            return false;
+        }
 
         var StatusMahasiswa = $('#StatusMahasiswa').val();
         if (StatusMahasiswa == "") {
@@ -57,9 +59,6 @@
             $('#Ranking').focus();
             return false;
         }
-
-        var Beasiswa = document.getElementById("Beasiswa");
-        var SuratPeringatan = document.getElementById("SuratPeringatan");
 
         if (Beasiswa.checked) {
             var Lainya = Beasiswa.value;
@@ -104,19 +103,18 @@
         <div class="mb-3 mt-3">
             <div class="mb-3">
                 <label class="form-label">Dosen Pembimbing</label>
-                <input type="text" class="form-control" id="DosenPembimbing" placeholder="" name="DosenPembimbing" disabled>
+                <input type="text" class="form-control" id="DosenPembimbing" value="<?php echo $user->NamaDosen ?>" name="DosenPembimbing" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">T.A</label>
-                <input type="text" class="form-control" id="TahunAjaran" placeholder="" name="TahunAjaran" disabled>
+                <input type="text" class="form-control" id="TahunAjaran" value="<?php echo $user->tahunajaran ?>" name="TahunAjaran" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">Semester</label>
-                <input type="text" class="form-control" id="Semester" placeholder="" name="Semester" disabled>
+                <input type="text" class="form-control" id="Semester" value="<?php echo $user->semester ?>" name="Semester" disabled>
             </div>
             <form id="bimbingan" name="bimbingan" method="post" action="<?php echo base_url('Cbimbingan/simpanbimbingan') ?>">
-
-                <input type="number" class="form-control" id="id_group" placeholder="Kode Group" name="id_group">
+                <input type="hidden" class="form-control" id="id_group"  value="<?php echo $user->id_group ?>" name="id_group" >
                 <div class="mb-3">
                     <label class="form-label">Status Mahasiswa </label>
                     <select name="StatusMahasiswa" class="form-control" id="StatusMahasiswa">
@@ -128,15 +126,15 @@
                 </select>
                 <div class="mb-3">
                     <label class="form-label">Nilai IPK</label>
-                    <input type="number" class="form-control" id="IPK" placeholder="Masukkan Nilai IPK" name="IPK">
+                    <input type="number" class="form-control" id="IPK" min="0.00" max="4.00" placeholder="Masukkan Nilai IPK" name="IPK">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nilai IPS</label>
-                    <input type="number" class="form-control" id="IPS" placeholder="Masukkan Nilai IPS Semester ini" name="IPS">
+                    <input type="number" class="form-control" id="IPS" min="0.00" max="4.00" placeholder="Masukkan Nilai IPS Semester ini" name="IPS">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ranking</label>
-                    <input type="number" class="form-control" id="Ranking" placeholder="Masukkan Ranking Semester ini" name="Ranking">
+                    <input type="number" class="form-control" id="Ranking" min="1" placeholder="Masukkan Ranking Semester ini" name="Ranking">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Lain - lain </label>
@@ -149,7 +147,7 @@
                     <label class="form-label">Keaktifan Mahasiswa</label>
                     <textarea class="form-control" rows="3" id="Keaktifan" name="Keaktifan" placeholder="Masukkan Keaktifan Mahasiswa berupa Kegiatan yang telah dilakukan di lingkungan kampus"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="prosessimpan()">Submit</button>
+                <button type="button" class="btn btn-primary" onclick="prosessimpan()">Submit</button>
             </form>
         </div>
     </div>
