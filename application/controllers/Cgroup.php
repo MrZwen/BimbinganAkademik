@@ -6,7 +6,8 @@ class Cgroup extends CI_Controller
         parent::__construct();
         $this->load->model('mgroup');
     }
-    function GroupBimbingan()
+
+    public function GroupBimbingan()
     {   
         $datalist['hasil'] = $this->mgroup->tampilGroup();
         $data['konten'] = $this->load->view('Kaprodi/group', $datalist, TRUE);
