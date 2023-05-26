@@ -8,6 +8,7 @@
         </div>
     </div>
 </div>
+
 <div class="card-body">
     <div class="tab-content p-0">
         <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/upload') ?>" enctype="multipart/form-data">
