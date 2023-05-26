@@ -43,7 +43,7 @@
       <li class="nama-user nav-link">
         <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="profile img-circle mx-2">
         <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?= $this->session->userdata('Nama') ?></a>
+        <a class="user-image text-white" href=""><?= $this->session->userdata('NamaDosen') ?></a>
       </li>
     </ul>
   </nav>
@@ -65,7 +65,7 @@
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
-            <a href="#" class="d-block text-white"><?= $this->session->userdata('Nama') ?></a>
+            <a href="#" class="d-block text-white"><?= $this->session->userdata('NamaDosen') ?></a>
           </div>
         </div>
         <!-- Sidebar Menu -->
