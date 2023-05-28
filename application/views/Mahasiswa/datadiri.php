@@ -11,14 +11,13 @@
 
 <div class="card-body">
     <div class="tab-content p-0">
-        <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/upload') ?>" enctype="multipart/form-data">
+        <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/upload');?>" enctype="multipart/form-data">
             <input type="hidden" name="id" size="50" value="1d884ca9-7d5b-3458-eeb3-3038750b88d8">
             <br>
-            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="img-circle" style="width:130px;height:140px"><br>
+            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="img-circle" style="width:130px;height:150px"><br>
             <br>
-            <input type="hidden" name="photo_current"  class="form-control" value="files/mahasiswa/IMG_20210825_154515-1.JPG">
+            <input type="hidden" name="photo_current" size="50" class="form-control" value="files/mahasiswa/IMG_20210825_154515-1.JPG">
             <button type="button" class="btn btn-warning btn-xs" onclick="" style="margin-bottom:10px" data-loading-text="Memuat..."><i class="fa fa-trash-o"></i> Hapus Foto</button>
-            <br>
             <input id="photo" name="photo" type="file">
             <br>
             <button type="submit" name="Upload" value="Upload" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
