@@ -51,9 +51,9 @@ class Mvalidasi extends CI_Model
 				->where('dosen.id_akun', $id_akun)
 				->get();
 			$data = $sql->row();
-			$Nama = $data->Nama;
+			$NamaDosen = $data->NamaDosen;
 			$array = array(
-				'Nama' => $Nama,
+				'NamaDosen' => $NamaDosen,
 			);
 			$this->session->set_userdata($array);
 		} else {

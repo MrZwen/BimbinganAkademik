@@ -74,7 +74,7 @@
                 <label for="">NID</label>
                 <input id="NID" placeholder="Masukkan NID" name="NID" type="text" value="<?php echo $user->NID ?>" class="form-control mb-3">
                 <label for="">Nama Dosen</label>
-                <input id="Nama" placeholder="Masukkan Nama" name="Nama" type="text" value="<?php echo $user->Nama ?>" class="form-control mb-3">
+                <input id="Nama" placeholder="Masukkan Nama" name="Nama" type="text" value="<?php echo $user->NamaDosen ?>" class="form-control mb-3">
                 <div class="row">
                     <div class="col-md-6">
                         <label for="">Handphone</label>
@@ -136,7 +136,7 @@
             <tr>
                 <td>Nama Dosen</td>
                 <td>:</td>
-                <td><?php echo $user->Nama ?></td>
+                <td><?php echo $user->NamaDosen ?></td>
                 <td></td>
                 <td>E-mail</td>
                 <td>:</td>

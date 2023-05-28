@@ -38,4 +38,3 @@ class Cutama extends CI_Controller
     
     
 }
-?>

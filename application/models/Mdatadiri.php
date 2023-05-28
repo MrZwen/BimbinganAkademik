@@ -57,6 +57,7 @@ class mdatadiri extends CI_Model
         $this->db->update('mahasiswa', $data); 
         redirect('cutama/tampilanM', 'refresh');
     }
+
 }
 
 ?>

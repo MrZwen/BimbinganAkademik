@@ -8,10 +8,11 @@
         </div>
     </div>
 </div>
-
 <div class="card-body">
     <div class="tab-content p-0">
         <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/upload');?>" enctype="multipart/form-data">
+        <form id="formedit" method="post" class="form-horizontal" action="?page=322&amp;language=id&amp;action=editdata" enctype="multipart/form-data">
+
             <input type="hidden" name="id" size="50" value="1d884ca9-7d5b-3458-eeb3-3038750b88d8">
             <br>
             <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="img-circle" style="width:130px;height:150px"><br>
@@ -21,6 +22,9 @@
             <input id="photo" name="photo" type="file">
             <br>
             <button type="submit" name="Upload" value="Upload" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
+
+            <input id="avatar" name="avatar" type="file">
+            <br><button type="submit" name="button" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
 
             <!-- Modal -->
             <button type="button" class="btn btn-primary" onclick="" style="margin-left:10px" data-loading-text="Memuat..." data-toggle="modal" data-target="#editProfile"><i class="fa fa-edit"></i> Edit Profil</button>
