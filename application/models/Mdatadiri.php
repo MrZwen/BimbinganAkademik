@@ -47,14 +47,17 @@ class mdatadiri extends CI_Model
         return $hasil;
     }
 
-    function upload ()
-    {
-        $data = $_POST ;
+    public function saveFile($file_data) {
         $id_akun = $this->session->userdata('id_akun');
-        $this->db->where('id_akun',$id_akun);
-        $this->db->insert('mahasiswa',$data);
-        redirect('');
+        $this->db->where('id_akun', $id_akun);
+        $data = array(
+            'gambar' => $file_data
+        );
+
+        $this->db->update('mahasiswa', $data); 
+        redirect('cutama/tampilanM', 'refresh');
     }
+
 }
 
 ?>

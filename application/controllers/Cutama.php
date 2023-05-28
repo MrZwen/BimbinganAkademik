@@ -7,7 +7,6 @@ class Cutama extends CI_Controller
         $this->load->model('mvalidasi');
         $this->load->model('mdatadiri');
         $this->load->model('mjumlah');
-        $this->load->model('mdatadiri');
     }
     public function tampilanK()
     {
@@ -39,4 +38,3 @@ class Cutama extends CI_Controller
     
     
 }
-?>
