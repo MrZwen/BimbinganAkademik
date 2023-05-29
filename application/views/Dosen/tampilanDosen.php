@@ -41,7 +41,7 @@
     <!-- Right navbar links -->
     <ul class="profile-user navbar-nav ml-auto">
       <li class="nama-user nav-link">
-        <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="profile img-circle mx-2">
+      <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
         <!-- Menampilkan nama yang da pada table mahasiswa -->
         <a class="user-image text-white" href=""><?= $this->session->userdata('NamaDosen') ?></a>
       </li>
@@ -61,7 +61,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?= base_url('assets/dist/img/avatar.png') ?>" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
