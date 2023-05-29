@@ -23,20 +23,20 @@
     <tbody>
     <?php
 
-  if(empty($hasil))
+  if(empty($user))
   {
 	echo "Data Kosong";  
   }
   else
   {
 	  $no=1;
-	  foreach ($hasil as $data):
+	  foreach ($user as $data):
   ?>
    <tr>
     <td><?= $no ?></td>
-    <td><?= $user->Nama ?></td>
-    <td><?= $user->Nim  ?></td>
-    <td><?= $user->Email  ?></td>
+    <td><?= $data->Nama ?></td>
+    <td><?= $data->Nim  ?></td>
+    <td><?= $data->Email  ?></td>
     <td>
         <button type="button" class="btn btn-primary btn-sm" onclick="editdata('')">Edit</button>
        	<button type="button" class="btn btn-danger btn-sm" onclick="hapusdata('');">Hapus</button>

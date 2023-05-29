@@ -8,7 +8,7 @@ class Cbimbingan extends CI_Controller
         $this->load->model('mdatadiri');
 
     }
-    function formbimbingan () {
+    function formbimbingan() {
         $datalist['user']=$this->mbimbingan->tampilformb(); 
         $data['konten']=$this->load->view('Mahasiswa/formBimbingan',$datalist,TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa',$data);
@@ -21,16 +21,9 @@ class Cbimbingan extends CI_Controller
     }
 
     function bimbingan() {
-
-        $datalist['user']=$this->mdatadiri->tampildatad(); 
-        $data['konten']=$this->load->view('Dosen/bimbingan',$datalist,TRUE);
-        $this->load->view('Dosen/tampilanDosen',$data);
-    }
-
-    function formbimbinganm () {
-        $datalist['user']=$this->mbimbingan->tampilformm(); 
-        $data['konten']=$this->load->view('Dosen/bimbingan',$datalist,TRUE);
-        $this->load->view('Dosen/tampilanDosen',$data);
+        $datalist['user']=$this->mbimbingan->tampilbimbingan();
+        $data['konten'] = $this->load->view('Dosen/bimbingan',$datalist, TRUE);
+        $this->load->view('Dosen/tampilanDosen', $data);
     }
 }
 ?>
