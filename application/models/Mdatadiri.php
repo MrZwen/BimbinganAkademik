@@ -36,9 +36,8 @@ class mdatadiri extends CI_Model
         return $query->row();
     }
 
-    function tampildataK($limit, $offset)
+    function tampildataK()
     {
-        $this->db->limit($limit, $offset);
         $query = $this->db->get('mahasiswa');
         if($query->num_rows() > 0){
             $hasil = $query->result();
