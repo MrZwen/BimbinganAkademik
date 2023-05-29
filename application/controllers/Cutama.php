@@ -36,5 +36,4 @@ class Cutama extends CI_Controller
         $this->load->view('mahasiswa/tampilanMahasiswa', $data);
     }
     
-    
 }

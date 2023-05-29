@@ -11,7 +11,7 @@
 <div class="card-body">
     <div class="tab-content p-0">
         <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/upload');?>" enctype="multipart/form-data">
-            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="rounded-circle" style="width:150px;height:150px"><br>
+            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="rounded" style="width:150px;height:150px"><br>
             <br>
             <input type="hidden" name="photo_current" size="50" class="form-control" value="<?php echo base_url().'gambar/'.$user->gambar ?>">
             <button type="button" class="btn btn-warning btn-xs" onclick="" style="margin-bottom:10px" data-loading-text="Memuat..."><i class="fa fa-trash-o"></i> Hapus Foto</button>
