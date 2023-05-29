@@ -61,7 +61,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-          <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
+          
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
@@ -82,7 +82,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+                 <a href="<?php echo base_url('Cbimbingan/bimbingan') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
                   Bimbingan
