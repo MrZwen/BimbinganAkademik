@@ -37,6 +37,7 @@
             // Simpan nama file ke dalam kolom database (misalnya, menggunakan model atau metode lainnya)
             $this->mdatadiri->saveFile($file_name);
         }
+        
     }
 } 
 ?>
