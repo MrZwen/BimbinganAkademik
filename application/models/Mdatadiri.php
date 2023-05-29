@@ -24,7 +24,7 @@ class mdatadiri extends CI_Model
 	{
 		$id_akun = $this->session->userdata('id_akun');
 		$this->db->where('id_akun', $id_akun); // menentukan kondisi WHERE
-		$query = $this->db->get('mahasiswa'); // mengambil satu data dari tabel 'users'
+		$query = $this->db->get('mahasiswa'); // mengambil satu data dari tabel 'mahasiswa'
 		return $query->row();
 	}
 
@@ -36,8 +36,9 @@ class mdatadiri extends CI_Model
         return $query->row();
     }
 
-    function tampildataK()
+    function tampildataK($limit, $offset)
     {
+        $this->db->limit($limit, $offset);
         $query = $this->db->get('mahasiswa');
         if($query->num_rows() > 0){
             $hasil = $query->result();
