@@ -10,13 +10,12 @@
 </div>
 <div class="card-body">
     <div class="tab-content p-0">
-        <form id="formedit" method="post" class="form-horizontal" action="?page=322&amp;language=id&amp;action=editdata" enctype="multipart/form-data">
-            <input type="hidden" name="id" size="50" value="1d884ca9-7d5b-3458-eeb3-3038750b88d8">
+        <form id="formedit" method="post" class="form-horizontal" action="<?php echo base_url('Cdatadiri/uploadDosen');?>" enctype="multipart/form-data">
+            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" alt="Foto Profil" class="rounded" style="width:150px;height:150px"><br>
             <br>
-            <img src="<?= base_url('assets/dist/img/avatar.png') ?>" alt="Foto Profil" class="rounded" style="width:150px;height:150px"><br>
-            <br><input type="hidden" name="photo_current" size="50" class="form-control" value="files/mahasiswa/IMG_20210825_154515-1.JPG">
+            <input type="hidden" name="photo_current" size="50" class="form-control" value="<?php echo base_url().'gambar/'.$user->gambar ?>">
             <button type="button" class="btn btn-warning btn-xs" onclick="" style="margin-bottom:10px" data-loading-text="Memuat..."><i class="fa fa-trash-o"></i> Hapus Foto</button>
-            <input id="avatar" name="avatar" type="file">
+            <input id="photo" name="photo" type="file">
             <br><button type="submit" name="button" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
 
             <!-- Modal -->

@@ -58,6 +58,17 @@ class mdatadiri extends CI_Model
         redirect('cutama/tampilanM', 'refresh');
     }
 
+    public function saveFileD($file_data) {
+        $id_akun = $this->session->userdata('id_akun');
+        $this->db->where('id_akun', $id_akun);
+        $data = array(
+            'gambar' => $file_data
+        );
+
+        $this->db->update('dosen', $data); 
+        redirect('cutama/tampilanD', 'refresh');
+    }
+
 }
 
 ?>
