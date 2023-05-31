@@ -38,8 +38,19 @@
     <td><?= $data->Nim  ?></td>
     <td><?= $data->Email  ?></td>
     <td>
-        <button type="button" class="btn btn-primary btn-sm" onclick="editdata('')">Edit</button>
-       	<button type="button" class="btn btn-danger btn-sm" onclick="hapusdata('');">Hapus</button>
+        <!-- Modal -->
+        <button type="button" class="btn btn-success btn-sm" onclick="">Reply</button>
+        <button type="button" class="btn btn-primary" onclick="" style="" data-loading-text="Memuat..." data-toggle="modal" data-target="#editProfile"><i class="fa fa-edit"></i>Open</button>
+            <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-bold" id="exampleModalLabel">Bimbingan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+     	
     </td>
   <?php
   	$no++;
