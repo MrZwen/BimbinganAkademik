@@ -25,7 +25,7 @@ class Mbimbingan extends CI_Model
     function tampilbimbingan()
     {
         $id_akun = $this->session->userdata('id_akun');
-        $sql = $this->db->select('bimbingan.*, mahasiswa.Nama , mahasiswa.Nim , mahasiswa.Email , dosen.gambar')
+        $sql = $this->db->select('bimbingan.*, mahasiswa.*, dosen.gambar')
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
