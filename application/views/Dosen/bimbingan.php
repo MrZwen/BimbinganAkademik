@@ -81,37 +81,37 @@
                     <div class="modal-body">
                       <form id="identitas" name="identitas" method="post" action="">
                         <label for="">NIM</label>
-                        <input id="Nim" placeholder="" name="Nim" type="text" value="<?php echo $data->Nim ?>" class="form-control mb-3">
+                        <input id="Nim" placeholder="" name="Nim" type="text" value="<?php echo $data->Nim ?>" class="form-control mb-3" disabled>
                         <label for="">Nama Mahasiswa</label>
-                        <input id="Nama" placeholder="" name="Nama" type="text" value="<?php echo $data->Nama ?>" class="form-control mb-3">
+                        <input id="Nama" placeholder="" name="Nama" type="text" value="<?php echo $data->Nama ?>" class="form-control mb-3" disabled>
                         <div class="row">
                           <div class="col-md-6">
                             <label for="">Handphone</label>
-                            <input id="NoHP" placeholder="" name="NoHP" type="number" value="<?php echo $data->NoHp ?>" class="form-control mb-3">
+                            <input id="NoHP" placeholder="" name="NoHP" type="number" value="<?php echo $data->NoHp ?>" class="form-control mb-3" disabled>
                           </div>
                           <div class="col-md-6">
                             <label for="">Email</label>
-                            <input type="email" id="Email" placeholder="" name="Email" value="<?php echo $data->Email ?>" class="form-control mb-3">
+                            <input type="email" id="Email" placeholder="" name="Email" value="<?php echo $data->Email ?>" class="form-control mb-3" disabled>
                           </div>
                         </div>
                         <label for="">Alamat</label>
-                        <input id="Alamat" placeholder="" name="Alamat" type="text" value="<?php echo $data->Alamat ?>" class="form-control mb-3">
+                        <input id="Alamat" placeholder="" name="Alamat" type="text" value="<?php echo $data->Alamat ?>" class="form-control mb-3" disabled>
                         <div class="row">
                           <div class="col-md-6">
                             <label for="">IPK</label>
-                            <input id="IPK" placeholder="" name="IPK" type="Number" value="<?php echo $data->IPK ?>" class="form-control mb-3">
+                            <input id="IPK" placeholder="" name="IPK" type="Number" value="<?php echo $data->IPK ?>" class="form-control mb-3" disabled>
                           </div>
                           <div class="col-md-6">
                             <label for="">IPS</label>
-                            <input type="Number" id="IPS" placeholder="" name="IPS" value="<?php echo $data->IPS ?>" class="form-control mb-3">
+                            <input type="Number" id="IPS" placeholder="" name="IPS" value="<?php echo $data->IPS ?>" class="form-control mb-3" disabled>
                           </div>
                         </div>
                         <label for="">Lainnya</label>
-                        <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->Lainya ?>" class="form-control mb-3">
+                        <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->Lainya ?>" class="form-control mb-3" disabled>
                         <label for="">Verifikasi</label>
-                        <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->VerifMahasiswa ?>" class="form-control mb-3">
+                        <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->VerifMahasiswa ?>" class="form-control mb-3" disabled>
                         <label for="">Keaktifan</label>
-                        <textarea class="form-control" id="Keaktifan" name="Keaktifan"><?php echo $data->Keaktifan ?></textarea>
+                        <textarea class="form-control" id="Keaktifan" name="Keaktifan" disabled><?php echo $data->Keaktifan ?></textarea>
                         <input type="hidden" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
                     </div>
                     <div class="modal-footer">
