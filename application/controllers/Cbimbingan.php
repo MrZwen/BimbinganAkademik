@@ -6,7 +6,7 @@ class Cbimbingan extends CI_Controller
         parent::__construct();
         $this->load->model('mbimbingan');
         $this->load->model('mdatadiri');
-
+        $this->load->model('mevaluasi');
     }
     function formbimbingan() {
         $datalist['user']=$this->mbimbingan->tampilformb(); 
@@ -24,6 +24,12 @@ class Cbimbingan extends CI_Controller
         $datalist['user']=$this->mbimbingan->tampilbimbingan();
         $data['konten'] = $this->load->view('Dosen/bimbingan',$datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
+    }
+
+    function simpanevaluasi()
+    {
+        $this->mevaluasi->simpanevaluasi();
+        $this->simpanevaluasi();
     }
 }
 ?>

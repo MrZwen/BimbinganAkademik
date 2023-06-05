@@ -1,3 +1,4 @@
+
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2 border-bottom">
@@ -36,6 +37,35 @@
             <td><?= $data->Email  ?></td>
             <td>
               <!-- Modal -->
+              <script lenguage="javascript">
+                    function simpanevaluasi() {
+                  var TglBimbingan = $('#TglBimbingan').val();
+                  if (TglBimbingan == "") 
+                    {
+                      alert("Tgl Masih Kosong!");
+                      $('#TglBimbingan').focus();
+                      return false;
+                    }
+
+                  var Uraian = $('#Uraian').val();
+                  if (Uraian == "") 
+                    {
+                     alert("Uraian Masih Kosong");
+                     $('#Uraian').focus();
+                      return false;
+                    }
+
+                  var Solusi = $('#Solusi').val();
+                  if (Solusi == "") 
+                    {
+                    alert("Solusi masih kosong");
+                    $('#Solusi').focus();
+                    return false;
+                    }
+
+                    $('#bimbinganevaluasi').submit();
+                  }
+              </script>
 
               <button type="button" class="btn btn-primary btn-sm" onclick="" data-loading-text="Memuat..." data-toggle="modal" data-target="#Open"><i class="fa fa-edit"></i>Open</button>
               <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Reply" data-toggle="modal" data-target="#Open"><i class="fa fa-edit"></i>Reply</button>
@@ -103,9 +133,9 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    <form id="identitas" name="identitas" method="post" action="<?php echo base_url('Cbimbingan/simpanevaluasi') ?>">
+                    <form id="bimbinganevaluasi" name="bimbinganevaluasi" method="post" action="<?php echo base_url('Cbimbingan/simpanevaluasi') ?>">
                       <label for="">Tanggal Pertemuan</label>
-                      <input id="TglPertemuan" placeholder="" name="Tglpertemuan" type="date" value="" class="form-control mb-3">
+                      <input id="TglBimbingan" placeholder="" name="TglBimbingan" type="date" value="" class="form-control mb-3">
                         <div class="form-group">
                           <label for="message-text" class="col-form-label">Uraian:</label>
                           <textarea class="form-control" id="Uraian" name="Uraian"></textarea>
@@ -114,11 +144,13 @@
                           <label for="message-text" class="col-form-label">Solusi:</label>
                           <textarea class="form-control" id="Solusi" name="Solusi"></textarea>
                         </div>
+                        <input type="hidden" name="id_bimbingan" value="<?= $this->session->userdata('id_bimbingan') ?>" id="id_bimbingan" />
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="simpanevaluasi();">Send</button>
+                      <button type="button" class="btn btn-success" onclick="simpanevaluasi();">Send</button> 
+                                           
                     </div>
                   </div>
                 </div>
