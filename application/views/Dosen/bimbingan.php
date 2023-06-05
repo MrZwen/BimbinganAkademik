@@ -144,7 +144,7 @@
                           <label for="message-text" class="col-form-label">Solusi:</label>
                           <textarea class="form-control" id="Solusi" name="Solusi"></textarea>
                         </div>
-                        <input type="hidden" name="id_bimbingan" value="<?= $this->session->userdata('id_bimbingan') ?>" id="id_bimbingan" />
+                        <input type="text" name="idBimbingan" value="<?= $data->id_bimbingan ?>" id="idBimbingan" />
                       </form>
                     </div>
                     <div class="modal-footer">

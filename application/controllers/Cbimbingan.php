@@ -5,7 +5,6 @@ class Cbimbingan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mbimbingan');
-        $this->load->model('mdatadiri');
         $this->load->model('mevaluasi');
     }
     function formbimbingan() {
