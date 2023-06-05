@@ -32,8 +32,10 @@ class Mvalidasi extends CI_Model
 				->get();
 			$data = $sql->row();
 			$Nama = $data->Nama;
+			$gambar = $data->gambar;
 			$array = array(
 				'Nama' => $Nama,
+				'gambar'=>$gambar,
 			);
 			$this->session->set_userdata($array);
 		} else {

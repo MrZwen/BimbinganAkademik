@@ -41,9 +41,9 @@
     <!-- Right navbar links -->
     <ul class="profile-user navbar-nav ml-auto">
       <li class="nama-user nav-link">
-        <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="profile rounded-circle mx-2" >
+        <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" class="profile rounded-circle mx-2" >
         <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?php echo $user->Nama ?></a>
+        <a class="user-image text-white" href=""><?= $this->session->userdata('Nama') ?></a>
       </li>
     </ul>
   </nav>
@@ -61,11 +61,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
-            <a href="#" class="d-block text-white"><?php echo $user->Nama ?></a>
+            <a href="#" class="d-block text-white"><?= $this->session->userdata('Nama') ?></a>
           </div>
         </div>
         <!-- Sidebar Menu -->
@@ -90,7 +90,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Criwayat/RiwayatM') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-history"></i>
                 <p>
                   Riwayat
