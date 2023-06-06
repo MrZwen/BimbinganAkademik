@@ -5,6 +5,7 @@ class Criwayat extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mriwayat');
+        $this->load->library('pdf_report');
 
     }
     function RiwayatK()
@@ -14,7 +15,8 @@ class Criwayat extends CI_Controller
     }
 
     function riwayatD() {
-        $data['konten'] = $this->load->view('Dosen/riwayat','', TRUE);
+        $datalist['hasil']=$this->mriwayat->riwayatD(); 
+        $data['konten'] = $this->load->view('Dosen/riwayatDosen',$datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
     }
 
@@ -23,6 +25,11 @@ class Criwayat extends CI_Controller
         $datalist['hasil']=$this->mriwayat->riwayatM(); 
         $data['konten'] = $this->load->view('Mahasiswa/riwayatMahasiswa', $datalist , TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
+    }
+
+    function pdf()
+    {
+        $this->load->view('Dosen/laporanpdf');
     }
 
 }
