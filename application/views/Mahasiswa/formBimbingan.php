@@ -24,7 +24,7 @@
             $('#TahunAjaran').focus();
             return false;
         }
-       
+
         var Semester = $('#Semester').val();
         if (Semester == "") {
             alert("Semester IPK masih kosong");
@@ -64,8 +64,7 @@
             var Lainya = Beasiswa.value;
         } else if (SuratPeringatan.checked) {
             var Lainya = SuratPeringatan.value;
-        } else if (SuratPeringatan.checked || Beasiswa.checked) 
-        {
+        } else if (SuratPeringatan.checked || Beasiswa.checked) {
             var Lainya = "";
             Lainya += Beasiswa.value + "SuratPeringatan";
         }
@@ -103,18 +102,18 @@
         <div class="mb-3 mt-3">
             <div class="mb-3">
                 <label class="form-label">Dosen Pembimbing</label>
-                <input type="text" class="form-control" id="DosenPembimbing" value="<?php echo $user->NamaDosen ?>" name="DosenPembimbing" disabled>
+                <input type="text" class="form-control" id="DosenPembimbing" value="<?php echo isset($user->NamaDosen) ? $user->NamaDosen : null; ?>" name="DosenPembimbing" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">T.A</label>
-                <input type="text" class="form-control" id="TahunAjaran" value="<?php echo $user->tahunajaran ?>" name="TahunAjaran" disabled>
+                <input type="text" class="form-control" id="TahunAjaran" value="<?php echo isset($user->tahunajaran) ? $user->tahunajaran : null; ?>" name="TahunAjaran" disabled>
             </div>
             <div class="mb-3">
                 <label class="form-label">Semester</label>
-                <input type="text" class="form-control" id="Semester" value="<?php echo $user->semester ?>" name="Semester" disabled>
+                <input type="text" class="form-control" id="Semester" value="<?php echo isset($user->semester) ? $user->semester : null; ?>" name="Semester" disabled>
             </div>
             <form id="bimbingan" name="bimbingan" method="post" action="<?php echo base_url('Cbimbingan/simpanbimbingan') ?>">
-                <input type="hidden" class="form-control" id="id_group"  value="<?php echo $user->id_group ?>" name="id_group" >
+                <input type="hidden" class="form-control" id="id_group" value="<?php echo isset($user->id_group) ? $user->id_group : null; ?> " name="id_group">
                 <div class="mb-3">
                     <label class="form-label">Status Mahasiswa </label>
                     <select name="StatusMahasiswa" class="form-control" id="StatusMahasiswa">

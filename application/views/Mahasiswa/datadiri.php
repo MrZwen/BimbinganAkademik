@@ -87,7 +87,7 @@
         <div class="modal-body">
             <form id="identitas" name="identitas" method="post" action="<?php echo base_url('Cdatadiri/updatedatadiri') ?>">
                 <label for="">NIM</label>
-                <input id="Nim" placeholder="Masukkan NIM" name="Nim" type="text" value="<?php echo $user->Nim ?>" class="form-control mb-3">
+                <input id="Nim" placeholder="Masukkan NIM" name="Nim" type="text" value="<?php echo $user->Nim ?>" class="form-control mb-3" disabled>
                 <label for="">Nama Mahasiswa</label>
                 <input id="Nama" placeholder="Masukkan Nama" name="Nama" type="text" value="<?php echo $user->Nama ?>" class="form-control mb-3">
                 <div class="row">
