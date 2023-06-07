@@ -1,7 +1,7 @@
 <?php 
 class Mlogin extends CI_Model
 {
-    function proseslogin ()
+    function proseslogin()
     {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -21,7 +21,7 @@ class Mlogin extends CI_Model
                 'Role' => $Role
             );
             $this->session->set_userdata($array);
-            redirect('cutama/tampilanK', 'refresh');
+            redirect('cutama/tampilan', 'refresh');
         }
         else{
             $this->session->set_flashdata('pesan', 'Login Gagal');

@@ -1,24 +1,23 @@
 <?php
-class Clogin extends CI_Controller {
+class Clogin extends CI_Controller
+{
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Mlogin');
-
     }
-    function formlogin () {
+    function formlogin()
+    {
         $this->load->view('login');
     }
     function proseslogin()
     {
-      
         $this->Mlogin->proseslogin();
     }
 
     function logout()
-		{
-			$this->session->sess_destroy();
-			redirect('clogin/formlogin');	
-		}
+    {
+        $this->session->sess_destroy();
+        redirect('clogin/formlogin');
+    }
 }
-?>
