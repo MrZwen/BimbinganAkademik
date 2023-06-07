@@ -39,12 +39,20 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="profile-user navbar-nav ml-auto">
-      <li class="nama-user nav-link">
-        <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" class="profile rounded-circle mx-2" >
-        <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?= $this->session->userdata('Nama') ?></a>
-      </li>
+    <ul class="navbar-nav ml-auto profile-user ">
+      <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" alt="Gambar" class="rounded-circle" alt="User Image" style="width:34px;height:34px">
+          <span class="user-image text-white" data-toggle="dropdown" href=""><?= $this->session->userdata('Nama') ?></a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+                <h3 class="dropdown-item-title mx-2 mt-1">
+                  Ganti Password
+                </h3>
+            </a>
+          </div>
+        </li>
     </ul>
   </nav>
   <div class="wrapper">

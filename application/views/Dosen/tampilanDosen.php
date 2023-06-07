@@ -33,18 +33,26 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-flex justify-content-center">
+      <li class="nav-item ">
         <a href="" class="nav-link">Home</a>
       </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="profile-user navbar-nav ml-auto">
-      <li class="nama-user nav-link">
-      <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" alt="Gambar" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
-        <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?= $this->session->userdata('NamaDosen') ?></a>
-      </li>
+    <ul class="navbar-nav ml-auto profile-user ">
+      <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" alt="Gambar" class="rounded-circle" alt="User Image" style="width:34px;height:34px">
+          <span class="user-image text-white" data-toggle="dropdown" href=""><?= $this->session->userdata('NamaDosen') ?></a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+                <h3 class="dropdown-item-title mx-2 mt-1">
+                  Ganti Password
+                </h3>
+            </a>
+          </div>
+        </li>
     </ul>
   </nav>
   <div class="wrapper">
