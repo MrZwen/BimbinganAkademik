@@ -3,10 +3,7 @@
 
 <head>
     <title>Riwayat Bimbingan Mahasiswa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
+       <style>
         table {
             width: 100%;
             border-collapse: collapse;
@@ -22,7 +19,15 @@
 </head>
 
 <body>
-    <h1>Riwayat Bimbingan</h1>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2 border-bottom">
+                <div class="col-sm-6">
+                    <h1>Riwayat Bimbingan</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <table class="table table-striped">
         <thead>
@@ -36,9 +41,7 @@
         </thead>
         <tbody>
             <?php
-            if (empty($hasil)) {
-                echo "Data Kosong";
-            } else {
+            if ($hasil) {
                 foreach ($hasil as $data) :
             ?>
                     <tr>
@@ -50,11 +53,16 @@
                         <td></td>
                     </tr>
         </tbody>
+    </table>
 <?php
                 endforeach;
+            } else {
+                echo "Data Kosong";
+?>
+<?php
             }
 ?>
-    </table>
+
 
 </body>
 
