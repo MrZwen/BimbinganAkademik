@@ -33,7 +33,6 @@ class Cbimbingan extends CI_Controller
         $data['konten'] = $this->load->view('Dosen/bimbingan', $datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
     }
-
     function simpanevaluasi()
     {
         $this->mevaluasi->simpanevaluasi();
