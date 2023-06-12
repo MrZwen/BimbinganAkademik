@@ -86,7 +86,7 @@
                                     <th>Nama Anggota</th>
                                     <th>Semester</th>
                                     <th>Tahun Ajaran</th>
-                                    <th>Aksi</th>
+                                    <th colspan="2">Aksi</th>
                                 </tr>
                             </thead>
                             <?php 
@@ -106,7 +106,10 @@
                                     <td><?= $data->semester ?></td>
                                     <td><?= $data->tahunajaran ?></td>
                                     <td>
-                                        <a href="" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="" data-loading-text="Memuat..." data-toggle="modal" data-target="#tambahmahasiswa"><i class="fa fa-plus"></i></button>
+                                    </td>
+                                    <td>
+                                    <a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#tampilgroup" data-toggle="modal" data-target="#tampilgroup"><i class="fas fa-info"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -118,7 +121,59 @@
                         </table>
                     </div>
                 </div>
+                    <!-- INGFO -->
+              <div class="modal fade" id="tampilgroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title " id="exampleModalLabel">Group Bimbingan</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="" name="" method="post" action="">
+                      <label for="">Nama Mahasiswa </label>
+                      <input id="NamaMahasiswa" placeholder="" name="NamaMahasiswa" type="Text" value="" class="form-control mb-3">
+                      <label for="">Nama Mahasiswa </label>
+                      <input id="NamaMahasiswa" placeholder="" name="NamaMahasiswa" type="Text" value="" class="form-control mb-3">
+                      <label for="">Nama Mahasiswa </label>
+                      <input id="NamaMahasiswa" placeholder="" name="NamaMahasiswa" type="Text" value="" class="form-control mb-3">
+                      <label for="">Nama Mahasiswa </label>
+                      <input id="NamaMahasiswa" placeholder="" name="NamaMahasiswa" type="Text" value="" class="form-control mb-3">
+                      <label for="">Nama Mahasiswa </label>
+                      <input id="NamaMahasiswa" placeholder="" name="NamaMahasiswa" type="Text" value="" class="form-control mb-3">
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                </div>
+              </div>
             </div>
+            <div class="modal fade" id="tambahmahasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title " id="exampleModalLabel">Group Bimbingan</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="" name="" method="post" action="">
+                      <label for="NIM">Nim Mahasiswa </label>
+                      <input id="Nim" placeholder="" name="Nim" type="Text" value="" class="form-control mb-3">
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-success" onclick="">Send</button> 
+                    </div>
+                  </div>
         </div>
     </div>
 </div>
