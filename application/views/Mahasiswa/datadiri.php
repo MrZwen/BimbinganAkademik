@@ -20,15 +20,16 @@
             <button type="submit" name="button" class="btn btn-success"><i class="fa fa-user"></i> Ganti Foto</button>
             <button type="button" class="btn btn-primary" style="margin-left:10px" data-loading-text="Memuat..." data-toggle="modal" data-target="#editProfile"><i class="fa fa-edit"></i> Edit Profil</button>
         </form>
-
         <!-- Modal -->
         <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <h5 class="modal-title text-bold" id="exampleModalLabel">Edit Profile</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-bold" id="exampleModalLabel">Edit Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
             <script lenguage="javascript">
                 function prosessimpan() {
                     var Nim = $('#Nim').val();
@@ -106,7 +107,6 @@
                     <label for="">Telp Orang Tua</label>
                     <input type="number" id="TelpOrangTua" placeholder="Masukkan Telephone Orang Tua" name="TelpOrangTua" value="<?php echo $user->TelpOrangTua ?>" class="form-control">
                     <input type="hidden" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
