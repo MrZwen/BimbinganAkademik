@@ -24,10 +24,9 @@
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('photo')) {
-            // Jika gagal mengunggah foto, tampilkan pesan error
-            $error = array('error' => $this->upload->display_errors());
-            print_r($error);
+        if (@!$this->upload->do_upload('photo')) {
+            echo "<script> alert ('foto yang anda unggah tidak valid');</script>";
+            redirect('cutama/tampilan', 'refresh');
         } else {
             $data = array('upload_data' => $this->upload->data());
 
@@ -47,10 +46,10 @@
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('photo')) {
+        if (@!$this->upload->do_upload('photo')) {
             // Jika gagal mengunggah foto, tampilkan pesan error
-            $error = array('error' => $this->upload->display_errors());
-            print_r($error);
+            echo "<script>alert ('foto yang anda unggah tidak valid');</script>";
+            redirect('cutama/tampilan', 'refresh');
         } else {
             $data = array('upload_data' => $this->upload->data());
 
@@ -62,5 +61,13 @@
         }
         
     }
+
+    function hapusfotoM() {
+        $this->mdatadiri->hapusfotoM(); 
+        $this->hapusfotoM(); 
+    }
+
+
+    
 } 
 ?>

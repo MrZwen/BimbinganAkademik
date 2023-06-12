@@ -69,6 +69,16 @@ class mdatadiri extends CI_Model
         redirect('cutama/tampilanD', 'refresh');
     }
 
+    function hapusfotoM() {
+        $id_akun = $this->session->userdata('id_akun');
+        $data = array('gambar' => NULL); 
+        $this->db->update('mahasiswa', $data);
+        $this->db->where('id_akun', $id_akun);
+        $this->session->set_flashdata('pesan', 'Foto Anda telah dihapus');
+        redirect('cutama/tampilanM', 'refresh');
+    }
+    
+
 }
 
 ?>

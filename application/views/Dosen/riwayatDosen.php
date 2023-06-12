@@ -3,9 +3,7 @@
 
 <head>
     <title>History Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         table {
             width: 100%;
@@ -22,7 +20,15 @@
 </head>
 
 <body>
-    <h1>Riwayat Bimbingan</h1>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2 border-bottom">
+            <div class="col-sm-6">
+                <h1 class="m-0">Riwayat Bimbingan</h1>
+            </div>
+        </div>
+    </div>
+</div>
 
     <table class="table table-striped">
         <thead>
@@ -34,16 +40,7 @@
                 <th>File Evaluasi</th>
             </tr>
 
-            <script lenguage="javascript">
-                    function pdf() {
-                 
-                 
-
-            
-
-                    $('#pdf').submit();
-                  }
-            </script>
+           
         </thead>
         <tbody>
             <?php
