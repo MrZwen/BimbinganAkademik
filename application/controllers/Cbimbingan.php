@@ -35,6 +35,7 @@ class Cbimbingan extends CI_Controller
 
     function simpanevaluasi()
     {
+        $this->load->model('mevaluasi');
         $this->mevaluasi->simpanevaluasi();
         $this->simpanevaluasi();
     }

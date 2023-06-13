@@ -8,16 +8,19 @@
             width: 100%;
             border-collapse: collapse;
         }
-
         th,
         td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+        @media screen and (max-width: 600px) {
+            table {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
-
 <body>
     <div class="content-header">
         <div class="container-fluid">
