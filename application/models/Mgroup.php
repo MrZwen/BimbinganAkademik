@@ -14,5 +14,13 @@ class Mgroup extends CI_Model{
         }
         return $hasil;
     }
+
+    function tambahmahasiswa()
+    {
+        $data = $_POST;
+        $this->db->insert('group_bimbingan', $data);
+        $this->session->set_flashdata('pesan', 'Data sudah disimpan');
+        redirect('cgroup/GroupBimbingan', 'refresh');
+    }
 }
 ?>
