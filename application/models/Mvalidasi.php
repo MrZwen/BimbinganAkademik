@@ -17,9 +17,12 @@ class Mvalidasi extends CI_Model
 				->get(); // melakukan inner join agar nama Kaprodi yang login tampil pada dashboard
 			$data = $sql->row();
 			$Nama = $data->Nama;
+			$KodeKaprodi = $data->KodeKaprodi;
 			$array = array(
 				'Nama' => $Nama,
+				'KodeKaprodi'=> $KodeKaprodi,
 			);
+			
 			$this->session->set_userdata($array);
     }
 
