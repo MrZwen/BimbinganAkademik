@@ -54,7 +54,7 @@
                         <td><?= $data->semester ?></td>
                         <td><?= $data->Nama ?></td>
                         <td><?= $data->TglBimbingan  ?></td>
-                        <td><a href="<?= base_url('Criwayat/pdf') ?>" class="btn btn-danger btn-sm"><i class="fa fa-book"></i>PDF</a>
+                        <td><a href="<?= base_url('Criwayat/pdf') ?>" class="btn btn-danger btn-sm"><i class="fa fa-book"></i>  PDF</a>
                         <td></td>
                     </tr>
         </tbody>
