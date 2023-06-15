@@ -198,4 +198,12 @@
 <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.js')  ?>"></script>
 <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')  ?>"></script>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<!-- AJAX -->
+<div id="script"></div>
+<script src="<?php echo base_url('jquery/app.js'); ?>"></script>
+<script language="javascript">
+	var site = "<?php echo base_url()?>index.php/";
+	var loading_image_large = "<?php echo base_url('gambar/loading_large.gif')?>";
+</script> 
 </html>

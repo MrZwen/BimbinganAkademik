@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Cskbimbingan extends CI_Controller
 {
     public function __construct()
@@ -9,13 +9,14 @@ class Cskbimbingan extends CI_Controller
 
     function TampilSK()
     {
-        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', '', TRUE);
+        $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
+        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
     }
 
     function simpanskbimbingan()
     {
-       
+
 
         $config['upload_path']   = 'document/'; // Lokasi penyimpanan foto (pastikan folder telah ada)
         $config['allowed_types'] = 'pdf|docx'; // Jenis file yang diizinkan
@@ -33,14 +34,21 @@ class Cskbimbingan extends CI_Controller
             $file_name = $data['upload_data']['file_name'];
 
             // Simpan nama file ke dalam kolom database (misalnya, menggunakan model atau metode lainnya)
-            $this->Mskbimbingan->simpanskbimbingan($file_name); 
+            $this->Mskbimbingan->simpanskbimbingan($file_name);
             $this->simpanskbimbingan();
         }
 
-        
-        
+      
     }
 
-}
+    function hapusdata($KodeKaprodi)
+    {
+        $this->Mskbimbingan->hapusdata($KodeKaprodi);
+        redirect('Kaprodi/tampilanKaprodi');
+    }
 
-?>
+    function editdata($KodeKaprodi)
+    {
+        $this->Mskbimbingan->editskbimbingan($KodeKaprodi);
+    }
+}

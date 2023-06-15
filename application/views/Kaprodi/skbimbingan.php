@@ -5,25 +5,36 @@
                 <h1 class="m-0">SK Bimbingan</h1>
             </div>
         </div>
-        
-        <script lenguage="javascript">
-        function prosessimpan() {
-        var semester = $('#semester').val();
-        if (semester == "") {
-            alert("Semester masih kosong");
-            $('#semester').focus();
-            return false;
-        }
-        var tahunajaran = $('#tahunajaran').val();
-        if (tahunajaran == "") {
-            alert("Tahun Ajaran masih kosong");
-            $('#tahunajaran').focus();
-            return false;
-        }
 
-        $('#simpansk').submit();
-    }
-</script>
+        <script language="javascript">
+            function hapusdata(KodeKaprodi) {
+                if (confirm("Apakah anda yakin menghapus data ini?")) {
+                    window.open("<?php echo base_url() ?>cskbimbingan/hapusdata/"+KodeKaprodi, "_self");
+                }
+            }
+
+            function editdata(KodeKaprodi) {
+                load("cskbimbingan/editdata/"+KodeKaprodi,"#script");
+            }
+        </script>
+        <script lenguage="javascript">
+            function prosessimpan() {
+                var semester = $('#semester').val();
+                if (semester == "") {
+                    alert("Semester masih kosong");
+                    $('#semester').focus();
+                    return false;
+                }
+                var tahunajaran = $('#tahunajaran').val();
+                if (tahunajaran == "") {
+                    alert("Tahun Ajaran masih kosong");
+                    $('#tahunajaran').focus();
+                    return false;
+                }
+
+                $('#simpansk').submit();
+            }
+        </script>
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-primary card-outline shadow">
@@ -41,8 +52,8 @@
                                 <input type="number" min="2000" max="2050" id="tahunajaran" class="form-control" name="tahunajaran" placeholder="Masukkan Tahun Ajaran...">
                             </div>
                             <div class="mb-3">
-                            <input type="file" name="file" id="file">
-                            <input type="hidden" name="KodeKaprodi" value="<?= $this->session->userdata('KodeKaprodi') ?>" id="KodeKaprodi" >
+                                <input type="file" name="file" id="FileSk">
+                                <input type="hidden" name="KodeKaprodi" value="<?= $this->session->userdata('KodeKaprodi') ?>" id="KodeKaprodi">
                             </div>
                             <div class="d-flex justify-content-md-end">
                                 <button type="reset" class="btn btn-danger mx-2">Cancel</button>
@@ -52,5 +63,53 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-outline card-primary">
+                <div class="card-header">
+                    <h5 class="card-title">Sk Bimbingan</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Semester</th>
+                                <th>Tahun Ajaran</th>
+                                <th>File</th>
+                                <th colspan="">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (empty($hasil)) {
+                                echo "Data Kosong";
+                            } else {
+                                $no = 1;
+                                foreach ($hasil as $data) :
+                            ?>
+
+                                    <tr>   
+                                        <td><?= $no; ?></td>
+                                        <td><?= $data->Semester ?></td>
+                                        <td><?= $data->tahunajaran ?></td>
+                                        <td><?= $data->File_Sk ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm" onclick="editdata('<?php echo $data->KodeKaprodi; ?>')">Edit</button>
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="hapusdata(<?php echo $data->KodeKaprodi ?>);">Hapus</button>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                <?php
+                                    $no++;
+                                endforeach;
+                            }
+                ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
