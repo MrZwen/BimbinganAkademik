@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <p class="message">Anda sudah menginput form bimbingan</p>
+    <p class="message">  Anda sudah menginput form bimbingan</p>
     </div>
 </body>
 
