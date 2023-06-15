@@ -31,3 +31,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
+
+.group-mahasiswa-row {
+    display: none;
+    transition: all 0.3s ease;
+    
+}
+
+.group-mahasiswa-row.show {
+    display: table-row;
+    transition: all 0.3s ease; 
+}
+
+.group-mahasiswa-list {
+    list-style-type:disc;
+    /* padding: 0; */
+}

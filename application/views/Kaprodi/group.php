@@ -7,23 +7,6 @@
         </div>
     </div>
 </div>
-<style>
-    .group-mahasiswa-row {
-        display: none;
-        transition: all 0.3s ease;
-        
-    }
-
-    .group-mahasiswa-row.show {
-        display: table-row;
-        transition: all 0.3s ease; 
-    }
-
-    .group-mahasiswa-list {
-        list-style-type:disc;
-        padding: 0;
-    }
-</style>
 
 </style>
 <script>
@@ -150,8 +133,9 @@
                                             </td>
                                         </tr>
                                         <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>">
-                                            <td colspan="2">Nama Mahasiswa</td>
-                                            <td colspan="4" class="text-center">
+                                            <td></td>
+                                            <td colspan="" class="text-center">Nama Mahasiswa</td>
+                                            <td colspan="4" class="">
                                                 <ul class="group-mahasiswa-list">
                                                     <?php
                                                     // Menampilkan nama mahasiswa dengan dosen yang sama

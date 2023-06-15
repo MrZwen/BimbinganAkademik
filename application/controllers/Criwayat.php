@@ -10,7 +10,8 @@ class Criwayat extends CI_Controller
     }
     function RiwayatK()
     {
-        $data['konten'] = $this->load->view('Kaprodi/riwayat', '', TRUE);
+        $datalist['hasil'] = $this->mriwayat->riwayatK();
+        $data['konten'] = $this->load->view('Kaprodi/riwayat', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
     }
 
