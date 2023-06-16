@@ -39,5 +39,7 @@ class Cbimbingan extends CI_Controller
         $this->mevaluasi->simpanevaluasi();
         $this->simpanevaluasi();
     }
+
+    
 }
 ?>

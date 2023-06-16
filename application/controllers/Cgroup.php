@@ -17,5 +17,12 @@ class Cgroup extends CI_Controller
         $this->mgroup->tambahmahasiswa(); 
         $this->tambahmahasiswa(); 
     }
+
+    function GroupBimbinganDosen()
+    {   
+        
+        $data['konten'] = $this->load->view('Dosen/groupbimbingan', '', TRUE);
+        $this->load->view('dosen/tampilandosen', $data);
+    }
 }
 ?>

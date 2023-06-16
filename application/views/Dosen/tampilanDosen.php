@@ -107,7 +107,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cskbimbingan/informasiskdosen') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-regular fa-book"></i>
                 <p>
                   Informasi SK
@@ -115,7 +115,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cgroup/groupbimbingandosen') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Group Bimbingan

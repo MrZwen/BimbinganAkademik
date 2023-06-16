@@ -51,4 +51,10 @@ class Cskbimbingan extends CI_Controller
     {
         $this->Mskbimbingan->editskbimbingan($KodeKaprodi);
     }
+
+    function informasiskdosen()
+    {
+        $data['konten'] = $this->load->view('Dosen/informasisk', '', TRUE);
+        $this->load->view('Dosen/tampilandosen', $data);
+    }
 }
