@@ -71,12 +71,13 @@ class mdatadiri extends CI_Model
 
     function hapusfotoM() {
         $id_akun = $this->session->userdata('id_akun');
-        $data = array('gambar' => NULL); 
-        $this->db->update('mahasiswa', $data);
+        $data = array('gambar' => NULL);
         $this->db->where('id_akun', $id_akun);
+        $this->db->update('mahasiswa', $data);
         $this->session->set_flashdata('pesan', 'Foto Anda telah dihapus');
         redirect('cutama/tampilanM', 'refresh');
     }
+    
     
 
 }

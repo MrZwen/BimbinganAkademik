@@ -106,7 +106,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cskbimbingan/informasiskm') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-regular fa-book"></i>
                 <p>
                   Informasi SK
