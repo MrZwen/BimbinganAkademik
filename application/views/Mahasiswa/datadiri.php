@@ -4,9 +4,6 @@
         width: 100%;
         border-collapse: collapse;
     }
-.img {
-    
-}
     th,
     td {
         padding: 8px;
