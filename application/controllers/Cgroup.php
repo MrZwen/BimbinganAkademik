@@ -20,8 +20,8 @@ class Cgroup extends CI_Controller
 
     function GroupBimbinganDosen()
     {   
-        
-        $data['konten'] = $this->load->view('Dosen/groupbimbingan', '', TRUE);
+        $datalist['hasil'] = $this->mgroup->tampilGroupD();
+        $data['konten'] = $this->load->view('Dosen/groupbimbingan', $datalist, TRUE);
         $this->load->view('dosen/tampilandosen', $data);
     }
 }

@@ -1,4 +1,35 @@
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-xs {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .form-control-file {
+        display: inline-block;
+        width: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        table {
+            font-size: 12px;
+        }
+    }
+</style>
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2 border-bottom">
@@ -122,6 +153,7 @@
                   </div>
                 </div>
               </div>
+              
               <!-- REPLY -->
               <div class="modal fade" id="Reply" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

@@ -12,25 +12,41 @@
 </head>
 
 <body>
-    <script lenguage="javascript">
-        function proseslogin() {
-            var username = $('#username').val();
-            if (username == "") // melakukan validasi form 
-            {
-                alert("username masih kosong");
-                $('#username').focus(); // membuat cursor focus ketika form kosong
-                return false;
-            }
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('#username').keydown(function(event) {
+        checkEnter(event);
+      });
 
-            var password = $('#password').val();
-            if (password == "") {
-                alert("password masih kosong");
-                $('#password').focus();
-                return false;
-            }
-            $('#formlogin').submit();
-        }
-    </script>
+      $('#password').keydown(function(event) {
+        checkEnter(event);
+      });
+    });
+
+    function checkEnter(event) {
+      if (event.keyCode === 13) {
+        proseslogin();
+      }
+    }
+
+    function proseslogin() {
+      var username = $('#username').val();
+      if (username == "") {
+        alert("username masih kosong");
+        $('#username').focus();
+        return false;
+      }
+
+      var password = $('#password').val();
+      if (password == "") {
+        alert("password masih kosong");
+        $('#password').focus();
+        return false;
+      }
+      $('#formlogin').submit();
+    }
+  </script>
     <div class="container-fluid">
         <div class="row no-gutter">
             <!-- The image half -->
@@ -80,7 +96,8 @@
                                         <input id="customCheck1" type="checkbox" checked class="custom-control-input">
                                         <label for="customCheck1" class="custom-control-label">Remember password</label>
                                     </div>
-                                    <a type="button" class="button" onclick="proseslogin();">Sign In</a>
+                                    <button type="button" class="button btn btn-primary form-control" onkeydown="checkEnter(event)" onclick="proseslogin();">Sign In</button>
+
 
                                 </form>
                             </div>

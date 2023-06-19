@@ -22,5 +22,22 @@ class Mgroup extends CI_Model{
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');
         redirect('cgroup/GroupBimbingan', 'refresh');
     }
+
+    public function tampilGroupD()
+    {
+        $id_akun = $this->session->userdata('id_akun');
+        $query = $this->db->select('*')
+				->from('group_bimbingan')
+				->join('dosen', 'dosen.nid = group_bimbingan.nid')
+                ->join('mahasiswa', 'mahasiswa.nim = group_bimbingan.nim')
+                ->where('dosen.id_akun', $id_akun) 
+				->get();
+        if($query->num_rows() > 0){
+            $hasil = $query->result();
+        }else{
+            $hasil = [];
+        }
+        return $hasil;
+    }
 }
 ?>
