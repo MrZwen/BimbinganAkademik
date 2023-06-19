@@ -29,11 +29,17 @@ class Cutama extends CI_Controller
     public function tampilanK()
     {
         $this->mvalidasi->validasiK();
-        $count = $this->mjumlah->countM();
+        $countM = $this->mjumlah->countM();
+        $countD = $this->mjumlah->countD();
+        $countG = $this->mjumlah->countG();
+        $countSK = $this->mjumlah->countSK();
         $datalist['hasil'] = $this->mdatadiri->tampildataK();
 
         $data['konten'] = $this->load->view('kaprodi/dashboard', $datalist, TRUE);
-        $data['count'] = $count;
+        $data['countM'] = $countM;
+        $data['countD'] = $countD;
+        $data['countG'] = $countG;
+        $data['countSK'] = $countSK;
         $this->load->view('kaprodi/tampilanKaprodi', $data);
     }
 

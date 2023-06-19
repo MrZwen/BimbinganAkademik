@@ -125,6 +125,75 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+        <?php if ($this->uri->segment(2) == 'tampilanK'): ?>
+        <div class="content-body mt-3">
+          <div class="contair-fluid">
+            <div class="row">
+              <div class="col-12">
+              <div class="card card-primary card-outline shadow">
+                        <div class="card-header">
+                            <h5 class="card-title"><i class="fas fa-tag" ></i>  Informasi Bimbingan</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-primary">
+                                            <div class="inner">
+                                                <h3><?= $countM ?></h3>
+                                                <p>List Mahasiswa</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-success">
+                                            <div class="inner">
+                                                <h3><?= $countD ?></h3>
+                                                <p>List Dosen</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-info">
+                                            <div class="inner">
+                                                <h3><?= $countG ?></h3>
+                                                <p>Group Bimbingan</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <div class="small-box bg-danger">
+                                            <div class="inner">
+                                                <h3><?= $countSK ?></h3>
+                                                <p>Informasi SK</p>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ion ion-bag"></i>
+                                            </div>
+                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php endif; ?>
           <?php
               if (empty($konten)) {
                 echo '';
@@ -201,7 +270,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <!-- AJAX -->
 <div id="script"></div>
-<script src="<?php echo base_url('jquery/app.js'); ?>"></script>
+<script src="<?php echo base_url(''); ?>jquery/app.js"></script>
 <script language="javascript">
 	var site = "<?php echo base_url()?>index.php/";
 	var loading_image_large = "<?php echo base_url('gambar/loading_large.gif')?>";
