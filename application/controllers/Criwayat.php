@@ -33,5 +33,9 @@ class Criwayat extends CI_Controller
         $this->load->view('Dosen/laporanpdf');
     }
 
+    function evaluasi() {
+        $this->load->view("Mahasiswa/hasilevaluasi");
+    }
+
 }
 ?>
