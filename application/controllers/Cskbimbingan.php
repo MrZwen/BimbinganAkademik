@@ -54,8 +54,9 @@ class Cskbimbingan extends CI_Controller
 
     function informasiskdosen()
     {
-        $data['konten'] = $this->load->view('Dosen/informasisk', '', TRUE);
-        $this->load->view('Dosen/tampilandosen', $data);
+        $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
+        $data['konten'] = $this->load->view('Dosen/informasisk', $datalist, TRUE);
+        $this->load->view('Dosen/tampilanDosen', $data);
     }
 
     function informasiskm()
@@ -64,4 +65,6 @@ class Cskbimbingan extends CI_Controller
         $data['konten'] = $this->load->view('Mahasiswa/informasiskm', $datalist, TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
     }
+
+    
 }
