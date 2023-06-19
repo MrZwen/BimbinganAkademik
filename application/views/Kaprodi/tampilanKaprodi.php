@@ -144,9 +144,9 @@
                                                 <p>List Mahasiswa</p>
                                             </div>
                                             <div class="icon">
-                                                <i class="ion ion-bag"></i>
+                                            <i class="fas fa-user-graduate"></i>
                                             </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <div class="small-box-footer"> </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
@@ -156,9 +156,9 @@
                                                 <p>List Dosen</p>
                                             </div>
                                             <div class="icon">
-                                                <i class="ion ion-bag"></i>
+                                            <i class="fas fa-user-tie"></i>
                                             </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <div class="small-box-footer"> </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
@@ -168,9 +168,9 @@
                                                 <p>Group Bimbingan</p>
                                             </div>
                                             <div class="icon">
-                                                <i class="ion ion-bag"></i>
+                                              <i class="fas fa-user-friends"></i>
                                             </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <div class="small-box-footer"> </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
@@ -180,9 +180,9 @@
                                                 <p>Informasi SK</p>
                                             </div>
                                             <div class="icon">
-                                                <i class="ion ion-bag"></i>
+                                              <i class="fas fa-info-circle"></i>
                                             </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <div class="small-box-footer"> </div>
                                         </div>
                                     </div>
                                 </div>
