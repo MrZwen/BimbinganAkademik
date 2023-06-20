@@ -9,7 +9,7 @@ class Cskbimbingan extends CI_Controller
 
     function TampilSK()
     {
-        $data['konten']=$this->load->view('Kaprodi/skbimbingan','',TRUE);
+        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', '', TRUE);
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
         $data['table'] = $this->load->view('Kaprodi/tampilsk', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
@@ -17,15 +17,13 @@ class Cskbimbingan extends CI_Controller
 
     function simpanskbimbingan()
     {
-
-
         $config['upload_path']   = 'document/'; // Lokasi penyimpanan foto (pastikan folder telah ada)
         $config['allowed_types'] = 'pdf|docx'; // Jenis file yang diizinkan
         $config['max_size']      = 5000; // Ukuran file maksimum dalam kilobita
 
         $this->load->library('upload', $config);
 
-        if (@!$this->upload->do_upload('file')) {
+        if (@!$this->upload->do_upload('FileSk')) {
             echo "<script> alert ('file yang anda unggah tidak valid');</script>";
             redirect('cskbimbingan/TampilSK', 'refresh');
         } else {
@@ -38,8 +36,6 @@ class Cskbimbingan extends CI_Controller
             $this->Mskbimbingan->simpanskbimbingan($file_name);
             $this->simpanskbimbingan();
         }
-
-      
     }
 
     function hapusdata($Id_Sk)
@@ -66,6 +62,4 @@ class Cskbimbingan extends CI_Controller
         $data['konten'] = $this->load->view('Mahasiswa/informasiskm', $datalist, TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
     }
-
-    
 }
