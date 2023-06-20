@@ -8,7 +8,7 @@
     </div>
 </div>
 
-</style>
+
 <script>
     // Memperbarui tampilan daftar nama mahasiswa saat tombol "Tampil Group" ditekan
     document.addEventListener("DOMContentLoaded", function() {
@@ -142,8 +142,9 @@
                                                     foreach ($hasil as $data_mahasiswa) {
                                                         if ($data_mahasiswa->NamaDosen == $data->NamaDosen) {
                                                     ?>
-
+                                                           
                                                             <li><?= $data_mahasiswa->Nama ?></li>
+                                                            
                                                     <?php
                                                         }
                                                     }

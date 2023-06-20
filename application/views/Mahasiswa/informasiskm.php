@@ -30,7 +30,7 @@
   <div class="card-header ">
     <h3 class="text-bold">Informasi SK Pembimbing</h3>
   </div>
-  <div class="container table-responsive">
+  <div class=" table-responsive">
     <div class="mb-3 mt-3">
       <table class="table table-striped">
         <thead>

@@ -22,29 +22,32 @@ class mskbimbingan extends CI_Model
         redirect('cskbimbingan/TampilSK', 'refresh');
     }
 
-    function editskbimbingan()
+    function editskbimbingan($Id_Sk)
     {
-        $sql = $this->db->select('*')
-            ->from('skpembimbing');
+        $this->db->where('Id_Sk', $Id_Sk);
+        $query = $this->db->get('skpembimbing');
 
-        $query = $this->db->query($sql);
         if ($query->num_rows() > 0) {
+
             $data = $query->row();
-            echo "<script>$('#semester').val('" . $data->semester . "');</script>";
+            echo "<script>$('#semester').val('" . $data->Semester . "');</script>";
             echo "<script>$('#tahunajaran').val('" . $data->tahunajaran . "');</script>";
-            echo "<script>$('#KodeKaprodi').val('" . $data->KodeKaprodi . "');</script>";
-            echo "<script>$('#FileSk').val('" . $data->File_Sk . "');</script>";
+
         }
     }
+
 
     function tampilskbimbingan()
     {
         $query = $this->db->get('skpembimbing');
 
         if ($query->num_rows() > 0) {
-            $hasil = $query->result();
+            foreach($query->result() as $data)
+				{
+					$hasil[]=$data;	
+				}
         } else {
-            $hasil = [];
+            $hasil = '';
         }
 
         return $hasil;

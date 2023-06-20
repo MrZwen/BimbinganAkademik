@@ -9,8 +9,9 @@ class Cskbimbingan extends CI_Controller
 
     function TampilSK()
     {
+        $data['konten']=$this->load->view('Kaprodi/skbimbingan','',TRUE);
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
-        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', $datalist, TRUE);
+        $data['table'] = $this->load->view('Kaprodi/tampilsk', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
     }
 
@@ -41,15 +42,15 @@ class Cskbimbingan extends CI_Controller
       
     }
 
-    function hapusdata($KodeKaprodi)
+    function hapusdata($Id_Sk)
     {
-        $this->Mskbimbingan->hapusdata($KodeKaprodi);
+        $this->Mskbimbingan->hapusdata($Id_Sk);
         redirect('Kaprodi/tampilanKaprodi');
     }
 
-    function editdata($KodeKaprodi)
+    function editdata($Id_Sk)
     {
-        $this->Mskbimbingan->editskbimbingan($KodeKaprodi);
+        $this->Mskbimbingan->editskbimbingan($Id_Sk);
     }
 
     function informasiskdosen()

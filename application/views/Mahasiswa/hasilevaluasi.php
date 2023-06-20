@@ -41,7 +41,7 @@ $tittle ='
 
 <table width="100%" >
 <tr>
-    <td rowspan="5" style="width:15%" align="right"><img src="/assets/logo.png"></td>
+    <td rowspan="5" style="width:15%" align="right"><img src="gambar/logopoltek.png"></td>
     <td style="width:80%"><h3 align="center">KEMENTERIAN PENDIDIKAN, KEBUDAYAAN, RISET, DAN TEKNOLOGI</h3></td>
 </tr>
 <tr>
@@ -59,7 +59,7 @@ $tittle ='
 </table><br><hr>
 
 
-<h2 style="text-weight:bold">Riwayat Bimbingan</h2>
+<h2 style="text-weight:bold">Hasil Evaluasi Bimbingan</h2>
 <br>
 <table>
 <tr>
@@ -79,22 +79,12 @@ $tittle ='
 <td>NO.Hp :</td>
 <td>Alamat Pembimbing :</td>
 </tr>
-</table>
+</table><br><hr>
 ';
 
 $pdf->writeHTMLCell(0, 0, '', '', $tittle, 0, 1, 0, true, 'L', true);
 
-$table = '<table style="border:1px solid #000; padding:6px;">';
 
-$table .= '<tr>
-                <th>T.A</th>
-                <th>Semester</th>
-                <th>Nama Mahasiswa</th>
-                <th>Tanggal dan Waktu</th>
-                <th>File Evaluasi</th>
-            </tr>';
-
-$table .= '</table>';
 
 $pdf->writeHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'C', true);
 

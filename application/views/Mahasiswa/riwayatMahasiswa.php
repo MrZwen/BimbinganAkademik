@@ -23,7 +23,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="content-header">
         <div class="container-fluid">
@@ -38,7 +37,7 @@
         <div class="card-header">
             <h3 class="text-bold">Hasil Evaluasi dari Bimbingan</h3>
         </div>
-        <div class="container table-responsive">
+        <div class="table-responsive">
             <div class="mb-3 mt-3">
                 <table class="table table-striped ">
                     <thead>

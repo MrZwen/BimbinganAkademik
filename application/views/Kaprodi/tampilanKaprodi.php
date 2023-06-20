@@ -34,7 +34,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-flex">
-        <a href="<?php echo base_url('Cutama/tampilanK');?>" class="nav-link justify-content-between">Home</a>
+        <a href="<?php echo base_url('Cutama/tampilanK'); ?>" class="nav-link justify-content-between">Home</a>
       </li>
     </ul>
 
@@ -77,7 +77,7 @@
               <a href="<?= base_url('Creport/ReportK'); ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
-                 Report Mahasiswa
+                  Report Mahasiswa
                 </p>
               </a>
             </li>
@@ -125,82 +125,98 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <?php if ($this->uri->segment(2) == 'tampilanK'): ?>
-        <div class="content-body mt-3">
-          <div class="contair-fluid">
-            <div class="row">
-              <div class="col-12">
-              <div class="card card-primary card-outline shadow">
-                        <div class="card-header">
-                            <h5 class="card-title"><i class="fas fa-tag" ></i>  Informasi Bimbingan</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-primary">
-                                            <div class="inner">
-                                                <h3><?= $countM ?></h3>
-                                                <p>List Mahasiswa</p>
-                                            </div>
-                                            <div class="icon">
-                                            <i class="fas fa-user-graduate"></i>
-                                            </div>
-                                            <div class="small-box-footer"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-success">
-                                            <div class="inner">
-                                                <h3><?= $countD ?></h3>
-                                                <p>List Dosen</p>
-                                            </div>
-                                            <div class="icon">
-                                            <i class="fas fa-user-tie"></i>
-                                            </div>
-                                            <div class="small-box-footer"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-info">
-                                            <div class="inner">
-                                                <h3><?= $countG ?></h3>
-                                                <p>Group Bimbingan</p>
-                                            </div>
-                                            <div class="icon">
-                                              <i class="fas fa-user-friends"></i>
-                                            </div>
-                                            <div class="small-box-footer"> </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-danger">
-                                            <div class="inner">
-                                                <h3><?= $countSK ?></h3>
-                                                <p>Informasi SK</p>
-                                            </div>
-                                            <div class="icon">
-                                              <i class="fas fa-info-circle"></i>
-                                            </div>
-                                            <div class="small-box-footer"> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <?php if ($this->uri->segment(2) == 'tampilanK') : ?>
+          <div class="content-body mt-3">
+            <div class="contair-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card card-primary card-outline shadow">
+                    <div class="card-header">
+                      <h5 class="card-title"><i class="fas fa-tag"></i> Informasi Bimbingan</h5>
                     </div>
+                    <div class="card-body">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-lg-3 col-6">
+                            <div class="small-box bg-primary">
+                              <div class="inner">
+                                <h3><?= $countM ?></h3>
+                                <p>List Mahasiswa</p>
+                              </div>
+                              <div class="icon">
+                                <i class="fas fa-user-graduate"></i>
+                              </div>
+                              <div class="small-box-footer"> </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                              <div class="inner">
+                                <h3><?= $countD ?></h3>
+                                <p>List Dosen</p>
+                              </div>
+                              <div class="icon">
+                                <i class="fas fa-user-tie"></i>
+                              </div>
+                              <div class="small-box-footer"> </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                              <div class="inner">
+                                <h3><?= $countG ?></h3>
+                                <p>Group Bimbingan</p>
+                              </div>
+                              <div class="icon">
+                                <i class="fas fa-user-friends"></i>
+                              </div>
+                              <div class="small-box-footer"> </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <div class="small-box bg-danger">
+                              <div class="inner">
+                                <h3><?= $countSK ?></h3>
+                                <p>Informasi SK</p>
+                              </div>
+                              <div class="icon">
+                                <i class="fas fa-info-circle"></i>
+                              </div>
+                              <div class="small-box-footer"> </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <?php endif; ?>
-          <?php
-              if (empty($konten)) {
-                echo '';
-              } else {
-                echo $konten;
-              }
-          ?>
+        <?php
+        if (empty($konten)) {
+          echo '';
+        } else {
+          echo $konten;
+        }
+        ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <!-- AJAX -->
+        <div id="script"></div>
+        <script src="<?php echo base_url(); ?>/jquery/app.js"></script>
+        <script language="javascript">
+          var site = "<?php echo base_url() ?>index.php/";
+          var loading_image_large = "<?php echo base_url() ?>gambar/loading_large.gif";
+        </script>
+        <?php
+        if (empty($table)) {
+
+          echo '';
+        } else {
+          echo $table;
+        }
+        ?>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -225,54 +241,47 @@
   </script>
 
   <!-- jQuery -->
-<script src="<?= base_url('assets/plugins/jquery/jquery.min.js')?>"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url('assets/plugins/jquery-ui/jquery-ui.min.js')?>"></script>
-<!-- Sweet Alerts -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
-<!-- ChartJS -->
-<script src="<?= base_url('assets/plugins/chart.js/Chart.min.js') ?>"></script>
-<!-- Sparkline -->
-<script src="<?= base_url('assets/plugins/sparklines/sparkline.js') ?>"></script>
-<!-- JQVMap -->
-<script src="<?= base_url('assets/plugins/jqvmap/jquery.vmap.min.js')  ?>"></script>
-<script src="<?= base_url('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')  ?>"></script>
-<!-- jQuery Knob Chart -->
-<script src="<?= base_url('assets/plugins/jquery-knob/jquery.knob.min.js')  ?>"></script>
-<!-- daterangepicker -->
-<script src="<?= base_url('assets/plugins/moment/moment.min.js')  ?>"></script>
-<script src="<?= base_url('assets/plugins/daterangepicker/daterangepicker.js')  ?>"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="<?= base_url('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')  ?>"></script>
-<!-- Summernote -->
-<script src="<?= base_url('assets/plugins/summernote/summernote-bs4.min.js')  ?>"></script>
-<!-- overlayScrollbars -->
-<script src="<?= base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  ?>"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url('assets/dist/js/adminlte.js')  ?>"></script>
-<!-- Page specific script -->
-<script>
-  $(document).ready(function () {
-    $('#example2').DataTable();
-});
-</script>
+  <script src="<?= base_url('assets/plugins/jquery/jquery.min.js') ?>"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="<?= base_url('assets/plugins/jquery-ui/jquery-ui.min.js') ?>"></script>
+  <!-- Sweet Alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+  <!-- ChartJS -->
+  <script src="<?= base_url('assets/plugins/chart.js/Chart.min.js') ?>"></script>
+  <!-- Sparkline -->
+  <script src="<?= base_url('assets/plugins/sparklines/sparkline.js') ?>"></script>
+  <!-- JQVMap -->
+  <script src="<?= base_url('assets/plugins/jqvmap/jquery.vmap.min.js')  ?>"></script>
+  <script src="<?= base_url('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')  ?>"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="<?= base_url('assets/plugins/jquery-knob/jquery.knob.min.js')  ?>"></script>
+  <!-- daterangepicker -->
+  <script src="<?= base_url('assets/plugins/moment/moment.min.js')  ?>"></script>
+  <script src="<?= base_url('assets/plugins/daterangepicker/daterangepicker.js')  ?>"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="<?= base_url('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')  ?>"></script>
+  <!-- Summernote -->
+  <script src="<?= base_url('assets/plugins/summernote/summernote-bs4.min.js')  ?>"></script>
+  <!-- overlayScrollbars -->
+  <script src="<?= base_url('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  ?>"></script>
+  <!-- AdminLTE App -->
+  <script src="<?= base_url('assets/dist/js/adminlte.js')  ?>"></script>
+  <!-- Page specific script -->
+  <script>
+    $(document).ready(function() {
+      $('#example2').DataTable();
+    });
+  </script>
 
-<!-- DataTables -->
-<script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.js')  ?>"></script>
-<script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')  ?>"></script>
+  <!-- DataTables -->
+  <script src="<?= base_url('assets/plugins/datatables/jquery.dataTables.js')  ?>"></script>
+  <script src="<?= base_url('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')  ?>"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<!-- AJAX -->
-<div id="script"></div>
-<script src="<?php echo base_url(''); ?>jquery/app.js"></script>
-<script language="javascript">
-	var site = "<?php echo base_url()?>index.php/";
-	var loading_image_large = "<?php echo base_url('gambar/loading_large.gif')?>";
-</script> 
+
 </html>
