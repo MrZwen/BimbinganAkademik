@@ -8,6 +8,8 @@ class Cbimbingan extends CI_Controller
         $this->load->model('mdatadiri');
 
     }
+
+
     function formbimbingan() {
         $verifikasi = $this->mbimbingan->getVerifikasi(); // Mengambil data verifikasi
         if ($verifikasi) {
@@ -39,7 +41,6 @@ class Cbimbingan extends CI_Controller
         $this->mevaluasi->simpanevaluasi();
         $this->simpanevaluasi();
     }
-
-    
+ 
 }
 ?>
