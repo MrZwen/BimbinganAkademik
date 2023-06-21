@@ -1,73 +1,23 @@
 <?php
-//============================================================+
-// File name   : example_005.php
-// Begin       : 2008-03-04
-// Last Update : 2013-05-14
-//
-// Description : Example 005 for TCPDF class
-//               Multicell
-//
-// Author: Nicola Asuni
-//
-// (c) Copyright:
-//               Nicola Asuni
-//               Tecnick.com LTD
-//               www.tecnick.com
-//               info@tecnick.com
-//============================================================+
-
-/**
- * Creates an example PDF TEST document using TCPDF
- * @package com.tecnick.tcpdf
- * @abstract TCPDF - Example: Multicell
- * @author Nicola Asuni
- * @since 2008-03-04
- * @group cell
- * @group pdf
- */
 
 // Include the main TCPDF library (search for installation path).
-include_once('TCPDF/tcpdf.php');
+('TCPDF/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-// set document information
-$pdf->setCreator(PDF_CREATOR);
-$pdf->setAuthor('Politeknik Negeri Bali');
-$pdf->setTitle('Laporan Bimbingan');
-$pdf->setSubject('TCPDF Tutorial');
-$pdf->setKeywords('TCPDF, PDF, example, test, guide');
 
-// set default header data
-$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.'', PDF_HEADER_STRING);
-
-
-// set header and footer fonts
-$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
-
-// set default monospaced font
-$pdf->setDefaultMonospacedFont(PDF_FONT_MONOSPACED);
-
-// set margins
-$pdf->setMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-$pdf->setHeaderMargin(PDF_MARGIN_HEADER);
-$pdf->setFooterMargin(PDF_MARGIN_FOOTER);
-
-// set auto page breaks
-$pdf->setAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+$pdf->setPrintHeader(false);
 
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
 // set some language-dependent strings (optional)
-if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
-	require_once(dirname(__FILE__).'/lang/eng.php');
-	$pdf->setLanguageArray($l);
+if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
+    require_once(dirname(__FILE__) . '/lang/eng.php');
+    $pdf->setLanguageArray($l);
 }
 
-// ---------------------------------------------------------
 
 // set font
 $pdf->setFont('times', '', 10);
@@ -87,13 +37,33 @@ $pdf->setFillColor(255, 255, 127);
 
 
 
-$tittle = <<<EOD
-<h2 style="text-weight:bold">Riwayat Bimbingan</h2>
+$tittle ='
+
+<table width="100%" >
+<tr>
+    <td rowspan="5" style="width:15%" align="right"><img src="gambar/logopoltek.png"></td>
+    <td style="width:80%"><h3 align="center">KEMENTERIAN PENDIDIKAN, KEBUDAYAAN, RISET, DAN TEKNOLOGI</h3></td>
+</tr>
+<tr>
+    <td><h1 align="center">POLITEKNIK NEGERI BALI</h1></td>
+</tr>
+<tr>
+    <td><h5 align="center">Kampus Politeknik Negeri Bali Bukit Jimbaran Kuta Selatan Badung-Bali</h5></td>
+</tr>
+<tr>
+    <td><h5 align="center">Telepon : 0361-701981, Fax : 0361-701128</h5></td>
+</tr>
+<tr>
+    <td><h5 align="center">Website : www.pnb.ac.id, Email : poltek@pnb.ac.id</h5></td>
+</tr>
+</table><br><hr>
+
+
+<h2 style="text-weight:bold">Hasil Evaluasi Bimbingan</h2>
 <br>
 <table>
 <tr>
-<th>Nama    : </th>
-
+<th>Nama    :  </th>
 <th>Nama Orang Tua : </th>
 </tr>
 <tr>
@@ -108,23 +78,14 @@ $tittle = <<<EOD
 <td>NO.Hp :</td>
 <td>Alamat Pembimbing :</td>
 </tr>
-</table>
-EOD; 
-$pdf->writeHTMLCell(0, 0, '','', $tittle, 0, 1, 0, true, 'L', true);
+</table><br><hr>
+';
 
-$table = '<table style="border:1px solid #000; padding:6px;">';
+$pdf->writeHTMLCell(0, 0, '', '', $tittle, 0, 1, 0, true, 'L', true);
 
-$table .= '<tr>
-                <th>T.A</th>
-                <th>Semester</th>
-                <th>Nama Mahasiswa</th>
-                <th>Tanggal dan Waktu</th>
-                <th>File Evaluasi</th>
-            </tr>'; 
 
-$table .= '</table>';
 
-$pdf->writeHTMLCell(0, 0, '','', $table, 0, 1, 0, true, 'C', true);
+$pdf->writeHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'C', true);
 
 // move pointer to last page
 $pdf->lastPage();
@@ -134,6 +95,7 @@ $pdf->lastPage();
 //Close and output PDF document
 ob_clean();
 $pdf->Output('report.pdf', 'I');
+
 
 //============================================================+
 // END OF FILE
