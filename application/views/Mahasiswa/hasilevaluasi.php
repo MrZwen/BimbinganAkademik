@@ -63,8 +63,7 @@ $tittle ='
 <br>
 <table>
 <tr>
-<th>Nama    : </th>
-
+<th>Nama    : '. $user->Nama .' </th>
 <th>Nama Orang Tua : </th>
 </tr>
 <tr>

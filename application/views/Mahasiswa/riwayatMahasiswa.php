@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+<script>
+    function tampilevaluasi(id_bimbingan) {
+        window.open("<?php echo base_url() ?>criwayat/evaluasi/" + id_bimbingan, "_self");
+    }
+</script>
 
 <head>
     <title>Riwayat Bimbingan Mahasiswa</title>
@@ -23,6 +28,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="content-header">
         <div class="container-fluid">
@@ -62,7 +68,7 @@
                                     <td><?= $data->semester ?></td>
                                     <td><?= $data->NamaDosen  ?></td>
                                     <td><?= $data->TglBimbingan  ?></td>
-                                    <td><a href="<?= base_url('Criwayat/evaluasi') ?>" class="btn btn-danger btn-sm"><i class="fa fa-book"></i>  PDF</a>
+                                    <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
                                     <td></td>
                                 </tr>
                     </tbody>
