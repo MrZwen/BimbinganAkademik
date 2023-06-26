@@ -125,65 +125,63 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        <?php if ($this->uri->segment(2) == 'tampilanK') : ?>
+        <?php if ($this->uri->segment(2) == 'tampilanK') :  ?>
           <div class="content-body mt-3">
-            <div class="contair-fluid">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card card-primary card-outline shadow">
-                    <div class="card-header">
-                      <h5 class="card-title"><i class="fas fa-tag"></i> Informasi Bimbingan</h5>
-                    </div>
-                    <div class="card-body">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-lg-3 col-6">
-                            <div class="small-box bg-primary">
-                              <div class="inner">
-                                <h3><?= $countM ?></h3>
-                                <p>List Mahasiswa</p>
-                              </div>
-                              <div class="icon">
-                                <i class="fas fa-user-graduate"></i>
-                              </div>
-                              <div class="small-box-footer"> </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card card-primary card-outline shadow">
+                  <div class="card-header">
+                    <h5 class="card-title"><i class="fas fa-tag"></i> Informasi Bimbingan</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-lg-3 col-6">
+                          <div class="small-box bg-primary">
+                            <div class="inner">
+                              <h3><?= $countM ?></h3>
+                              <p>List Mahasiswa</p>
                             </div>
+                            <div class="icon">
+                              <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="small-box-footer"> </div>
                           </div>
-                          <div class="col-lg-3 col-6">
-                            <div class="small-box bg-success">
-                              <div class="inner">
-                                <h3><?= $countD ?></h3>
-                                <p>List Dosen</p>
-                              </div>
-                              <div class="icon">
-                                <i class="fas fa-user-tie"></i>
-                              </div>
-                              <div class="small-box-footer"> </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                          <div class="small-box bg-success">
+                            <div class="inner">
+                              <h3><?= $countD ?></h3>
+                              <p>List Dosen</p>
                             </div>
+                            <div class="icon">
+                              <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="small-box-footer"> </div>
                           </div>
-                          <div class="col-lg-3 col-6">
-                            <div class="small-box bg-info">
-                              <div class="inner">
-                                <h3><?= $countG ?></h3>
-                                <p>Group Bimbingan</p>
-                              </div>
-                              <div class="icon">
-                                <i class="fas fa-user-friends"></i>
-                              </div>
-                              <div class="small-box-footer"> </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                          <div class="small-box bg-info">
+                            <div class="inner">
+                              <h3><?= $countG ?></h3>
+                              <p>Group Bimbingan</p>
                             </div>
+                            <div class="icon">
+                              <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="small-box-footer"> </div>
                           </div>
-                          <div class="col-lg-3 col-6">
-                            <div class="small-box bg-danger">
-                              <div class="inner">
-                                <h3><?= $countSK ?></h3>
-                                <p>Informasi SK</p>
-                              </div>
-                              <div class="icon">
-                                <i class="fas fa-info-circle"></i>
-                              </div>
-                              <div class="small-box-footer"> </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
+                          <div class="small-box bg-danger">
+                            <div class="inner">
+                              <h3><?= $countSK ?></h3>
+                              <p>Informasi SK</p>
                             </div>
+                            <div class="icon">
+                              <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="small-box-footer"> </div>
                           </div>
                         </div>
                       </div>
@@ -211,7 +209,6 @@
         </script>
         <?php
         if (empty($table)) {
-
           echo '';
         } else {
           echo $table;
@@ -227,7 +224,7 @@
     function logout() {
       Swal.fire({
         title: 'Apakah yakin ingin keluar sistem?',
-        icon: 'warning',
+        icon: 'danger',
         showCancelButton: true,
         confirmButtonColor: '#2F6888',
         cancelButtonColor: '#d33',

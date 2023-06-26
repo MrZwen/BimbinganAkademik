@@ -35,7 +35,9 @@
                                 <?php 
                                     if(empty($hasil))
                                     {
-                                        echo "Data Kosong";
+                                        echo "<tr>";
+                                        echo "<td colspan='8' class='text-center'>Data Kosong</td>";
+                                        echo "</tr>";
                                     }
                                     else{
                                         $no = 1;

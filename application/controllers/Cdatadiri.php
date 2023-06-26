@@ -65,9 +65,6 @@
     function hapusfotoM() {
         $this->mdatadiri->hapusfotoM(); 
         $this->hapusfotoM(); 
-    }
-
-
-    
+    } 
 } 
 ?>

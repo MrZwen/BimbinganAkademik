@@ -42,7 +42,9 @@
           <tbody>
             <?php
             if (empty($hasil)) {
-              echo "Data Kosong";
+              echo "<tr>";
+              echo "<td colspan='6' class='text-center'>Data Kosong</td>";
+              echo "</tr>";
             } else {
               $no = 1;
               $prevNamaDosen = ""; // Variabel penanda nama dosen sebelumnya
