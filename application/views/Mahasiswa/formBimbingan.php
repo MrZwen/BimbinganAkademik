@@ -116,29 +116,25 @@
                 <input type="hidden" class="form-control" id="id_group" value="<?php echo isset($user->id_group) ? $user->id_group : null; ?> " name="id_group">
                 <div class="mb-3">
                     <label class="form-label">Status Mahasiswa </label>
-                    <select name="StatusMahasiswa" class="form-control" id="StatusMahasiswa">
-                        <option value="">PILIH</option>
-                        <option value="Aktif">Aktif</option>
-                        <option value="Cuti">Cuti</option>
-                        <option value="DropOut">Drop Out (DO)</option>
+                    <input type="text" class="form-control"  value="<?php echo isset($user->StatusMahasiswa ) ? $user->StatusMahasiswa  : null; ?>" disabled>
                 </div>
                 </select>
                 <div class="mb-3">
                     <label class="form-label">Nilai IPK</label>
-                    <input type="number" class="form-control" id="IPK" min="0.00" max="4.00" placeholder="Masukkan Nilai IPK" name="IPK">
+                    <input type="text" class="form-control"  value="<?php echo isset($user->IPK ) ? $user->IPK  : null; ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nilai IPS</label>
-                    <input type="number" class="form-control" id="IPS" min="0.00" max="4.00" placeholder="Masukkan Nilai IPS Semester ini" name="IPS">
+                    <input type="text" class="form-control"  value="<?php echo isset($user->IPS ) ? $user->IPS  : null; ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ranking</label>
-                    <input type="number" class="form-control" id="Ranking" min="1" placeholder="Masukkan Ranking Semester ini" name="Ranking">
+                    <input type="text" class="form-control"  value="<?php echo isset($user->Ranking ) ? $user->Ranking  : null; ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Lain - lain </label>
                     <br>
-                    <input class="form-check-label" type="radio" name="Lainya" id="Beasiswa" value="Beasiswa">Beasiswa
+                    <input class="form-check-label" type="checkbox" name="Lainya" id="Beasiswa" value="Beasiswa">Beasiswa
                     <input class="form-check-label" type="radio" name="Lainya" id="SuratPeringatan" value="SuratPeringatan">Surat Peringatan
                     <br /> <br />
                 </div>
