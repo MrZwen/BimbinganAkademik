@@ -26,44 +26,48 @@
     }
   }
 </style>
-<div class="card ">
+<div class="card card-primary card-outline">
   <div class="card-header ">
-    <h3 class="text-bold">Informasi SK Pembimbing</h3>
+    <h5 class="card-title">Informasi SK Pembimbing</h5>
   </div>
-  <div class=" table-responsive">
-    <div class="mb-3 mt-3">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama file</th>
-            <th>Semester</th>
-            <th>Tahun Ajaran</th>
-            <th>file SK</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          if ($hasil) {
-            $no = 1;
-            foreach ($hasil as $data) :
-          ?>
-              <tr>
-                <td><?= $no; ?></td>
-                <td><?= $data->File_Sk ?></td>
-                <td><?= $data->Semester ?></td>
-                <td><?= $data->tahunajaran ?></td>
-                <td><a href="#" class="btn btn-danger btn-sm" onclick="tampilkanPDF('<?= $data->File_Sk ?>')" data-toggle="modal" data-target="#editProfile" ><i class="fa fa-book"></i> File</a></td>
-              </tr>
-          <?php
-              $no++;
-            endforeach;
+  <div class="card-body">
+    <div class=" table-responsive">
+      <div class="mb-3 mt-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama file</th>
+              <th>Semester</th>
+              <th>Tahun Ajaran</th>
+              <th>file SK</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+             if (empty($hasil)) {
+              echo "<tr>";
+              echo "<td colspan='5' class='text-center'>Data Kosong</td>";
+              echo "</tr>";
           } else {
-            echo "Data Kosong";
-          }
-          ?>
-        </tbody>
-      </table>
+              $no = 1;
+              foreach ($hasil as $data) :
+            ?>
+                <tr>
+                  <td><?= $no; ?></td>
+                  <td><?= $data->File_Sk ?></td>
+                  <td><?= $data->Semester ?></td>
+                  <td><?= $data->tahunajaran ?></td>
+                  <td><a href="#" class="btn btn-danger btn-sm" onclick="tampilkanPDF('<?= $data->File_Sk ?>')" data-toggle="modal" data-target="#editProfile" ><i class="fa fa-book"></i> File</a></td>
+                </tr>
+            <?php
+                $no++;
+              endforeach;
+            } 
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

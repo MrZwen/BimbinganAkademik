@@ -39,12 +39,13 @@
             </div>
         </div>
     </div>
-    <div class="card">
+    <div class="card card-info card-outline">
         <div class="card-header">
-            <h3 class="text-bold">Hasil Evaluasi dari Bimbingan</h3>
+            <h5 class="card-title">Hasil Evaluasi dari Bimbingan</h5>
         </div>
         <div class="table-responsive">
             <div class="mb-3 mt-3">
+            <div class="card-body">
                 <table class="table table-striped ">
                     <thead>
                         <tr>
@@ -58,7 +59,11 @@
                     </thead>
                     <tbody>
                         <?php
-                        if ($hasil) {
+                         if (empty($hasil)) {
+                            echo "<tr>";
+                            echo "<td colspan='6' class='text-center'>Data Kosong</td>";
+                            echo "</tr>";
+                        } else {
                             $no = 1;
                             foreach ($hasil as $data) :
                         ?>
@@ -73,15 +78,12 @@
                                 </tr>
                     </tbody>
                 </table>
-            <?php
-                                $no++;
-                            endforeach;
-                        } else {
-                            echo "Data Kosong";
-            ?>
-        <?php
-                        }
-        ?>
+                <?php
+                    $no++;
+                    endforeach;
+                }    
+                ?>
+            </div>
             </div>
         </div>
     </div>
