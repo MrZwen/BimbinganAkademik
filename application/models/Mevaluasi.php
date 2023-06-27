@@ -1,10 +1,12 @@
 <?php
 class Mevaluasi extends CI_Model
 {
-    public function simpanevaluasi()
+    public function simpanevaluasi($id_group)
     {
+        $id_group = 
         $data = $_POST;
-        $this->db->insert('form_evaluasi', $data);
+        $this->db->update('form_evaluasi', $data);
+        $this->db->where ('id_group',$id_group)
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');
         redirect('cbimbingan/bimbingan', 'refresh');
     }

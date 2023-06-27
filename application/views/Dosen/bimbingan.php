@@ -74,7 +74,7 @@
               <td>
                 <!-- Modal -->
                 <script lenguage="javascript">
-                      function simpanevaluasi() {
+                      function simpanevaluasi($id_group) {
                     var TglBimbingan = $('#TglBimbingan').val();
                     if (TglBimbingan == "") 
                       {
@@ -143,11 +143,11 @@
                             </div>
                           </div>
                           <label for="">Lainnya</label>
-                          <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->Lainya ?>" class="form-control mb-3" disabled>
+                          <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->lainnya ?>" class="form-control mb-3" disabled>
                           <label for="">Verifikasi</label>
                           <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->VerifMahasiswa ?>" class="form-control mb-3" disabled>
                           <label for="">Keaktifan</label>
-                          <textarea class="form-control" id="Keaktifan" name="Keaktifan" disabled><?php echo $data->Keaktifan ?></textarea>
+                          <textarea class="form-control" id="Keaktifan" name="Keaktifan" disabled><?php echo $data->keluhan ?></textarea>
                           <input type="hidden" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
                       </div>
                       <div class="modal-footer">
@@ -181,7 +181,7 @@
                             <label for="message-text" class="col-form-label">Solusi:</label>
                             <textarea class="form-control" id="Solusi" name="Solusi"></textarea>
                           </div>
-                          <input type="text" name="idBimbingan" value="<?= $data->id_bimbingan ?>" id="idBimbingan" />
+                          <input type="text" name="id_evaluasi" value="<?= $data->id_evaluasi ?>" id="id_evaluasi" />
                           
                         </form>
                       </div>

@@ -27,11 +27,10 @@ class Cbimbingan extends CI_Controller
         $this->load->view('Dosen/tampilanDosen', $data);
     }
 
-    function simpanevaluasi()
+    function simpanevaluasi($id_group)
     {
         $this->load->model('mevaluasi');
-        $this->mevaluasi->simpanevaluasi();
-        $this->simpanevaluasi();
+        $this->mevaluasi->simpanevaluasi($id_group);
     }
  
 }
