@@ -61,7 +61,7 @@ $tittle ='
 
 <h2 style="text-weight:bold">Hasil Evaluasi Bimbingan</h2>
 <br>
-<table>
+<table style>
 <tr>
 <th>Nama    : '. $user->Nama .' </th>
 <th>Nama Orang Tua : </th>

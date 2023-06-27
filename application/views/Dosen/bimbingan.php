@@ -192,8 +192,6 @@
                     </div>
                   </div>
                 </div>
-
-
               </td>
           <?php
             $no++;

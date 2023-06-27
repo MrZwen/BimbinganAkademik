@@ -10,17 +10,9 @@ class Cbimbingan extends CI_Controller
     }
 
     function formbimbingan() {
-        $dataview['hasil'] = $this->mbimbingan->tampiltahun();
-        $data['konten'] = $this->load->view('Mahasiswa/pilihtahun',$dataview,TRUE);
-        $verifikasi = $this->mbimbingan->getVerifikasi(); 
-        if ($verifikasi) {
-            $data['table'] = $this->load->view('Mahasiswa/telahbimbingan', '', TRUE);
-            $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
-        } else {
             $datalist['user'] = $this->mbimbingan->tampilformb();
-            $data['table'] = $this->load->view('Mahasiswa/formBimbingan', $datalist, TRUE);
+            $data['konten'] = $this->load->view('Mahasiswa/formBimbingan', $datalist, TRUE);
             $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
-        }
     }
 
     function simpanbimbingan() 

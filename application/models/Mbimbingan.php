@@ -4,7 +4,7 @@ class Mbimbingan extends CI_Model
     function simpanbimbingan()
     {
         $data = $_POST;
-        $this->db->insert('bimbingan', $data);
+        $this->db->insert('form_evaluasi', $data);
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');
         redirect('cbimbingan/formbimbingan', 'refresh');
     }
@@ -16,21 +16,27 @@ class Mbimbingan extends CI_Model
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM ')
-            ->join('nilai', 'mahasiswa.Nim = nilai.Nim ')
+            ->join('nilai', 'group_bimbingan.id_nilai = nilai.id_nilai')
             ->where('mahasiswa.id_akun', $id_akun)
             ->get('');
-        return $sql->row();
+            if ($sql->num_rows() > 0) {
+                $user = $sql->result();
+            } else {
+                $user = [];
+            }
+    
+            return $user;
     }
 
 
     function tampilbimbingan()
     {
         $id_akun = $this->session->userdata('id_akun');
-        $sql = $this->db->select('bimbingan.*, mahasiswa.*, dosen.gambar')
+        $sql = $this->db->select('form_evaluasi.*, mahasiswa.*, dosen.gambar')
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
-            ->join('bimbingan', 'bimbingan.id_group = group_bimbingan.id_group')
+            ->join('form_evaluasi', 'form_evaluasi.id_group = group_bimbingan.id_group')
             ->where('dosen.id_akun', $id_akun);
         $query = $this->db->get();
 
