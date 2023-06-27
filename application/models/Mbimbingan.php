@@ -47,7 +47,6 @@ class Mbimbingan extends CI_Model
             $hasil = [];
         }
         return $hasil;
-        return $sql->row();
     }
     
     function tampiltahun()

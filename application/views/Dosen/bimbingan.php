@@ -1,3 +1,4 @@
+
 <style>
     table {
         width: 100%;
@@ -142,13 +143,14 @@
                               <input type="Number" id="IPS" placeholder="" name="IPS" value="<?php echo $data->IPS ?>" class="form-control mb-3" disabled>
                             </div>
                           </div>
+                          <?php print_r($user)?>
                           <label for="">Lainnya</label>
                           <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->lainnya ?>" class="form-control mb-3" disabled>
                           <label for="">Verifikasi</label>
                           <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->VerifMahasiswa ?>" class="form-control mb-3" disabled>
                           <label for="">Keaktifan</label>
-                          <textarea class="form-control" id="Keaktifan" name="Keaktifan" disabled><?php echo $data->keluhan ?></textarea>
-                          <input type="hidden" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
+                          <textarea class="form-control" id="keluhan" name="keluhan" disabled><?php echo $data->keluhan ?></textarea>
+                          <input type="text" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
