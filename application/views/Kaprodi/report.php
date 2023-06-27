@@ -35,7 +35,7 @@
                                     foreach ($hasil as $data) :
                                 ?>
                                     <tr>
-                                        
+
                                     </tr>
                                 <?php
                                     endforeach;

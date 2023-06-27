@@ -42,6 +42,24 @@ class Mbimbingan extends CI_Model
         return $hasil;
         return $sql->row();
     }
+    
+    function tampiltahun()
+    {
+        $id_akun = $this->session->userdata('id_akun');
+        $sql = $this->db->select('tahunajaran,semester')
+            ->from('group_bimbingan')
+            ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM ')
+            ->where('mahasiswa.id_akun', $id_akun)
+            ->get('');
+            if ($sql->num_rows() > 0) {
+                $hasil = $sql->result();
+            } else {
+                $hasil = [];
+            }
+    
+            return $hasil;
+    }
+
 
     public function getVerifikasi()
     {

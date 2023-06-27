@@ -1,12 +1,4 @@
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2 border-bottom">
-            <div class="col-sm-6">
-                <h1 class="m-0">Bimbingan</h1>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script lenguage="javascript">
     function prosessimpan() {
         var Beasiswa = document.getElementById("Beasiswa");
@@ -133,10 +125,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Lain - lain </label>
-                    <br>
-                    <input class="form-check-label" type="checkbox" name="Lainya" id="Beasiswa" value="Beasiswa">Beasiswa
-                    <input class="form-check-label" type="radio" name="Lainya" id="SuratPeringatan" value="SuratPeringatan">Surat Peringatan
-                    <br /> <br />
+                    <input type="text" class="form-control"  value="<?php echo isset($user->lainnya ) ? $user->lainnya  : null; ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Keaktifan Mahasiswa</label>
