@@ -57,7 +57,7 @@
             ?>
                     <tr>
                         <td><?= $data->tahunajaran ?></td>
-                        <td><?= $data->semester ?></td>
+                        <td><?= $data->semesterg ?></td>
                         <td><?= $data->Nama ?></td>
                         <td><?= $data->TglBimbingan  ?></td>
                         <td><a href="<?= base_url('Criwayat/pdf'.$data->id_evaluasi) ?>" class="btn btn-danger btn-sm"><i class="fa fa-book"></i>  PDF</a>

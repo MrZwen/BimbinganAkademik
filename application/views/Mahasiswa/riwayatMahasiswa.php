@@ -45,45 +45,45 @@
         </div>
         <div class="table-responsive">
             <div class="mb-3 mt-3">
-            <div class="card-body">
-                <table class="table table-striped ">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>T.A</th>
-                            <th>Semester</th>
-                            <th>Nama Pembimbing</th>
-                            <th>Tanggal dan Waktu</th>
-                            <th>File Evaluasi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                         if (empty($hasil)) {
-                            echo "<tr>";
-                            echo "<td colspan='6' class='text-center'>Data Kosong</td>";
-                            echo "</tr>";
-                        } else {
-                            $no = 1;
-                            foreach ($hasil as $data) :
-                        ?>
-                                <tr>
-                                    <td><?= $no; ?></td>
-                                    <td><?= $data->tahunajaran ?></td>
-                                    <td><?= $data->semester ?></td>
-                                    <td><?= $data->NamaDosen  ?></td>
-                                    <td><?= $data->TglBimbingan  ?></td>
-                                    <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
-                                    <td></td>
-                                </tr>
-                    </tbody>
-                </table>
-                <?php
-                    $no++;
-                    endforeach;
-                }    
-                ?>
-            </div>
+                <div class="card-body">
+                    <table class="table table-striped ">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>T.A</th>
+                                <th>Semester</th>
+                                <th>Nama Pembimbing</th>
+                                <th>Tanggal dan Waktu</th>
+                                <th>File Evaluasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (empty($hasil)) {
+                                echo "<tr>";
+                                echo "<td colspan='6' class='text-center'>Data Kosong</td>";
+                                echo "</tr>";
+                            } else {
+                                $no = 1;
+                                foreach ($hasil as $data) :
+                            ?>
+                                    <tr>
+                                        <td><?= $no; ?></td>
+                                        <td><?= $data->tahunajaran ?></td>
+                                        <td><?= $data->semesterg ?></td>
+                                        <td><?= $data->NamaDosen  ?></td>
+                                        <td><?= $data->TglBimbingan  ?></td>
+                                        <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
+                                        <td></td>
+                                    </tr>
+                            <?php
+                                    $no++;
+                                endforeach;
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

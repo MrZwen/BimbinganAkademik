@@ -6,7 +6,7 @@ class Mevaluasi extends CI_Model
         $id_group = 
         $data = $_POST;
         $this->db->update('form_evaluasi', $data);
-        $this->db->where ('id_group',$id_group)
+        $this->db->where ('id_group',$id_group);
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');
         redirect('cbimbingan/bimbingan', 'refresh');
     }
