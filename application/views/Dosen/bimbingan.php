@@ -128,7 +128,7 @@
                             <label for="message-text" class="col-form-label">Solusi:</label>
                             <textarea class="form-control" id="Solusi" name="Solusi"></textarea>
                           </div>
-                          <input type="text" name="id_evaluasi" value="<?= $data->id_evaluasi ?>" id="id_evaluasi" />
+                          <input type="hidden" name="id_evaluasi" value="<?= $data->id_evaluasi ?>" id="id_evaluasi" />
                           
                         </form>
                       </div>
