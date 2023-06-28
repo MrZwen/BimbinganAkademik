@@ -102,7 +102,7 @@
         <div class="modal-body">
             <form id="identitas" name="identitas" method="post" action="<?php echo base_url('Cdatadiri/updatedatadirid') ?>">
                 <label for="">NID</label>
-                <input id="NID" placeholder="Masukkan NID" name="NID" type="text" value="<?php echo $user->NID ?>" class="form-control mb-3">
+                <input id="NID" placeholder="Masukkan NID" name="NID" type="text" value="<?php echo $user->NID ?>" class="form-control mb-3" disabled>
                 <label for="">Nama Dosen</label>
                 <input id="Nama" placeholder="Masukkan Nama" name="Nama" type="text" value="<?php echo $user->NamaDosen ?>" class="form-control mb-3">
                 <div class="row">
