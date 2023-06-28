@@ -12,12 +12,12 @@ class Mevaluasi extends CI_Model
     }
 
     public function evaluasi($id_evaluasi) {
-        $sql = $this->db->select('group_bimbingan.* , dosen.*, mahasiswa.*, form_evaluasi.*, bimbingan.*')
+        $sql = $this->db->select('group_bimbingan.* , dosen.*, mahasiswa.*, form_evaluasi.*, nilai.*')
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
-            ->join('bimbingan', 'bimbingan.id_group = group_bimbingan.id_group')
-            ->join('form_evaluasi', 'form_evaluasi.idBimbingan = bimbingan.id_bimbingan')
+            ->join('nilai', 'nilai.id_nilai = group_bimbingan.id_nilai')
+            ->join('form_evaluasi', 'form_evaluasi.id_group = group_bimbingan.id_group')
             ->where('form_evaluasi.id_evaluasi', $id_evaluasi)
             ->get();
         return $sql->row_array();
