@@ -103,63 +103,8 @@
                       $('#bimbinganevaluasi').submit();
                     }
                 </script>
-
-                <button type="button" class="btn btn-primary btn-sm" onclick="" data-loading-text="Memuat..." data-toggle="modal" data-target="#Open"><i class="fa fa-edit"></i>Open</button>
+                <a href="<?php echo base_url('Cbimbingan/detailNilai/'.$data->id_group); ?>" class="btn btn-info btn-sm">Open</a>
                 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Reply" data-toggle="modal" data-target="#Open"><i class="fa fa-edit"></i>Reply</button>
-                <div class="modal fade" id="Open" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title text-bold" id="exampleModalLabel">Bimbingan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <form id="identitas" name="identitas" method="post" action="">
-                          <label for="">NIM</label>
-                          <input id="Nim" placeholder="" name="Nim" type="text" value="<?php echo $data->Nim ?>" class="form-control mb-3" disabled>
-                          <label for="">Nama Mahasiswa</label>
-                          <input id="Nama" placeholder="" name="Nama" type="text" value="<?php echo $data->Nama ?>" class="form-control mb-3" disabled>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <label for="">Handphone</label>
-                              <input id="NoHP" placeholder="" name="NoHP" type="number" value="<?php echo $data->NoHp ?>" class="form-control mb-3" disabled>
-                            </div>
-                            <div class="col-md-6">
-                              <label for="">Email</label>
-                              <input type="email" id="Email" placeholder="" name="Email" value="<?php echo $data->Email ?>" class="form-control mb-3" disabled>
-                            </div>
-                          </div>
-                          <label for="">Alamat</label>
-                          <input id="Alamat" placeholder="" name="Alamat" type="text" value="<?php echo $data->Alamat ?>" class="form-control mb-3" disabled>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <label for="">IPK</label>
-                              <input id="IPK" placeholder="" name="IPK" type="Number" value="<?php echo $data->IPK ?>" class="form-control mb-3" disabled>
-                            </div>
-                            <div class="col-md-6">
-                              <label for="">IPS</label>
-                              <input type="Number" id="IPS" placeholder="" name="IPS" value="<?php echo $data->IPS ?>" class="form-control mb-3" disabled>
-                            </div>
-                          </div>
-                          <?php print_r($user)?>
-                          <label for="">Lainnya</label>
-                          <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->lainnya ?>" class="form-control mb-3" disabled>
-                          <label for="">Verifikasi</label>
-                          <input id="Lainnya" placeholder="" name="Lainnya" type="Text" value="<?php echo $data->VerifMahasiswa ?>" class="form-control mb-3" disabled>
-                          <label for="">Keaktifan</label>
-                          <textarea class="form-control" id="keluhan" name="keluhan" disabled><?php echo $data->keluhan ?></textarea>
-                          <input type="text" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      </div>
-                      </form>
-
-                    </div>
-                  </div>
-                </div>
                 
                 <!-- REPLY -->
                 <div class="modal fade" id="Reply" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

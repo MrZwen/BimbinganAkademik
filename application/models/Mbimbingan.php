@@ -48,6 +48,20 @@ class Mbimbingan extends CI_Model
         }
         return $hasil;
     }
+
+    function tampilNilai($id_group)
+    {
+        $query = $this->db->select('form_evaluasi.*, mahasiswa.*, nilai.*,dosen.gambar')
+            ->from('group_bimbingan')
+            ->join('dosen', 'dosen.NID = group_bimbingan.NID')
+            ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
+            ->join('form_evaluasi', 'form_evaluasi.id_group = group_bimbingan.id_group')
+            ->join('nilai','nilai.id_nilai = group_bimbingan.id_nilai')
+            ->where('group_bimbingan.id_group', $id_group);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
     
     function tampiltahun()
     {
