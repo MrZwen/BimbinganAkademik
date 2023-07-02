@@ -18,7 +18,6 @@ class Cbimbingan extends CI_Controller
     function simpanbimbingan() 
     {
         $this->mbimbingan->simpanbimbingan(); 
-        $this->simpanbimbingan(); 
     }
 
     function bimbingan() {

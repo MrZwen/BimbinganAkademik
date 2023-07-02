@@ -114,6 +114,11 @@
                                 <input type="hidden" id="id_group" name="id_group" value="<?php echo $data->id_group ?>">
                                 <label for="">Keluhan Mahasiswa</label>
                                 <textarea name="keluhan" class="form-control" id="Keluhan" cols="30" rows="10"></textarea>
+                                <input type="hidden" id="VerifDosen" name="VerifDosen" value="Belum Verifikasi">
+                                <td>
+                                    <?php date_default_timezone_set("Asia/Ujung_Pandang"); ?>
+                                    <input type="hidden" name="TglBimbingan" id="TglBimbingan" value="<?php echo date("Y-m-d H:i:s"); ?>">
+                                </td>
                             </form>
                         </div>
                         <div class="modal-footer">

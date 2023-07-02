@@ -54,6 +54,7 @@
                                 <th>Semester</th>
                                 <th>Nama Pembimbing</th>
                                 <th>Tanggal dan Waktu</th>
+                                <th>Status</th>
                                 <th>File Evaluasi</th>
                             </tr>
                         </thead>
@@ -73,14 +74,25 @@
                                         <td><?= $data->semesterg ?></td>
                                         <td><?= $data->NamaDosen  ?></td>
                                         <td><?= $data->TglBimbingan  ?></td>
-                                        <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
-                                        <td></td>
+                                        <td>
+                                            <?php
+                                            if ($data->VerifMahasiswa == 'Terverifikasi' && $data->VerifDosen == 'Terverifikasi') {
+                                                echo "<a class='btn btn-success btn-sm'>Selesai</a>";
+                                            } elseif ($data->VerifMahasiswa == 'Terverifikasi') {
+                                                echo "<a class='btn btn-danger btn-sm'>Sedang Diproses</a>";
+                                            } else {
+                                                echo "<a class='btn btn-primary btn-sm'>Belum Mengajukan</a>";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a></td>
                                     </tr>
                             <?php
                                     $no++;
                                 endforeach;
                             }
                             ?>
+
                         </tbody>
                     </table>
                 </div>
