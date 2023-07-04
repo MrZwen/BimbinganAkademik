@@ -31,24 +31,24 @@
     }
   }
 </style>
-<script lenguage="javascript">
+<script language="javascript">
   function simpanevaluasi(id_evaluasi) {
-    var Uraian = $('#Uraian').val();
+    var Uraian = $('#Uraian' + id_evaluasi).val();
     if (Uraian == "") {
       alert("Uraian Masih Kosong");
-      $('#Uraian').focus();
+      $('#Uraian' + id_evaluasi).focus();
       return false;
     }
 
-    var Solusi = $('#Solusi').val();
+    var Solusi = $('#Solusi' + id_evaluasi).val();
     if (Solusi == "") {
       alert("Solusi masih kosong");
-      $('#Solusi').focus();
+      $('#Solusi' + id_evaluasi).focus();
       return false;
     }
     var VerifDosen = "Terverifikasi";
-    var form = document.getElementById('bimbinganevaluasi');
-    form.action = "simpanevaluasi/" + id_evaluasi, "#script";
+    var form = document.getElementById('bimbinganevaluasi' + id_evaluasi);
+    form.action = "simpanevaluasi/" + id_evaluasi;
     form.submit();
   }
 </script>
@@ -109,19 +109,17 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form id="bimbinganevaluasi" name="bimbinganevaluasi" method="post">
+                          <?php $id_evaluasi = $data->id_evaluasi ?>
+                          <form id="bimbinganevaluasi<?= $data->id_evaluasi ?>" name="bimbinganevaluasi" method="post">
                             <div class=" form-group">
                               <label for="message-text" class="col-form-label">Uraian:</label>
-                              <textarea class="form-control" id="Uraian" name="Uraian"></textarea>
+                              <textarea class="form-control" id="Uraian" <?= $data->id_evaluasi ?> name="Uraian"></textarea>
                             </div>
                             <div class="form-group">
                               <label for="message-text" class="col-form-label">Solusi:</label>
-                              <textarea class="form-control" id="Solusi" name="Solusi"></textarea>
+                              <textarea class="form-control" id="Solusi" <?= $data->id_evaluasi ?> name="Solusi"></textarea>
                             </div>
-                            <input type="hidden" name="id_evaluasi" value="<?= $data->id_evaluasi ?>" id="id_evaluasi" />
                             <input type="hidden" id="VerifDosen" name="VerifDosen" value="Terverifikasi">
-                            <?php $id_evaluasi = $data->id_evaluasi ?>
-
                           </form>
                         </div>
                         <div class="modal-footer">
