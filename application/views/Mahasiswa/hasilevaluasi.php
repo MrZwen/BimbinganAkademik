@@ -37,8 +37,7 @@ $pdf->setFillColor(255, 255, 127);
 
 
 
-$tittle ='
-
+$tittle = '
 <table width="100%" >
 <tr>
     <td rowspan="5" style="width:15%" align="right"><img src="gambar/logopoltek.png"></td>
@@ -63,28 +62,48 @@ $tittle ='
 <br>
 <table style>
 <tr>
-<th>Nama    : '. $User->Nama.' </th>
+<th>Nama    : ' . $User->Nama . '</th>
 <th>Nama Orang Tua : </th>
 </tr>
 <tr>
-<td>Nim : '. $User->Nim.'</td> 
-<td>Alamat Orang Tua : '. $User->AlamatOrtu.'</td>
+<td>Nim : ' . $User->Nim . '</td> 
+<td>Alamat Orang Tua : ' . $User->AlamatOrtu . '</td>
 </tr>
 <tr>
-<td>Alamat :'. $User->Alamat .'</td>
-<td>No.Hp Orang Tua : '. $User->TelpOrangTua .'</td>
+<td>Alamat :' . $User->Alamat . '</td>
+<td>No.Hp Orang Tua : ' . $User->TelpOrangTua . '</td>
 </tr>
 <tr>
-<td>NO.Hp : '. $User->NoHp .'</td>
-<td>Nama Pembimbing : '. $User->NamaDosen .'</td>
+<td>NO.Hp : ' . $User->NoHp . '</td>
+<td>Nama Pembimbing : ' . $User->NamaDosen . '</td>
 </tr>
 </table><br><hr>
 ';
 
+
+
 $pdf->writeHTMLCell(0, 0, '', '', $tittle, 0, 1, 0, true, 'L', true);
 
+$table = '<table style="border:1px solid #000; padding:6px;">';
+$table .= '
+<tr>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Kondisi</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Thn.Ajaran</th>
+  <th style="border:1px solid #000; padding:6px;">IPK</th>
+  <th style="border:1px solid #000; padding:6px;">IPS</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="1">Status</th>
+</tr>
 
-
+<tbody>
+<tr>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->NoHp . '</td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->NamaDosen . '</td>
+  <td style="border:1px solid #000; padding:6px;"></td>
+  <td style="border:1px solid #000; padding:6px;"></td>
+  <td style="border:1px solid #000; padding:6px;" colspan="1">' . $User->Nama . ' </td>
+</tr>
+</tbody>';
+$table .= '</table>';
 $pdf->writeHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'C', true);
 
 // move pointer to last page
