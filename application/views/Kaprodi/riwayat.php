@@ -35,7 +35,7 @@
                         ?>
                                 <tr>
                                     <td><?= $data->tahunajaran ?></td>
-                                    <td><?= $data->semester ?></td>
+                                    <td><?= $data->Semester ?></td>
                                     <td><?= $data->NamaDosen ?></td>
                                     <td><?= $data->Nama ?></td>
                                     <td><?= $data->TglBimbingan  ?></td>

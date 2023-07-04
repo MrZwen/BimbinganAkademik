@@ -24,7 +24,6 @@ class Mbimbingan extends CI_Model
             } else {
                 $user = [];
             }
-    
             return $user;
     }
 

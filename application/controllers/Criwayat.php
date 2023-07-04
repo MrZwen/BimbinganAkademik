@@ -37,7 +37,7 @@ class Criwayat extends CI_Controller
     function evaluasi($id_evaluasi)
     {
         $this->mevaluasi->evaluasi($id_evaluasi);
-        $datalist['user'] = $this->mevaluasi->evaluasi($id_evaluasi);
+        $datalist['User'] = $this->mevaluasi->evaluasi($id_evaluasi);
         $this->load->view('Mahasiswa/hasilevaluasi', $datalist);
     }
 }

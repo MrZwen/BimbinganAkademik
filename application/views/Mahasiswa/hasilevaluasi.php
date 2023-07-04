@@ -63,20 +63,20 @@ $tittle ='
 <br>
 <table style>
 <tr>
-<th>Nama    : '. $user->Nama .' </th>
+<th>Nama    : '. $User->Nama.' </th>
 <th>Nama Orang Tua : </th>
 </tr>
 <tr>
-<td>Nim : </td> 
-<td>Alamat Orang Tua :</td>
+<td>Nim : '. $User->Nim.'</td> 
+<td>Alamat Orang Tua : '. $User->AlamatOrtu.'</td>
 </tr>
 <tr>
-<td>Alamat :</td>
-<td>No.Hp Orang Tua :</td>
+<td>Alamat :'. $User->Alamat .'</td>
+<td>No.Hp Orang Tua : '. $User->TelpOrangTua .'</td>
 </tr>
 <tr>
-<td>NO.Hp :</td>
-<td>Alamat Pembimbing :</td>
+<td>NO.Hp : '. $User->NoHp .'</td>
+<td>Nama Pembimbing : '. $User->NamaDosen .'</td>
 </tr>
 </table><br><hr>
 ';
