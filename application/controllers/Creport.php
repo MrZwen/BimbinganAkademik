@@ -12,6 +12,12 @@ class Creport extends CI_Controller
         $data['konten'] = $this->load->view('Kaprodi/report', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
     }
+
+    function ReportD(){
+        $datalist['hasil'] = $this->mreport->tampilreportD();
+        $data['konten'] = $this->load->view('Dosen/report', $datalist, TRUE);
+        $this->load->view('Dosen/tampilanDosen', $data);
+    }
 }
 
 ?>

@@ -83,6 +83,14 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item ">
+              <a href="<?= base_url('Creport/ReportD'); ?>" class="nav-link text-white">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  Report Mahasiswa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item ">
               <a href="<?php echo base_url('Cutama/tampilanD') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-reugler fa-user"></i>
                 <p>
