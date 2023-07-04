@@ -33,7 +33,7 @@
     <div class="card-header">
         <h5 class="card-title"> <i class="fas fa-users"></i> Riwayat Bimbingan</h5>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <table class="table table-striped">
         <thead>
             <tr>

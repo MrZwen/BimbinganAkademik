@@ -31,7 +31,7 @@ class Mbimbingan extends CI_Model
     function tampilbimbingan()
     {
         $id_akun = $this->session->userdata('id_akun');
-        $sql = $this->db->select('form_evaluasi.*, mahasiswa.*, nilai.*,dosen.gambar')
+        $this->db->select('form_evaluasi.*, mahasiswa.*, nilai.*,dosen.gambar')
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
@@ -48,15 +48,15 @@ class Mbimbingan extends CI_Model
         return $hasil;
     }
 
-    function tampilNilai($id_group)
+    function tampilNilai($id_evaluasi)
     {
-        $query = $this->db->select('form_evaluasi.*, mahasiswa.*, nilai.*,dosen.gambar')
+        $query = $this->db->select('form_evaluasi.*, mahasiswa.*, nilai.*')
             ->from('group_bimbingan')
             ->join('dosen', 'dosen.NID = group_bimbingan.NID')
             ->join('mahasiswa', 'mahasiswa.Nim = group_bimbingan.NIM')
             ->join('form_evaluasi', 'form_evaluasi.id_group = group_bimbingan.id_group')
             ->join('nilai','nilai.id_nilai = group_bimbingan.id_nilai')
-            ->where('group_bimbingan.id_group', $id_group);
+            ->where('form_evaluasi.id_evaluasi', $id_evaluasi);
         $query = $this->db->get();
 
         return $query->row();

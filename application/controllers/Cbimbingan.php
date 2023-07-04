@@ -26,8 +26,8 @@ class Cbimbingan extends CI_Controller
         $this->load->view('Dosen/tampilanDosen', $data);
     }
 
-    function detailNilai($id_group) {
-        $datalist['user'] = $this->mbimbingan->tampilNilai($id_group);
+    function detailNilai($id_evaluasi) {
+        $datalist['user'] = $this->mbimbingan->tampilNilai($id_evaluasi);
         $data['konten'] = $this->load->view('Dosen/detailNilai', $datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
     }

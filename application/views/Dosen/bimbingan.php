@@ -67,7 +67,7 @@
     <div class="card-header">
       <h5 class="card-title">Daftar Data</h5>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -95,7 +95,7 @@
                 <td><?= $data->Email  ?></td>
                 <td>
                   <!-- Modal -->
-                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#Open<?= $data->id_group ?>"> Open</button>
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#Open<?= $data->id_evaluasi ?>"> Open</button>
                   <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#Reply<?= $data->id_evaluasi ?>">Reply</button>
 
                   <!-- REPLY -->
@@ -129,7 +129,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal fade" id="Open<?= $data->id_group ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="Open<?= $data->id_evaluasi  ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -139,47 +139,55 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form id="bimbinganevaluasi<?= $data->id_evaluasi ?>" name="bimbinganevaluasi" method="post">
-                          <div class="mb-3">
-                              <label action="" class="form-label">Nim</label>
-                              <input type="text" class="form-control" value="<?php echo $data->Nim ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Nama Mahasiswa</label>
-                              <input type="text" class="form-control" value="<?php echo $data->Nama ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Handphone</label>
-                              <input type="text" class="form-control" value="<?php echo $data->NoHp ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Email</label>
-                              <input type="text" class="form-control" value="<?php echo $data->Email ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Alamat</label>
-                              <input type="text" class="form-control" value="<?php echo $data->Alamat ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">IPK</label>
-                              <input type="text" class="form-control" value="<?php echo $data->IPK ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">IPS</label>
-                              <input type="text" class="form-control" value="<?php echo $data->IPS ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Lainnya</label>
-                              <input type="text" class="form-control" value="<?php echo $data->lainnya ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Verifikasi</label>
-                              <input type="text" class="form-control" value="<?php echo $data->VerifMahasiswa ?>" disabled>
-                          </div>
-                          <div class="mb-3">
-                              <label action="" class="form-label">Keluhan</label>
-                              <textarea type="text" class="form-control" disabled><?php echo $data->keluhan ?> </textarea>
-                          </div>
+                          <form id="bimbinganevaluasi<?= $data->id_evaluasi  ?>" name="bimbinganevaluasi" method="post">
+                            <table>
+                              <tr>
+                                <td>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Nim</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->Nim ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Nama Mahasiswa</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->Nama ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Handphone</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->NoHp ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Email</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->Email ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Alamat</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->Alamat ?>" disabled>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">IPK</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->IPK ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">IPS</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->IPS ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Lainnya</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->lainnya ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Verifikasi</label>
+                                    <input type="text" class="form-control" value="<?php echo $data->VerifMahasiswa ?>" disabled>
+                                  </div>
+                                  <div class="mb-3">
+                                    <label action="" class="form-label">Keluhan</label>
+                                    <textarea type="text" class="form-control" disabled><?php echo $data->keluhan ?> </textarea>
+                                  </div>
+                                </td>
+                              </tr>
+                            </table>
                           </form>
                         </div>
                         <div class="modal-footer">

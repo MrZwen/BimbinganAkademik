@@ -3,7 +3,11 @@ class Mevaluasi extends CI_Model
 {
     public function simpanevaluasi($id_evaluasi)
     {
-        $data = $_POST;
+        $data = array(
+            'Uraian' => $_POST['Uraian'],
+            'Solusi' => $_POST['Solusi'],
+            'VerifDosen' => $_POST['VerifDosen'] 
+        );
         $this->db->where('id_evaluasi',$id_evaluasi);
         $this->db->update('form_evaluasi', $data);
         $this->session->set_flashdata('pesan', 'Data sudah disimpan');

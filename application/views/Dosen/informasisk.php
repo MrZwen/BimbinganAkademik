@@ -26,13 +26,13 @@
     }
   }
 </style>
-  <div class="container table-responsive">
+  <div class="table-responsive">
     <div class="mb-3 mt-3">
       <div class="card">
         <div class="card-header card-primary card-outline">
           <h5 class="card-title"> <i class="fas fa-users"></i> Informasi SK</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
