@@ -85,7 +85,19 @@
                                             }
                                             ?>
                                         </td>
-                                        <td><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a></td>
+                                        <td>
+                                            <?php
+                                            if ($data->VerifMahasiswa == 'Terverifikasi' && $data->VerifDosen == 'Terverifikasi') {
+                                            ?><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
+                                            <?php
+                                            } elseif ($data->VerifMahasiswa == 'Terverifikasi') {
+                                                ?><a class="btn btn-danger btn-sm" disabled><i class="fa fa-book"></i> PDF</a>
+                                                 <?php
+                                            } else {
+                                                ?><a onclick="tampilevaluasi(<?php echo $data->id_evaluasi; ?>);" class="btn btn-danger btn-sm"><i class="fa fa-book"></i> PDF</a>
+                                                 <?php
+                                            }
+                                            ?>
                                     </tr>
                             <?php
                                     $no++;
