@@ -25,6 +25,12 @@
                     $('#semester').focus();
                     return false;
                 }
+                var NamaFile = $('#NamaFile').val();
+                if (NamaFile == "") {
+                    alert("Nama File masih kosong");
+                    $('#NamaFile').focus();
+                    return false;
+                }
                 var tahunajaran = $('#tahunajaran').val();
                 if (tahunajaran == "") {
                     alert("Tahun Ajaran masih kosong");
@@ -44,6 +50,7 @@
                     <div class="card-body">
                         <form id="simpansk" name="simpansk" method="post" action="<?php echo base_url('cskbimbingan/simpanskbimbingan'); ?>" enctype="multipart/form-data">
                             <div class="mb-3">
+                                <input type="hidden" class="form-control" name="Id_Sk" id="Id_Sk">
                                 <label for="semester">Semester</label>
                                 <input type="text" class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
                             </div>
@@ -52,7 +59,11 @@
                                 <input type="number" min="2000" max="2050" id="tahunajaran" class="form-control" name="tahunajaran" placeholder="Masukkan Tahun Ajaran...">
                             </div>
                             <div class="mb-3">
-                                <input type="file" name="file" id="FileSk">
+                                <label for="NamaFile">Nama File</label>
+                                <input type="text" class="form-control" name="NamaFile" id="NamaFile" placeholder="Masukkan Nama File...">
+                            </div>
+                            <div class="mb-3">
+                                <input type="file" name="file" id="file">
                                 <input type="hidden" name="KodeKaprodi" value="<?= $this->session->userdata('KodeKaprodi') ?>" id="KodeKaprodi">
                             </div>
                             <div class="d-flex justify-content-md-end">

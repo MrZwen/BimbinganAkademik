@@ -139,7 +139,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form id="bimbinganevaluasi<?= $data->id_evaluasi  ?>" name="bimbinganevaluasi" method="post">
+                          <form id="nilaibimbingan<?= $data->id_evaluasi  ?>" name="nilaibimbingan" method="post">
                             <table>
                               <tr>
                                 <td>

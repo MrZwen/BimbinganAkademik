@@ -17,13 +17,21 @@ class Cskbimbingan extends CI_Controller
 
     function simpanskbimbingan()
     {
+        $NamaFile = $this->input->post('NamaFile');
+        $uploadFile = $_FILES['file'];
+        $Nama = str_replace(' ', '', $NamaFile);
+        $extractFile = pathinfo($uploadFile['name']);
+        $ekst = $extractFile['extension'];
+        $newName = $Nama . "." . $ekst;
         $config['upload_path']   = 'document/'; // Lokasi penyimpanan foto (pastikan folder telah ada)
         $config['allowed_types'] = 'pdf|docx'; // Jenis file yang diizinkan
         $config['max_size']      = 5000; // Ukuran file maksimum dalam kilobita
+        $config['overwrite']     = true;
+        $config['file_name']     = $newName;
 
         $this->load->library('upload', $config);
 
-        if (@!$this->upload->do_upload('FileSk')) {
+        if (!$this->upload->do_upload('file')) {
             echo "<script> alert ('file yang anda unggah tidak valid');</script>";
             redirect('cskbimbingan/TampilSK', 'refresh');
         } else {

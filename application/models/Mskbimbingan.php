@@ -3,8 +3,14 @@ class mskbimbingan extends CI_Model
 {
     public function simpanskbimbingan($file_data)
     {
-        $data = $this->input->post();
+        $data = array(
+            'Id_Sk' => $this->input->post('Id_Sk'),
+            'semester' => $this->input->post('semester'),
+            'tahunajaran' => $this->input->post('tahunajaran'),
+            'KodeKaprodi' => $this->input->post('KodeKaprodi')
+        );
         $Id_Sk = $data["Id_Sk"];
+
 
         if ($Id_Sk == "") {
             // Insert data ke tabel 'skpembimbing'
