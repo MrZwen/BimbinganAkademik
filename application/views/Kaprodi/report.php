@@ -15,40 +15,61 @@
                         <h5 class="card-title">Report Mahasiswa</h5>
                     </div>
                     <div class="card-body text-center">
-                        <table  class="table table-bordered">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Tahun Bimbingan</th>
+                                    <th>Tanggal Bimbingan</th>
+                                    <th>Tahun Ajaran</th>
                                     <th>Semester</th>
                                     <th>Status Bimbingan</th>
+                                    <th>BImbingan ke-</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php 
+                                <?php
                                 if (empty($hasil)) {
                                     echo "<tr>";
-                                    echo "<td colspan='5' class='text-center'>Data Kosong</td>";
+                                    echo "<td colspan='6' class='text-center'>Data Kosong</td>";
                                     echo "</tr>";
                                 } else {
+                                    $prevIdGroup = "";
                                     $no = 1;
-                                    foreach ($hasil as $data) :
-                                ?>
-                                    <tr>
-                                        <td><?= $no ?></td>
-                                        <td><?= $data->Nama ?></td>
-                                        <td><?= $data->TglBimbingan ?></td>
-                                        <td><?= $data->semester ?></td>
-                                        <td><?php if($data->Solusi === "" && $data->Uraian === ""){
+                                    $count = 0; // Variabel untuk menghitung jumlah data dengan id_group yang sama
+
+                                    foreach ($hasil as $data) {
+                                        if ($data->Nama != $prevIdGroup) {
+
+
+                                            $count = 1;
+                                            $prevIdGroup = $data->Nama;
+                                        } else {
+                                            $count++;
+                                        }
+
+                                        echo "<tr>";
+                                        echo "<td>{$no}</td>";
+                                        echo "<td>{$data->Nama}</td>";
+                                        echo "<td>{$data->TglBimbingan}</td>";
+                                        echo "<td>{$data->tahunajaran}</td>";
+                                        echo "<td>{$data->semester}</td>";
+                                        echo "<td>";
+
+                                        if (!isset($data->Solusi) && !isset($data->Uraian)) {
                                             echo '<span class="badge badge-danger">Belum Bimbingan</span>';
+                                        } else if (!isset($data->Solusi) && !isset($data->Uraian) || $data->Solusi === "" && $data->Uraian === "") {
+                                            echo '<span class="badge badge-warning">Dalam Proses</span>';
                                         } else {
                                             echo '<span class="badge badge-success">Sudah Bimbingan</span>';
-                                        }?></td>
-                                    </tr>
-                                <?php
-                                    $no++;
-                                    endforeach;
+                                        }
+
+                                        echo "</td>";
+                                        echo "<td>{$count}</td>";
+                                        echo "</tr>";
+
+                                        $no++;
+                                    }
                                 }
                                 ?>
                             </tbody>
