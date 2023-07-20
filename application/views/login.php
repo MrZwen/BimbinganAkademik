@@ -57,14 +57,13 @@
                     timerProgressBar: true
                 }).fire({
                     icon: 'error',
-                    title: 'Error'
+                    title: 'Error Username Masih Kosong'
                 });
 
                 $('#username').focus();
                 return false;
             }
 
-            function proseslogin() {
             var password = $('#password').val();
             if (password == "") {
                 Swal.mixin({
@@ -79,7 +78,7 @@
                     timerProgressBar: true
                 }).fire({
                     icon: 'error',
-                    title: 'Error'
+                    title: 'Error Password Masih Kosong'
                 });
 
                 $('#password').focus();
@@ -89,7 +88,7 @@
             // Jika data username dan password valid, Anda bisa mengirimkan formulir secara manual
             $('#formlogin').unbind('submit').submit();
         }
-    }
+    
     </script>
 
     <!-- Include SweetAlert 2 library -->
