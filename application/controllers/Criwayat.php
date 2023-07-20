@@ -34,6 +34,13 @@ class Criwayat extends CI_Controller
         $this->load->view('Dosen/laporanpdf');
     }
 
+    function pdfK($id_evaluasi)
+    {
+        $this->mevaluasi->evaluasi($id_evaluasi);
+        $datalist['User'] = $this->mevaluasi->evaluasi($id_evaluasi);
+        $this->load->view('Dosen/laporanpdf', $datalist);
+    }
+
     function laporan($id_evaluasi)
     {
         $this->mevaluasi->evaluasi($id_evaluasi);

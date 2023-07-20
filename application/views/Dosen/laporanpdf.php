@@ -18,7 +18,7 @@ if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
     $pdf->setLanguageArray($l);
 }
 
-
+$pdf->setTitle('Laporan Pdf');
 // set font
 $pdf->setFont('times', '', 10);
 // add a page
