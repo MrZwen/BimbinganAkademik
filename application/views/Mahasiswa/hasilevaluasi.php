@@ -89,18 +89,22 @@ $table .= '
 <tr>
   <th style="border:1px solid #000; padding:6px;" colspan="2">Kondisi</th>
   <th style="border:1px solid #000; padding:6px;" colspan="2">Thn.Ajaran</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">Uraian</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">Solusi</th>
   <th style="border:1px solid #000; padding:6px;">IPK</th>
   <th style="border:1px solid #000; padding:6px;">IPS</th>
-  <th style="border:1px solid #000; padding:6px;" colspan="1">Status</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Status</th>
 </tr>
 
 <tbody>
 <tr>
-  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->NoHp . '</td>
-  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->NamaDosen . '</td>
-  <td style="border:1px solid #000; padding:6px;"></td>
-  <td style="border:1px solid #000; padding:6px;"></td>
-  <td style="border:1px solid #000; padding:6px;" colspan="1">' . $User->Nama . ' </td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->StatusMahasiswa . '</td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User-> tahunajaran. '</td>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">' . $User-> Uraian. '</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">' . $User-> Solusi. '</th>
+  <td style="border:1px solid #000; padding:6px;">' . $User-> IPK. '</td>
+  <td style="border:1px solid #000; padding:6px;">' . $User-> IPS. '</td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->VerifMahasiswa . ' </td>
 </tr>
 </tbody>';
 $table .= '</table>';

@@ -1,7 +1,7 @@
 <?php
 
 // Include the main TCPDF library (search for installation path).
-('TCPDF/tcpdf.php');
+include_once('TCPDF/tcpdf.php');
 
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -37,8 +37,7 @@ $pdf->setFillColor(255, 255, 127);
 
 
 
-$tittle ='
-
+$tittle = '
 <table width="100%" >
 <tr>
     <td rowspan="5" style="width:15%" align="right"><img src="gambar/logopoltek.png"></td>
@@ -61,30 +60,54 @@ $tittle ='
 
 <h2 style="text-weight:bold">Hasil Evaluasi Bimbingan</h2>
 <br>
-<table>
+<table style>
 <tr>
-<th>Nama    :  </th>
+<th>Nama    : ' . $User->Nama . '</th>
 <th>Nama Orang Tua : </th>
 </tr>
 <tr>
-<td>Nim : </td> 
-<td>Alamat Orang Tua :</td>
+<td>Nim : ' . $User->Nim . '</td> 
+<td>Alamat Orang Tua : ' . $User->AlamatOrtu . '</td>
 </tr>
 <tr>
-<td>Alamat :</td>
-<td>No.Hp Orang Tua :</td>
+<td>Alamat :' . $User->Alamat . '</td>
+<td>No.Hp Orang Tua : ' . $User->TelpOrangTua . '</td>
 </tr>
 <tr>
-<td>NO.Hp :</td>
-<td>Alamat Pembimbing :</td>
+<td>NO.Hp : ' . $User->NoHp . '</td>
+<td>Nama Pembimbing : ' . $User->NamaDosen . '</td>
 </tr>
 </table><br><hr>
 ';
 
+
+
 $pdf->writeHTMLCell(0, 0, '', '', $tittle, 0, 1, 0, true, 'L', true);
 
+$table = '<table style="border:1px solid #000; padding:6px;">';
+$table .= '
+<tr>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Kondisi</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Thn.Ajaran</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">Uraian</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">Solusi</th>
+  <th style="border:1px solid #000; padding:6px;">IPK</th>
+  <th style="border:1px solid #000; padding:6px;">IPS</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="2">Status</th>
+</tr>
 
-
+<tbody>
+<tr>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->StatusMahasiswa . '</td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User-> tahunajaran. '</td>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">' . $User-> Uraian. '</th>
+  <th style="border:1px solid #000; padding:6px;" colspan="3">' . $User-> Solusi. '</th>
+  <td style="border:1px solid #000; padding:6px;">' . $User-> IPK. '</td>
+  <td style="border:1px solid #000; padding:6px;">' . $User-> IPS. '</td>
+  <td style="border:1px solid #000; padding:6px;" colspan="2">' . $User->VerifMahasiswa . ' </td>
+</tr>
+</tbody>';
+$table .= '</table>';
 $pdf->writeHTMLCell(0, 0, '', '', $table, 0, 1, 0, true, 'C', true);
 
 // move pointer to last page
