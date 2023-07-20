@@ -77,11 +77,11 @@
                                         <td>
                                             <?php
                                             if ($data->VerifMahasiswa == 'Terverifikasi' && $data->VerifDosen == 'Terverifikasi') {
-                                                echo "<a class='btn btn-success btn-sm'>Selesai</a>";
+                                                echo '<span class="badge badge-success">Selesai</span>';
                                             } elseif ($data->VerifMahasiswa == 'Terverifikasi') {
-                                                echo "<a class='btn btn-danger btn-sm'>Sedang Diproses</a>";
+                                                echo '<span class="badge badge-danger">Sedang Diproses</span>';
                                             } else {
-                                                echo "<a class='btn btn-primary btn-sm'>Belum Mengajukan</a>";
+                                                echo '<span class="badge badge-primary">Belum Mengajukan</span>';
                                             }
                                             ?>
                                         </td>
