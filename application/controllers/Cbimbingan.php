@@ -10,6 +10,12 @@ class Cbimbingan extends CI_Controller
     }
 
     function formbimbingan() {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'mahasiswa') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
             $datalist['user'] = $this->mbimbingan->tampilformb();
             $data['konten'] = $this->load->view('Mahasiswa/formBimbingan', $datalist, TRUE);
             $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
@@ -21,12 +27,25 @@ class Cbimbingan extends CI_Controller
     }
 
     function bimbingan() {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
         $datalist['user']=$this->mbimbingan->tampilbimbingan();
         $data['konten'] = $this->load->view('Dosen/bimbingan',$datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
     }
 
     function detailNilai($id_evaluasi) {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+        
         $datalist['user'] = $this->mbimbingan->tampilNilai($id_evaluasi);
         $data['konten'] = $this->load->view('Dosen/detailNilai', $datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);

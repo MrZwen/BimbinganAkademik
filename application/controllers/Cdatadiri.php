@@ -13,6 +13,13 @@
     }  
     function updatedatadirid() 
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+        
         $this->mdatadiri->updatedatadirid(); 
         $this->updatedatadirid(); 
     }  

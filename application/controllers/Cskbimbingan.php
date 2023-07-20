@@ -9,6 +9,13 @@ class Cskbimbingan extends CI_Controller
 
     function TampilSK()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'kaprodi') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+        
         $data['konten'] = $this->load->view('Kaprodi/skbimbingan', '', TRUE);
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
         $data['table'] = $this->load->view('Kaprodi/tampilsk', $datalist, TRUE);
@@ -59,6 +66,13 @@ class Cskbimbingan extends CI_Controller
 
     function informasiskdosen()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
         $data['konten'] = $this->load->view('Dosen/informasisk', $datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
@@ -66,6 +80,12 @@ class Cskbimbingan extends CI_Controller
 
     function informasiskm()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'mahasiswa') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
         $data['konten'] = $this->load->view('Mahasiswa/informasiskm', $datalist, TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa', $data);

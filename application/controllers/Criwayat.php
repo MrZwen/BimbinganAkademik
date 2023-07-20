@@ -10,6 +10,13 @@ class Criwayat extends CI_Controller
     }
     function RiwayatK()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'kaprodi') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+
         $datalist['hasil'] = $this->mriwayat->riwayatK();
         $data['konten'] = $this->load->view('Kaprodi/riwayat', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
@@ -17,6 +24,13 @@ class Criwayat extends CI_Controller
 
     function riwayatD()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+
         $datalist['hasil'] = $this->mriwayat->riwayatD();
         $data['konten'] = $this->load->view('Dosen/riwayatDosen', $datalist, TRUE);
         $this->load->view('Dosen/tampilanDosen', $data);
@@ -24,6 +38,12 @@ class Criwayat extends CI_Controller
 
     function RiwayatM()
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'mahasiswa') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
         $datalist['hasil'] = $this->mriwayat->riwayatM();
         $data['konten'] = $this->load->view('Mahasiswa/riwayatMahasiswa', $datalist, TRUE);
         $this->load->view('Mahasiswa/tampilanMahasiswa', $data);
@@ -36,6 +56,12 @@ class Criwayat extends CI_Controller
 
     function pdfK($id_evaluasi)
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'kaprodi') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        } 
         $this->mevaluasi->evaluasi($id_evaluasi);
         $datalist['User'] = $this->mevaluasi->evaluasi($id_evaluasi);
         $this->load->view('Dosen/laporanpdf', $datalist);
@@ -43,12 +69,26 @@ class Criwayat extends CI_Controller
 
     function laporan($id_evaluasi)
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'dosen') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+
         $this->mevaluasi->evaluasi($id_evaluasi);
         $datalist['User'] = $this->mevaluasi->evaluasi($id_evaluasi);
         $this->load->view('Dosen/laporanpdf', $datalist);
     }
     function evaluasi($id_evaluasi)
     {
+        $role = $this->session->userdata('Role');
+        
+        if ($role != 'mahasiswa') {
+            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
+            redirect('clogin/formlogin', 'refresh');
+        }
+        
         $this->mevaluasi->evaluasi($id_evaluasi);
         $datalist['User'] = $this->mevaluasi->evaluasi($id_evaluasi);
         $this->load->view('Mahasiswa/hasilevaluasi', $datalist);

@@ -45,6 +45,7 @@ class mskbimbingan extends CI_Model
             echo "<script>$('#Id_Sk').val('" . $data->Id_Sk . "');</script>";
             echo "<script>$('#semester').val('" . $data->Semester . "');</script>";
             echo "<script>$('#tahunajaran').val('" . $data->tahunajaran . "');</script>";
+            echo "<script>$('#NamaFile').val('" . $data->File_Sk . "');</script>";
             echo "<script>$('#FileSk').val('" . base_url('document/' . $data->File_Sk) . "');</script>";
         }
     }
