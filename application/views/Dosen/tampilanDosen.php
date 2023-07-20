@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="<?= base_url('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
+  <!-- icon -->
+  <link rel="icon" href="<?php echo base_url("gambar/logopoltek.png") ?>" type="image/ico">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
