@@ -75,8 +75,7 @@
             <th>Nama</th>
             <th>Nim</th>
             <th>Email</th>
-            <th>Aksi</th>
-            
+            <th>Aksi</th>            
           </tr>
         </thead>
         <tbody>
