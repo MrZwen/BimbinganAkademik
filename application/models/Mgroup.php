@@ -1,19 +1,36 @@
 <?php  
 class Mgroup extends CI_Model{
     public function tampilGroup()
-    {
-        $query = $this->db->select('*')
-				->from('group_bimbingan')
-				->join('dosen', 'dosen.nid = group_bimbingan.nid')
-                ->join('mahasiswa', 'mahasiswa.nim = group_bimbingan.nim')
-				->get();
-        if($query->num_rows() > 0){
-            $hasil = $query->result();
-        }else{
-            $hasil = [];
-        }
-        return $hasil;
+{
+    // Query untuk mengambil data dari tabel 'group_bimbingan'
+    $query1 = $this->db->select('mahasiswa.*, dosen.*, group_bimbingan.*')
+        ->from('group_bimbingan')
+        ->join('dosen', 'dosen.nid = group_bimbingan.nid')
+        ->join('mahasiswa', 'mahasiswa.nim = group_bimbingan.nim')
+        ->get();
+
+    if ($query1->num_rows() > 0) {
+        $hasil = $query1->result();
+    } else {
+        $hasil = [];
     }
+    return $hasil;
+}
+
+function tampiltahun (){
+    $query = $this->db->select('*')
+    ->from('tahunAjaran')
+    ->get();
+
+
+
+if ($query->num_rows() > 0) {
+    $hasil1 = $query->result();
+} else {
+    $hasil1 = [];
+}
+return $hasil1;
+}
 
     function tambahmahasiswa()
     {
@@ -48,4 +65,3 @@ class Mgroup extends CI_Model{
         redirect('cgroup/GroupBimbingan', 'refresh');
     }
 }
-?>

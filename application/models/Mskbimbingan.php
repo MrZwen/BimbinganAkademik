@@ -49,6 +49,21 @@ class mskbimbingan extends CI_Model
             echo "<script>$('#FileSk').val('" . base_url('document/' . $data->File_Sk) . "');</script>";
         }
     }
+    
+    function tampiltahun (){
+        $query = $this->db->select('*')
+        ->from('tahunAjaran')
+        ->get();
+    
+    
+    
+    if ($query->num_rows() > 0) {
+        $hasil1 = $query->result();
+    } else {
+        $hasil1 = [];
+    }
+    return $hasil1;
+    }
 
     function hapusdata($Id_Sk)
     {

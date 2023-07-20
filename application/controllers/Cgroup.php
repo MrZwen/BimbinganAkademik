@@ -16,6 +16,7 @@ class Cgroup extends CI_Controller
         }
 
         $datalist['hasil'] = $this->mgroup->tampilGroup();
+        $datalist['hasil1'] = $this->mgroup->tampiltahun();
         $data['konten'] = $this->load->view('Kaprodi/group', $datalist, TRUE);
         $this->load->view('kaprodi/tampilanKaprodi', $data);
     }

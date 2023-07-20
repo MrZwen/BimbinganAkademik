@@ -20,6 +20,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>NIM</th>
                                     <th>Tanggal Bimbingan</th>
                                     <th>Tahun Ajaran</th>
                                     <th>Semester</th>
@@ -51,6 +52,7 @@
                                         echo "<tr>";
                                         echo "<td>{$no}</td>";
                                         echo "<td>{$data->Nama}</td>";
+                                        echo "<td>{$data->Nim}</td>";
                                         echo "<td>{$data->TglBimbingan}</td>";
                                         echo "<td>{$data->tahunajaran}</td>";
                                         echo "<td>{$data->semester}</td>";
@@ -72,7 +74,6 @@
                                     }
                                 }
                                 ?>
-
                             </tbody>
                         </table>
                     </div>

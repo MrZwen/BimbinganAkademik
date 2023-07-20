@@ -10,7 +10,7 @@
 
 
 <script>
-function hapusdata(id_group) {
+    function hapusdata(id_group) {
         if (confirm("Apakah anda yakin menghapus data ini?")) {
             window.open("<?php echo base_url() ?>cgroup/hapusdata/" + id_group, "_self");
         }
@@ -85,7 +85,15 @@ function hapusdata(id_group) {
                             </div>
                             <div class="mb-3">
                                 <label for="tahunajaran">Tahun Ajaran</label>
-                                <input type="number" min="2000" max="2050" id="tahunajaran" class="form-control" name="tahunajaran" placeholder="Masukkan Tahun Ajaran...">
+                                <br>
+                                <select name="tahunajaran" id="tahunajaran" class="form-control" >
+                                <option value="">pilih tahun ajaran</option>
+                                    <?php
+                                    foreach ($hasil1 as $data) {
+                                        echo '<option value="' . $data->tahunajaran . '">' . $data->tahunajaran . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="d-flex justify-content-md-end">
                                 <button type="reset" class="btn btn-danger mx-2">Cancel</button>
@@ -137,12 +145,12 @@ function hapusdata(id_group) {
                                                 <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>"><i class="fas fa-info"></i></button>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-danger btn-sm tampil-group"  onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm tampil-group" onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>">
-                                            <td  colspan="2" class="text-center">Nama Mahasiswa</td>
-                                            <td  colspan="5" class="">
+                                            <td colspan="2" class="text-center">Nama Mahasiswa</td>
+                                            <td colspan="5" class="">
                                                 <ul class="group-mahasiswa-list">
                                                     <?php
                                                     // Menampilkan nama mahasiswa dengan dosen yang sama

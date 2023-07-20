@@ -56,7 +56,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="tahunajaran">Tahun Ajaran</label>
-                                <input type="number" min="2000" max="2050" id="tahunajaran" class="form-control" name="tahunajaran" placeholder="Masukkan Tahun Ajaran...">
+                                <br>
+                                <select name="tahunajaran" id="tahunajaran" class="form-control" >
+                                <option value="">pilih tahun ajaran</option>
+                                    <?php
+                                    foreach ($hasil1 as $data) {
+                                        echo '<option value="' . $data->tahunajaran . '">' . $data->tahunajaran . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="NamaFile">Nama File</label>

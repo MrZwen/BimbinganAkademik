@@ -15,8 +15,8 @@ class Cskbimbingan extends CI_Controller
             echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
             redirect('clogin/formlogin', 'refresh');
         }
-        
-        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', '', TRUE);
+        $datalist1['hasil1'] = $this->Mskbimbingan->tampiltahun();
+        $data['konten'] = $this->load->view('Kaprodi/skbimbingan', $datalist1, TRUE);
         $datalist['hasil'] = $this->Mskbimbingan->tampilskbimbingan();
         $data['table'] = $this->load->view('Kaprodi/tampilsk', $datalist, TRUE);
         $this->load->view('Kaprodi/tampilanKaprodi', $data);
@@ -38,7 +38,7 @@ class Cskbimbingan extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('file')) {
+        if (@!$this->upload->do_upload('file')) {
             echo "<script> alert ('file yang anda unggah tidak valid');</script>";
             redirect('cskbimbingan/TampilSK', 'refresh');
         } else {
