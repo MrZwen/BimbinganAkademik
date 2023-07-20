@@ -9,8 +9,8 @@ class Mreport extends CI_Model
             ->join('dosen', 'dosen.NID = group_bimbingan.NID', 'left')
             ->join('form_evaluasi', 'group_bimbingan.id_group = form_evaluasi.id_group', 'left')
             ->order_by('mahasiswa.Nama', 'ASC')
-            ->order_by('form_evaluasi.TglBimbingan', 'ASC')
             ->order_by('group_bimbingan.tahunajaran', 'ASC')
+            ->order_by('form_evaluasi.TglBimbingan', 'ASC')
             ->get();
 
         if ($query->num_rows() > 0) {

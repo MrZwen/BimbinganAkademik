@@ -10,6 +10,11 @@
 
 
 <script>
+function hapusdata(id_group) {
+        if (confirm("Apakah anda yakin menghapus data ini?")) {
+            window.open("<?php echo base_url() ?>cgroup/hapusdata/" + id_group, "_self");
+        }
+    }
     // Memperbarui tampilan daftar nama mahasiswa saat tombol "Tampil Group" ditekan
     document.addEventListener("DOMContentLoaded", function() {
         const tampilGroupButtons = document.querySelectorAll(".tampil-group");
@@ -25,7 +30,7 @@
 
 <script lenguage="javascript">
     function prosessimpan() {
-       
+
         var NID = $('#NID').val();
         if (NID == "") {
             alert("NID masih kosong");
@@ -105,7 +110,7 @@
                                     <th>Nama Dosen</th>
                                     <th>Semester</th>
                                     <th>Tahun Ajaran</th>
-                                    <th colspan="2">Aksi</th>
+                                    <th colspan="3">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,25 +131,27 @@
                                             <td><?= $data->semester ?></td>
                                             <td><?= $data->tahunajaran ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-sm" onclick="" data-loading-text="Memuat..." data-toggle="modal" data-target="#tambahmahasiswa"><i class="fa fa-plus"></i></button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahmahasiswa<?= $data->id_group ?>"><i class="fa fa-plus"></i></button>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>"><i class="fas fa-info"></i></button>
                                             </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm tampil-group"  onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
+                                            </td>
                                         </tr>
                                         <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>">
-                                            <td></td>
-                                            <td colspan="" class="text-center">Nama Mahasiswa</td>
-                                            <td colspan="4" class="">
+                                            <td  colspan="2" class="text-center">Nama Mahasiswa</td>
+                                            <td  colspan="5" class="">
                                                 <ul class="group-mahasiswa-list">
                                                     <?php
                                                     // Menampilkan nama mahasiswa dengan dosen yang sama
                                                     foreach ($hasil as $data_mahasiswa) {
                                                         if ($data_mahasiswa->NamaDosen == $data->NamaDosen) {
                                                     ?>
-                                                           
+
                                                             <li><?= $data_mahasiswa->Nama ?></li>
-                                                            
+
                                                     <?php
                                                         }
                                                     }
@@ -152,6 +159,31 @@
                                                 </ul>
                                             </td>
                                         </tr>
+                                        <div class="modal fade" id="tambahmahasiswa<?= $data->id_group ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title " id="exampleModalLabel">Tambah Mahasiswa</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="mahasiswa" name="mahasiswa" method="post" action="<?php echo base_url('Cgroup/tambahmahasiswa') ?>">
+                                                            <input type="hidden" value="<?= $data->semester ?>" name="semester" id="semester">
+                                                            <input type="hidden" value="<?= $data->tahunajaran ?>" name="tahunajaran" id="tahunajaran">
+                                                            <input type="hidden" value="<?= $data->NID ?>" name="NID" id="NID">
+                                                            <label for="NIM">Nim Mahasiswa </label>
+                                                            <input id="Nim" placeholder="" name="Nim" type="Text" value="" class="form-control mb-3">
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a type="button" class="btn btn-success" onclick="prosestambah()">Tambah</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <?php
                                         $prevNamaDosen = $data->NamaDosen; // Update nilai penanda nama dosen sebelumnya
                                         $no++;
@@ -176,29 +208,5 @@
                 $('#mahasiswa').submit();
             }
         </script>
-        <div class="modal fade" id="tambahmahasiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title " id="exampleModalLabel">Tambah Mahasiswa</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="mahasiswa" name="mahasiswa" method="post" action="<?php echo base_url('Cgroup/tambahmahasiswa') ?>">
-                            <input type="hidden" value="<?= $data->semester ?>" name="semester" id="semester">
-                            <input type="hidden" value="<?= $data->tahunajaran ?>" name="tahunajaran" id="tahunajaran">
-                            <input type="hidden" value="<?= $data->NID ?>" name="NID" id="NID">
-                            <label for="NIM">Nim Mahasiswa </label>
-                            <input id="Nim" placeholder="" name="Nim" type="Text" value="" class="form-control mb-3">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-success" onclick="prosestambah()">Tambah</a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>

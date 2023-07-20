@@ -14,7 +14,7 @@ class Cgroup extends CI_Controller
             echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
             redirect('clogin/formlogin', 'refresh');
         }
-        
+
         $datalist['hasil'] = $this->mgroup->tampilGroup();
         $data['konten'] = $this->load->view('Kaprodi/group', $datalist, TRUE);
         $this->load->view('kaprodi/tampilanKaprodi', $data);
@@ -37,6 +37,11 @@ class Cgroup extends CI_Controller
         $datalist['hasil'] = $this->mgroup->tampilGroupD();
         $data['konten'] = $this->load->view('Dosen/groupbimbingan', $datalist, TRUE);
         $this->load->view('dosen/tampilandosen', $data);
+    }
+
+    function hapusdata($id_group)
+    {
+        $this->mgroup->hapusdata($id_group);
     }
 }
 ?>

@@ -11,12 +11,6 @@ class Mbimbingan extends CI_Model
 
     function tampilformb()
     {
-        $role = $this->session->userdata('Role');
-        
-        if ($role != 'mahasiswa') {
-            echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
-            redirect('clogin/formlogin', 'refresh');
-        }
         $id_akun = $this->session->userdata('id_akun');
         $sql = $this->db->select('group_bimbingan.* , dosen.NamaDosen, mahasiswa.*, nilai.*')
             ->from('group_bimbingan')

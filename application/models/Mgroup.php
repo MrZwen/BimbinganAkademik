@@ -39,5 +39,13 @@ class Mgroup extends CI_Model{
         }
         return $hasil;
     }
+
+    function hapusdata($id_group)
+    {
+        $this->db->where('id_group', $id_group);
+        $this->db->delete('group_bimbingan');
+        $this->session->set_flashdata('pesan', 'Data sudah dihapus');
+        redirect('cgroup/GroupBimbingan', 'refresh');
+    }
 }
 ?>
