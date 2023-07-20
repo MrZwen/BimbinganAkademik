@@ -147,6 +147,8 @@
                             <input id="Alamat" placeholder="Masukkan Alamat" name="Alamat" type="text" value="<?php echo $user->Alamat ?>" class="form-control mb-3">
                             <label for="">Nama Orang Tua</label>
                             <input id="NamaOrangTua" placeholder="Masukkan Nama Orang Tua" name="NamaOrangTua" type="text" value="<?php echo $user->NamaOrangTua ?>" class="form-control mb-3">
+                            <label for="">Alamat Orang Tua</label>
+                            <input id="AlamatOrtu" placeholder="Masukkan Alamat" name="AlamatOrtu" type="text" value="<?php echo $user->AlamatOrtu ?>" class="form-control mb-3">
                             <label for="">Telp Orang Tua</label>
                             <input type="number" id="TelpOrangTua" placeholder="Masukkan Telephone Orang Tua" name="TelpOrangTua" value="<?php echo $user->TelpOrangTua ?>" class="form-control">
                             <input type="hidden" name="id_akun" value="<?= $this->session->userdata('id_akun') ?>" id="id_akun" />
@@ -192,28 +194,32 @@
                             <td width="30%"><?php echo $user->Alamat ?></td>
                         </tr>
                         <tr>
-                            <td>Nama Mahasiswa</td>
-                            <td>:</td>
-                            <td><?php echo $user->Nama ?></td>
-                            <td></td>
-                            <td>E-mail</td>
-                            <td>:</td>
-                            <td><?php echo $user->Email ?></td>
+                            <td width="15%">Nama Mahasiswa</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->Nama ?></td>
+                            <td width="3%"></td>
+                            <td width="15%">E-mail</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->Email ?></td>
                         </tr>
                         <tr>
-                            <td>Handphone</td>
-                            <td>:</td>
-                            <td><?php echo $user->NoHp ?></td>
-                            <td></td>
-                            <td>Telepon Orangtua</td>
-                            <td>:</td>
-                            <td><?php echo $user->TelpOrangTua ?></td>
+                            <td width="15%">Handphone</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->NoHp ?></td>
+                            <td width="3%"></td>
+                            <td width="15%">Telepon Orangtua</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->TelpOrangTua ?></td>
 
                         </tr>
                         <tr>
-                            <td>Nama Orangtua</td>
-                            <td>:</td>
-                            <td><?php echo $user->NamaOrangTua ?></td>
+                            <td width="15%">Nama Orangtua</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->NamaOrangTua ?></td>
+                            <td width="3%" ></td>
+                            <td width="15%">Alamat Orangtua</td>
+                            <td width="2%">:</td>
+                            <td width="30%"><?php echo $user->AlamatOrtu ?></td>
                         </tr>
                     </tbody>
                 </table>

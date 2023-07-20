@@ -63,7 +63,7 @@ $tittle = '
 <table style>
 <tr>
 <th>Nama    : ' . $User->Nama . '</th>
-<th>Nama Orang Tua : </th>
+<th>Nama Orang Tua : '. $User->NamaOrangTua . '</th>
 </tr>
 <tr>
 <td>Nim : ' . $User->Nim . '</td> 
