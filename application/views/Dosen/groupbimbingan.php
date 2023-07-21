@@ -11,15 +11,17 @@
 <script>
   // Memperbarui tampilan daftar nama mahasiswa saat tombol "Tampil Group" ditekan
   document.addEventListener("DOMContentLoaded", function() {
-    const tampilGroupButtons = document.querySelectorAll(".tampil-group");
-    tampilGroupButtons.forEach(function(button) {
-      button.addEventListener("click", function() {
-        const namaDosen = button.dataset.namaDosen;
-        const groupMahasiswaRow = document.querySelector('.group-mahasiswa-row[data-nama-dosen="' + namaDosen + '"]');
-        groupMahasiswaRow.classList.toggle("show");
-      });
-    });
-  });
+        const tampilGroupButtons = document.querySelectorAll(".tampil-group");
+        tampilGroupButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const namaDosen = button.dataset.namaDosen;
+                const semester = button.dataset.semester;
+                const tahunajaran = button.dataset.tahunajaran;
+                const groupMahasiswaRow = document.querySelector('.group-mahasiswa-row[data-nama-dosen="' + namaDosen + '"][data-semester="' + semester + '"][data-tahunajaran="' + tahunajaran + '"]');
+                groupMahasiswaRow.classList.toggle("show");
+            });
+        });
+    }); 
 </script>
 
 <div class="row">
@@ -48,21 +50,32 @@
             } else {
               $no = 1;
               $prevNamaDosen = ""; // Variabel penanda nama dosen sebelumnya
+              $prevSemester = "";
+              $prevTahunAjaran = "";
               foreach ($hasil as $data) {
-                if ($data->NamaDosen == $prevNamaDosen) {
+                if ($data->NamaDosen == $prevNamaDosen && $data->semester == $prevSemester && $data->tahunajaran == $prevTahunAjaran) {
                   continue; // Lewati baris jika nama dosen sama dengan nama sebelumnya
                 }
-            ?>
+                ?>
                 <tr class="text-center">
-                  <td><?= $no; ?></td>
-                  <td><?= $data->NamaDosen ?></td>
-                  <td><?= $data->semester ?></td>
-                  <td><?= $data->tahunajaran ?></td>
                   <td>
-                    <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>"><i class="fas fa-info"></i></button>
+                    <?= $no; ?>
+                  </td>
+                  <td>
+                    <?= $data->NamaDosen ?>
+                  </td>
+                  <td>
+                    <?= $data->semester ?>
+                  </td>
+                  <td>
+                    <?= $data->tahunajaran ?>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-success btn-sm tampil-group"
+                    data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>"><i class="fas fa-info"></i></button>
                   </td>
                 </tr>
-                <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>">
+                <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>">
                   <td></td>
                   <td colspan="" class="text-center">Nama Mahasiswa</td>
                   <td colspan="4" class="">
@@ -70,18 +83,23 @@
                       <?php
                       // Menampilkan nama mahasiswa dengan dosen yang sama
                       foreach ($hasil as $data_mahasiswa) {
-                        if ($data_mahasiswa->NamaDosen == $data->NamaDosen) {
-                      ?>
+                        if ($data_mahasiswa->NamaDosen == $data->NamaDosen && $data_mahasiswa->semester == $data->semester && $data_mahasiswa->tahunajaran == $data->tahunajaran) {
+                    ?>
 
-                          <li><?= $data_mahasiswa->Nama ?></li>
-                      <?php
+
+                          <li>
+                            <?= $data_mahasiswa->Nama ?>
+                          </li>
+                          <?php
                         }
                       }
                       ?>
                     </ul>
                   </td>
                 </tr>
-            <?php
+                <?php
+                $prevSemester = $data->semester;
+                $prevTahunAjaran = $data->tahunajaran;
                 $prevNamaDosen = $data->NamaDosen; // Update nilai penanda nama dosen sebelumnya
                 $no++;
               }
