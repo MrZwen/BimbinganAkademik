@@ -21,7 +21,9 @@
         tampilGroupButtons.forEach(function(button) {
             button.addEventListener("click", function() {
                 const namaDosen = button.dataset.namaDosen;
-                const groupMahasiswaRow = document.querySelector('.group-mahasiswa-row[data-nama-dosen="' + namaDosen + '"]');
+                const semester = button.dataset.semester;
+                const tahunajaran = button.dataset.tahunajaran;
+                const groupMahasiswaRow = document.querySelector('.group-mahasiswa-row[data-nama-dosen="' + namaDosen + '"][data-semester="' + semester + '"][data-tahunajaran="' + tahunajaran + '"]');
                 groupMahasiswaRow.classList.toggle("show");
             });
         });
@@ -79,6 +81,7 @@
                                 <label for="NIM">Nim Mahasiswa</label>
                                 <input type="text" id="NIM" class="form-control" name="NIM" placeholder="Masukkan NIM Mahasiswa...">
                             </div>
+                            <input type="hidden" name="id_nilai" id="id_nilai" value="0">
                             <div class="mb-3">
                                 <label for="semester">Semester</label>
                                 <input type="text" class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
@@ -86,8 +89,8 @@
                             <div class="mb-3">
                                 <label for="tahunajaran">Tahun Ajaran</label>
                                 <br>
-                                <select name="tahunajaran" id="tahunajaran" class="form-control" >
-                                <option value="">pilih tahun ajaran</option>
+                                <select name="tahunajaran" id="tahunajaran" class="form-control">
+                                    <option value="">pilih tahun ajaran</option>
                                     <?php
                                     foreach ($hasil1 as $data) {
                                         echo '<option value="' . $data->tahunajaran . '">' . $data->tahunajaran . '</option>';
@@ -128,8 +131,10 @@
                                 } else {
                                     $no = 1;
                                     $prevNamaDosen = ""; // Variabel penanda nama dosen sebelumnya
+                                    $prevSemester = "";
+                                    $prevTahunAjaran = "";
                                     foreach ($hasil as $data) {
-                                        if ($data->NamaDosen == $prevNamaDosen) {
+                                        if ($data->NamaDosen == $prevNamaDosen && $data->semester == $prevSemester && $data->tahunajaran == $prevTahunAjaran) {
                                             continue; // Lewati baris jika nama dosen sama dengan nama sebelumnya
                                         }
                                 ?>
@@ -142,20 +147,20 @@
                                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahmahasiswa<?= $data->id_group ?>"><i class="fa fa-plus"></i></button>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>"><i class="fas fa-info"></i></button>
+                                                <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>"><i class="fas fa-info"></i></button>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-danger btn-sm tampil-group" onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
+                                                <button type="button" class="btn btn-danger btn-sm " onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
-                                        <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>">
+                                        <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>">
                                             <td colspan="2" class="text-center">Nama Mahasiswa</td>
                                             <td colspan="5" class="">
                                                 <ul class="group-mahasiswa-list">
                                                     <?php
                                                     // Menampilkan nama mahasiswa dengan dosen yang sama
                                                     foreach ($hasil as $data_mahasiswa) {
-                                                        if ($data_mahasiswa->NamaDosen == $data->NamaDosen) {
+                                                        if ($data_mahasiswa->NamaDosen == $data->NamaDosen && $data_mahasiswa->semester == $data->semester && $data_mahasiswa->tahunajaran == $data->tahunajaran) {
                                                     ?>
 
                                                             <li><?= $data_mahasiswa->Nama ?></li>
@@ -181,6 +186,7 @@
                                                             <input type="hidden" value="<?= $data->semester ?>" name="semester" id="semester">
                                                             <input type="hidden" value="<?= $data->tahunajaran ?>" name="tahunajaran" id="tahunajaran">
                                                             <input type="hidden" value="<?= $data->NID ?>" name="NID" id="NID">
+                                                            <input type="hidden" name="id_nilai" id="id_nilai" value="0">
                                                             <label for="NIM">Nim Mahasiswa </label>
                                                             <input id="Nim" placeholder="" name="Nim" type="Text" value="" class="form-control mb-3">
                                                         </form>
@@ -193,6 +199,8 @@
                                             </div>
                                         </div>
                                 <?php
+                                        $prevSemester = $data->semester;
+                                        $prevTahunAjaran = $data->tahunajaran;
                                         $prevNamaDosen = $data->NamaDosen; // Update nilai penanda nama dosen sebelumnya
                                         $no++;
                                     }

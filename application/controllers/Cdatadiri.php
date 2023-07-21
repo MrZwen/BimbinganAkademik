@@ -19,7 +19,7 @@
             echo "<script>alert ('Anda tidak dapat mengakses halaman ini');</script>";
             redirect('clogin/formlogin', 'refresh');
         }
-        
+
         $this->mdatadiri->updatedatadirid(); 
         $this->updatedatadirid(); 
     }  
@@ -28,6 +28,7 @@
         $config['upload_path']   = 'gambar/'; // Lokasi penyimpanan foto (pastikan folder telah ada)
         $config['allowed_types'] = 'jpg|jpeg|png'; // Jenis file yang diizinkan
         $config['max_size']      = 2048; // Ukuran file maksimum dalam kilobita
+        $config['overwrite']     = true;
 
         $this->load->library('upload', $config);
 
@@ -50,6 +51,7 @@
         $config['upload_path']   = 'gambar/'; // Lokasi penyimpanan foto (pastikan folder telah ada)
         $config['allowed_types'] = 'jpg|jpeg|png'; // Jenis file yang diizinkan
         $config['max_size']      = 2048; // Ukuran file maksimum dalam kilobita
+        $config['overwrite']     = true;
 
         $this->load->library('upload', $config);
 
