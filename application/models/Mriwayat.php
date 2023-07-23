@@ -21,7 +21,10 @@ class Mriwayat extends CI_Model
     {
         $id_akun = $this->session->userdata('id_akun');
         $this->db->where('id_akund', $id_akun);
-        $query = $this->db->get('riwayat');
+        $query = $this->db->where('VerifDosen','Terverifikasi')
+        ->where('id_akund', $id_akun)
+        ->order_by('TglBimbingan', 'DESC')
+        ->get('riwayat');
 
         if ($query->num_rows() > 0) {
             $hasil = $query->result();
@@ -34,7 +37,9 @@ class Mriwayat extends CI_Model
 
     public function riwayatK()
     {
-        $query = $this->db->get('riwayat');
+        $query = $this->db->where('VerifDosen','Terverifikasi')
+        ->order_by('TglBimbingan', 'DESC')
+        ->get('riwayat');
 
         if ($query->num_rows() > 0) {
             $hasil = $query->result();

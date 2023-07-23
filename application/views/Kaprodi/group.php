@@ -84,13 +84,17 @@
                             <input type="hidden" name="id_nilai" id="id_nilai" value="0">
                             <div class="mb-3">
                                 <label for="semester">Semester</label>
-                                <input type="text" class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
+                                <select class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
+                                <option value="">Pilih Semester </option>
+                                    <option value="Genap">Genap</option>
+                                    <option value="Ganjil">Ganjil</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="tahunajaran">Tahun Ajaran</label>
                                 <br>
                                 <select name="tahunajaran" id="tahunajaran" class="form-control">
-                                    <option value="">pilih tahun ajaran</option>
+                                    <option value="">Pilih Tahun Ajaran</option>
                                     <?php
                                     foreach ($hasil1 as $data) {
                                         echo '<option value="' . $data->tahunajaran . '">' . $data->tahunajaran . '</option>';
