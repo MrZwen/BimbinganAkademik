@@ -12,7 +12,7 @@ function load(page,div){
         success: function(response){
             $(div).html(response);
         },
-		error:function (xhr, ajaxOptions, thrownError){
+		error:function (xhr, _ajaxOptions, thrownError){
              $(div).html(xhr.status+" - - "+thrownError);     
 		},
         dataType:"html"  		

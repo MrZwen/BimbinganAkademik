@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="<?= base_url('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
+  <!-- icon -->
+  <link rel="icon" href="<?php echo base_url("gambar/logopoltek.png") ?>" type="image/ico">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -33,18 +36,26 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-flex justify-content-center">
+      <li class="nav-item ">
         <a href="" class="nav-link">Home</a>
       </li>
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="profile-user navbar-nav ml-auto">
-      <li class="nama-user nav-link">
-      <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
-        <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?= $this->session->userdata('NamaDosen') ?></a>
-      </li>
+    <ul class="navbar-nav ml-auto profile-user ">
+      <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" alt="Gambar" class="rounded-circle" alt="User Image" style="width:34px;height:34px">
+          <span class="user-image text-white" data-toggle="dropdown" href=""><?= $this->session->userdata('NamaDosen') ?></a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+                <h3 class="dropdown-item-title mx-2 mt-1">
+                  Ganti Password
+                </h3>
+            </a>
+          </div>
+        </li>
     </ul>
   </nav>
   <div class="wrapper">
@@ -61,7 +72,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-          <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
+          
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
@@ -74,7 +86,15 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
             <li class="nav-item ">
-              <a href="" class="nav-link text-white">
+              <a href="<?= base_url('Creport/ReportD'); ?>" class="nav-link text-white">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  Report Mahasiswa
+                </p>
+              </a>
+            </li>
+            <li class="nav-item ">
+              <a href="<?php echo base_url('Cutama/tampilanD') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-reugler fa-user"></i>
                 <p>
                   Data Diri
@@ -82,7 +102,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+                 <a href="<?php echo base_url('Cbimbingan/bimbingan') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-graduation-cap"></i>
                 <p>
                   Bimbingan
@@ -90,7 +110,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Criwayat/riwayatD') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-history"></i>
                 <p>
                   Riwayat
@@ -98,7 +118,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cskbimbingan/informasiskdosen') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-regular fa-book"></i>
                 <p>
                   Informasi SK
@@ -106,7 +126,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cgroup/groupbimbingandosen') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Group Bimbingan
@@ -162,7 +182,6 @@
       })
     }
   </script>
-
   <!-- jQuery -->
 <script src="<?= base_url('assets/plugins/jquery/jquery.min.js')?>"></script>
 <!-- jQuery UI 1.11.4 -->

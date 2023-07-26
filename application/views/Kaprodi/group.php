@@ -8,14 +8,30 @@
     </div>
 </div>
 
+
+<script>
+    function hapusdata(id_group) {
+        if (confirm("Apakah anda yakin menghapus data ini?")) {
+            window.open("<?php echo base_url() ?>cgroup/hapusdata/" + id_group, "_self");
+        }
+    }
+    // Memperbarui tampilan daftar nama mahasiswa saat tombol "Tampil Group" ditekan
+    document.addEventListener("DOMContentLoaded", function() {
+        const tampilGroupButtons = document.querySelectorAll(".tampil-group");
+        tampilGroupButtons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const namaDosen = button.dataset.namaDosen;
+                const semester = button.dataset.semester;
+                const tahunajaran = button.dataset.tahunajaran;
+                const groupMahasiswaRow = document.querySelector('.group-mahasiswa-row[data-nama-dosen="' + namaDosen + '"][data-semester="' + semester + '"][data-tahunajaran="' + tahunajaran + '"]');
+                groupMahasiswaRow.classList.toggle("show");
+            });
+        });
+    });
+</script>
+
 <script lenguage="javascript">
     function prosessimpan() {
-        var namagroup = $('#namagroup').val();
-        if (namagroup == "") {
-            alert("Nama Group masih kosong");
-            $('#namagroup').focus();
-            return false;
-        }
 
         var NID = $('#NID').val();
         if (NID == "") {
@@ -23,6 +39,13 @@
             $('#NID').focus();
             return false;
         }
+        var NIM = $('#NIM').val();
+        if (NIM == "") {
+            alert("NIM Mahasiswa masih kosong");
+            $('#NIM').focus();
+            return false;
+        }
+
         var semester = $('#semester').val();
         if (semester == "") {
             alert("Semester masih kosong");
@@ -49,18 +72,35 @@
                         <h5 class="card-title"> <i class="fas fa-users"></i> Setting Group Bimbingan</h5>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form id="identitas" name="identitas" method="post" action="<?php echo base_url('Cgroup/tambahmahasiswa') ?>">
                             <div class="mb-3">
-                                <label for="NID">NID</label>
+                                <label for="NID">NID Dosen</label>
                                 <input type="text" class="form-control" name="NID" id="NID" placeholder="Masukkan NIDN...">
                             </div>
                             <div class="mb-3">
+                                <label for="NIM">Nim Mahasiswa</label>
+                                <input type="text" id="NIM" class="form-control" name="NIM" placeholder="Masukkan NIM Mahasiswa...">
+                            </div>
+                            <input type="hidden" name="id_nilai" id="id_nilai" value="0">
+                            <div class="mb-3">
                                 <label for="semester">Semester</label>
-                                <input type="text" class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
+                                <select class="form-control" name="semester" id="semester" placeholder="Masukkan Semester...">
+                                <option value="">Pilih Semester </option>
+                                    <option value="Genap">Genap</option>
+                                    <option value="Ganjil">Ganjil</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="tahunajaran">Tahun Ajaran</label>
-                                <input type="number" min="2000" max="2050" id="tahunajaran" class="form-control" name="tahunajaran" placeholder="Masukkan Tahun Ajaran...">
+                                <br>
+                                <select name="tahunajaran" id="tahunajaran" class="form-control">
+                                    <option value="">Pilih Tahun Ajaran</option>
+                                    <?php
+                                    foreach ($hasil1 as $data) {
+                                        echo '<option value="' . $data->tahunajaran . '">' . $data->tahunajaran . '</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <div class="d-flex justify-content-md-end">
                                 <button type="reset" class="btn btn-danger mx-2">Cancel</button>
@@ -73,9 +113,9 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div   div class="card card-success card-outline shadow">
+                <div class="card card-success card-outline shadow">
                     <div class="card-header">
-                    <h5 class="card-title"> <i class="fas fa-users"></i> Group Bimbingan</h5>
+                        <h5 class="card-title"> <i class="fas fa-users"></i> Group Bimbingan</h5>
                     </div>
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-hover">
@@ -83,42 +123,110 @@
                                 <tr class="text-center">
                                     <th>No</th>
                                     <th>Nama Dosen</th>
-                                    <th>Nama Anggota</th>
                                     <th>Semester</th>
                                     <th>Tahun Ajaran</th>
-                                    <th>Aksi</th>
+                                    <th colspan="3">Aksi</th>
                                 </tr>
                             </thead>
-                            <?php 
-                                    if(empty($hasil))
-                                    {
-                                        echo "Data Kosong";
-                                    }
-                                    else{
-                                        $no = 1;
-                                        foreach ($hasil as $data) :
-                                    ?>
                             <tbody>
-                                <tr class="text-center">
-                                    <td><?= $no; ?></td>
-                                    <td><?= $data->NamaDosen ?></td>
-                                    <td><?= $data->Nama ?></td>
-                                    <td><?= $data->semester ?></td>
-                                    <td><?= $data->tahunajaran ?></td>
-                                    <td>
-                                        <a href="" class="btn btn-success"><i class="fas fa-plus"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <?php
-                                $no++; 
-                                endforeach;
+                                <?php
+                                if (empty($hasil)) {
+                                    echo "Data Kosong";
+                                } else {
+                                    $no = 1;
+                                    $prevNamaDosen = ""; // Variabel penanda nama dosen sebelumnya
+                                    $prevSemester = "";
+                                    $prevTahunAjaran = "";
+                                    foreach ($hasil as $data) {
+                                        if ($data->NamaDosen == $prevNamaDosen && $data->semester == $prevSemester && $data->tahunajaran == $prevTahunAjaran) {
+                                            continue; // Lewati baris jika nama dosen sama dengan nama sebelumnya
+                                        }
+                                ?>
+                                        <tr class="text-center">
+                                            <td><?= $no; ?></td>
+                                            <td><?= $data->NamaDosen ?></td>
+                                            <td><?= $data->semester ?></td>
+                                            <td><?= $data->tahunajaran ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahmahasiswa<?= $data->id_group ?>"><i class="fa fa-plus"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm tampil-group" data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>"><i class="fas fa-info"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm " onclick="hapusdata(<?php echo $data->id_group; ?>);"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr class="group-mahasiswa-row" data-nama-dosen="<?= $data->NamaDosen ?>" data-semester="<?= $data->semester ?>" data-tahunajaran="<?= $data->tahunajaran ?>">
+                                            <td colspan="2" class="text-center">Nama Mahasiswa</td>
+                                            <td colspan="5" class="">
+                                                <ul class="group-mahasiswa-list">
+                                                    <?php
+                                                    // Menampilkan nama mahasiswa dengan dosen yang sama
+                                                    foreach ($hasil as $data_mahasiswa) {
+                                                        if ($data_mahasiswa->NamaDosen == $data->NamaDosen && $data_mahasiswa->semester == $data->semester && $data_mahasiswa->tahunajaran == $data->tahunajaran) {
+                                                    ?>
+
+                                                            <li><?= $data_mahasiswa->Nama ?></li>
+
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <div class="modal fade" id="tambahmahasiswa<?= $data->id_group ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title " id="exampleModalLabel">Tambah Mahasiswa</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="mahasiswa" name="mahasiswa" method="post" action="<?php echo base_url('Cgroup/tambahmahasiswa') ?>">
+                                                            <input type="hidden" value="<?= $data->semester ?>" name="semester" id="semester">
+                                                            <input type="hidden" value="<?= $data->tahunajaran ?>" name="tahunajaran" id="tahunajaran">
+                                                            <input type="hidden" value="<?= $data->NID ?>" name="NID" id="NID">
+                                                            <input type="hidden" name="id_nilai" id="id_nilai" value="0">
+                                                            <label for="NIM">Nim Mahasiswa </label>
+                                                            <input id="Nim" placeholder="" name="Nim" type="Text" value="" class="form-control mb-3">
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a type="button" class="btn btn-success" onclick="prosestambah()">Tambah</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php
+                                        $prevSemester = $data->semester;
+                                        $prevTahunAjaran = $data->tahunajaran;
+                                        $prevNamaDosen = $data->NamaDosen; // Update nilai penanda nama dosen sebelumnya
+                                        $no++;
+                                    }
                                 }
-                            ?>
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        <script lenguage="javascript">
+            function prosestambah() {
+                var Nim = $('#Nim').val();
+                if (Nim == "") {
+                    alert("Nim yang anda tambahkan masih kosong");
+                    $('#Nim').focus();
+                    return false;
+                }
+
+                $('#mahasiswa').submit();
+            }
+        </script>
     </div>
 </div>

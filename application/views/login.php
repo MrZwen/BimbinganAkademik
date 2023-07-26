@@ -6,31 +6,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/login.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Login Bimbingan</title>
+
+    <!-- icon -->
+    <link rel="icon" href="<?php echo base_url("gambar/logopoltek.png") ?>" type="image/ico">
 </head>
 
 <body>
-    <script lenguage="javascript">
+
+    <script>
+        $(document).ready(function() {
+            $('#username').keydown(function(event) {
+                checkEnter(event);
+            });
+
+            $('#password').keydown(function(event) {
+                checkEnter(event);
+            });
+
+            $('#formlogin').submit(function(event) {
+                event.preventDefault(); // Prevent form submission
+                proseslogin();
+            });
+        });
+
+        function checkEnter(event) {
+            if (event.keyCode === 13) {
+                proseslogin();
+            }
+        }
+
         function proseslogin() {
             var username = $('#username').val();
-            if (username == "") // melakukan validasi form 
-            {
-                alert("username masih kosong");
-                $('#username').focus(); // membuat cursor focus ketika form kosong
+            if (username == "") {
+                Swal.mixin({
+                    toast: true,
+                    position: 'top-right',
+                    iconColor: 'white',
+                    customClass: {
+                        popup: 'colored-toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true
+                }).fire({
+                    icon: 'error',
+                    title: 'Error Username Masih Kosong'
+                });
+
+                $('#username').focus();
                 return false;
             }
 
             var password = $('#password').val();
             if (password == "") {
-                alert("password masih kosong");
+                Swal.mixin({
+                    toast: true,
+                    position: 'top-right',
+                    iconColor: 'white',
+                    customClass: {
+                        popup: 'colored-toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true
+                }).fire({
+                    icon: 'error',
+                    title: 'Error Password Masih Kosong'
+                });
+
                 $('#password').focus();
                 return false;
             }
-            $('#formlogin').submit();
+
+            // Jika data username dan password valid, Anda bisa mengirimkan formulir secara manual
+            $('#formlogin').unbind('submit').submit();
         }
+    
     </script>
+
+    <!-- Include SweetAlert 2 library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
     <div class="container-fluid">
         <div class="row no-gutter">
             <!-- The image half -->
@@ -71,7 +133,7 @@
                                 </div>
                                 <form id="formlogin" name="formlogin" method="post" action="<?php echo base_url('Clogin/proseslogin'); ?>">
                                     <div class="form-group mb-3">
-                                        <input id="username" type="text" placeholder="Username" name="username" class="form-control border-0 shadow-sm px-4">
+                                        <input id="username" type="text" placeholder="Username" name="username" class="form-control border-0 shadow-sm px-4" required>
                                     </div>
                                     <div class="form-group mb-3">
                                         <input id="password" type="password" placeholder="Password" name="password" class="form-control border-0 shadow-sm px-4">
@@ -80,7 +142,8 @@
                                         <input id="customCheck1" type="checkbox" checked class="custom-control-input">
                                         <label for="customCheck1" class="custom-control-label">Remember password</label>
                                     </div>
-                                    <a type="button" class="button" onclick="proseslogin();">Sign In</a>
+                                    <button type="button" class="button btn btn-primary form-control" onkeydown="checkEnter(event)" onclick="proseslogin();">Sign In</button>
+
 
                                 </form>
                             </div>

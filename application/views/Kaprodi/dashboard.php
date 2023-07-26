@@ -10,65 +10,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary card-outline shadow">
-                        <div class="card-header">
-                            <h5 class="card-title"><i class="fas fa-tag" ></i>  Informasi Bimbingan</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-primary">
-                                            <div class="inner">
-                                                <h3>150</h3>
-                                                <p>List Mahasiswa</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ion ion-bag"></i>
-                                            </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-success">
-                                            <div class="inner">
-                                                <h3>150</h3>
-                                                <p>List Dosen</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ion ion-bag"></i>
-                                            </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-info">
-                                            <div class="inner">
-                                                <h3>150</h3>
-                                                <p>Group Bimbingan</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ion ion-bag"></i>
-                                            </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-6">
-                                        <div class="small-box bg-danger">
-                                            <div class="inner">
-                                                <h3>150</h3>
-                                                <p>Informasi SK</p>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ion ion-bag"></i>
-                                            </div>
-                                            <a href="" class="small-box-footer">Show More <i class="fas fa-arrow-circle-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Menampilkan List Mahasiswa -->
                     
@@ -94,7 +35,9 @@
                                 <?php 
                                     if(empty($hasil))
                                     {
-                                        echo "Data Kosong";
+                                        echo "<tr>";
+                                        echo "<td colspan='8' class='text-center'>Data Kosong</td>";
+                                        echo "</tr>";
                                     }
                                     else{
                                         $no = 1;

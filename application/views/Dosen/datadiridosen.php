@@ -1,4 +1,35 @@
-<!-- menampilkan data diri/ identitas mahasiswa tetapi belum terkoneksi database -->
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-xs {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .form-control-file {
+        display: inline-block;
+        width: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        table {
+            font-size: 12px;
+        }
+    }
+</style>
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2 border-bottom">
@@ -71,7 +102,7 @@
         <div class="modal-body">
             <form id="identitas" name="identitas" method="post" action="<?php echo base_url('Cdatadiri/updatedatadirid') ?>">
                 <label for="">NID</label>
-                <input id="NID" placeholder="Masukkan NID" name="NID" type="text" value="<?php echo $user->NID ?>" class="form-control mb-3">
+                <input id="NID" placeholder="Masukkan NID" name="NID" type="text" value="<?php echo $user->NID ?>" class="form-control mb-3" disabled>
                 <label for="">Nama Dosen</label>
                 <input id="Nama" placeholder="Masukkan Nama" name="Nama" type="text" value="<?php echo $user->NamaDosen ?>" class="form-control mb-3">
                 <div class="row">
@@ -120,8 +151,8 @@
                     }
                 ?>
         </div>
-        <div class="card-body">
-    <table class="table">
+    <div class="card-body">
+    <table class="table table-responsive">
         <tbody>
             <tr>
                 <td width="15%">NID</td>

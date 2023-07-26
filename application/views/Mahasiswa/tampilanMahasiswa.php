@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="<?= base_url('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') ?>">
   <!-- css -->
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
+
+  <!-- icon -->
+  <link rel="icon" href="<?php echo base_url("gambar/logopoltek.png") ?>" type="image/ico">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -39,12 +42,20 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="profile-user navbar-nav ml-auto">
-      <li class="nama-user nav-link">
-        <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="profile rounded-circle mx-2" >
-        <!-- Menampilkan nama yang da pada table mahasiswa -->
-        <a class="user-image text-white" href=""><?php echo $user->Nama ?></a>
-      </li>
+    <ul class="navbar-nav ml-auto profile-user ">
+      <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" alt="Gambar" class="rounded-circle" alt="User Image" style="width:34px;height:34px">
+          <span class="user-image text-white" data-toggle="dropdown" href=""><?= $this->session->userdata('Nama') ?></a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+                <h3 class="dropdown-item-title mx-2 mt-1">
+                  Ganti Password
+                </h3>
+            </a>
+          </div>
+        </li>
     </ul>
   </nav>
   <div class="wrapper">
@@ -61,11 +72,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="<?php echo base_url().'gambar/'.$user->gambar ?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
+          <img src="<?php echo base_url( "gambar/" . $this->session->userdata('gambar') )?>" class="rounded-circle elevation-2" alt="User Image" style="width:34px;height:34px">
           </div>
           <div class="info">
             <!-- Menampilkan nama yang da pada table mahasiswa -->
-            <a href="#" class="d-block text-white"><?php echo $user->Nama ?></a>
+            <a href="#" class="d-block text-white"><?= $this->session->userdata('Nama') ?></a>
           </div>
         </div>
         <!-- Sidebar Menu -->
@@ -90,7 +101,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Criwayat/RiwayatM') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-history"></i>
                 <p>
                   Riwayat
@@ -98,7 +109,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link text-white">
+              <a href="<?php echo base_url('Cskbimbingan/informasiskm') ?>" class="nav-link text-white">
                 <i class="nav-icon fas fa-regular fa-book"></i>
                 <p>
                   Informasi SK
@@ -126,11 +137,26 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
           <?php
-              if (empty($konten)) {
-                echo '';
-              } else {
-                echo $konten;
-              }
+             if (empty($konten)) {
+              echo '';
+            } else {
+              echo $konten;
+            }
+            ?>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+            <!-- AJAX -->
+            <div id="script"></div>
+            <script src="<?php echo base_url(); ?>/jquery/app.js"></script>
+            <script language="javascript">
+              var site = "<?php echo base_url() ?>index.php/";
+              var loading_image_large = "<?php echo base_url() ?>gambar/loading_large.gif";
+            </script>
+            <?php
+            if (empty($table)) {
+              echo '';
+            } else {
+              echo $table;
+            }
           ?>
       </div><!-- /.container-fluid -->
     </section>

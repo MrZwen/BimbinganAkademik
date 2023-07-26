@@ -9,146 +9,129 @@
 </div>
 <script lenguage="javascript">
     function prosessimpan() {
-        var Beasiswa = document.getElementById("Beasiswa");
-        var SuratPeringatan = document.getElementById("SuratPeringatan");
-
-        var DosenPembimbing = $('#DosenPembimbing').val();
-        if (DosenPembimbing == "") {
-            alert("Dosen Pembimbing masih kosong");
-            $('#DosenPembimbing').focus();
-            return false;
-        }
-        var TahunAjaran = $('#TahunAjaran').val();
-        if (TahunAjaran == "") {
-            alert("Tahun Ajaran masih kosong");
-            $('#TahunAjaran').focus();
-            return false;
-        }
-       
-        var Semester = $('#Semester').val();
-        if (Semester == "") {
-            alert("Semester IPK masih kosong");
-            $('#Semester').focus();
-            return false;
-        }
-
-        var StatusMahasiswa = $('#StatusMahasiswa').val();
-        if (StatusMahasiswa == "") {
-            alert("Status Mahasiswa masih kosong");
-            $('#StatusMahasiswa').focus();
-            return false;
-        }
-
-        var NilaiIpk = $('#NilaiIpk').val();
-        if (NilaiIpk == "") {
-            alert("Nilai IPK masih kosong");
-            $('#NilaiIpk').focus();
-            return false;
-        }
-
-        var NilaiIps = $('#NilaiIps').val();
-        if (NilaiIps == "") {
-            alert("Nilai IPS masih kosong");
-            $('#NilaiIps').focus();
-            return false;
-        }
-
-        var Ranking = $('#Ranking').val();
-        if (Ranking == "") {
-            alert("Ranking masih kosong");
-            $('#Ranking').focus();
-            return false;
-        }
-
-        if (Beasiswa.checked) {
-            var Lainya = Beasiswa.value;
-        } else if (SuratPeringatan.checked) {
-            var Lainya = SuratPeringatan.value;
-        } else if (SuratPeringatan.checked || Beasiswa.checked) 
-        {
-            var Lainya = "";
-            Lainya += Beasiswa.value + "SuratPeringatan";
-        }
-
-        var Keaktifan = $('#Keaktifan').val();
+        var Keaktifan = $('#Keluhan').val();
         if (Keaktifan == "") {
-            alert("Keaktifan Mahasiswa masih kosong");
-            $('#Keaktifan').focus();
+            alert("Keluhan Mahasiswa masih kosong");
+            $('#Keluhan').focus();
             return false;
         }
 
         $('#bimbingan').submit();
     }
 </script>
-<div class="card">
-    <div class="card-header">
-        <h3 class="text-bold">Form Bimbingan Mahasiswa</h3>
-        <?php
-        $pesan = $this->session->flashdata('pesan');
-        if ($pesan == "") {
-            echo "";
-        } else {
-        ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong><?php echo $pesan; ?></strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <?php
-        }
-        ?>
-    </div>
-    <div class="container">
-        <div class="mb-3 mt-3">
-            <div class="mb-3">
-                <label class="form-label">Dosen Pembimbing</label>
-                <input type="text" class="form-control" id="DosenPembimbing" value="<?php echo $user->NamaDosen ?>" name="DosenPembimbing" disabled>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">T.A</label>
-                <input type="text" class="form-control" id="TahunAjaran" value="<?php echo $user->tahunajaran ?>" name="TahunAjaran" disabled>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Semester</label>
-                <input type="text" class="form-control" id="Semester" value="<?php echo $user->semester ?>" name="Semester" disabled>
-            </div>
-            <form id="bimbingan" name="bimbingan" method="post" action="<?php echo base_url('Cbimbingan/simpanbimbingan') ?>">
-                <input type="hidden" class="form-control" id="id_group"  value="<?php echo $user->id_group ?>" name="id_group" >
-                <div class="mb-3">
-                    <label class="form-label">Status Mahasiswa </label>
-                    <select name="StatusMahasiswa" class="form-control" id="StatusMahasiswa">
-                        <option value="">PILIH</option>
-                        <option value="Aktif">Aktif</option>
-                        <option value="Cuti">Cuti</option>
-                        <option value="DropOut">Drop Out (DO)</option>
-                </div>
-                </select>
-                <div class="mb-3">
-                    <label class="form-label">Nilai IPK</label>
-                    <input type="number" class="form-control" id="IPK" min="0.00" max="4.00" placeholder="Masukkan Nilai IPK" name="IPK">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Nilai IPS</label>
-                    <input type="number" class="form-control" id="IPS" min="0.00" max="4.00" placeholder="Masukkan Nilai IPS Semester ini" name="IPS">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Ranking</label>
-                    <input type="number" class="form-control" id="Ranking" min="1" placeholder="Masukkan Ranking Semester ini" name="Ranking">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Lain - lain </label>
-                    <br>
-                    <input class="form-check-label" type="radio" name="Lainya" id="Beasiswa" value="Beasiswa">Beasiswa
-                    <input class="form-check-label" type="radio" name="Lainya" id="SuratPeringatan" value="SuratPeringatan">Surat Peringatan
-                    <br /> <br />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Keaktifan Mahasiswa</label>
-                    <textarea class="form-control" rows="3" id="Keaktifan" name="Keaktifan" placeholder="Masukkan Keaktifan Mahasiswa berupa Kegiatan yang telah dilakukan di lingkungan kampus"></textarea>
-                </div>
-                <button type="button" class="btn btn-primary" onclick="prosessimpan()">Submit</button>
-            </form>
+<div class="content-body">
+    <div class="card card-success card-outline">
+        <div class="card-header">
+            <h5 class="card-title">Bimbingan</h5>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Dosen</th>
+                        <th>Semester</th>
+                        <th>Tahun Ajaran</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (empty($user)) {
+                        echo "<tr>";
+                        echo "<td colspan='5' class='text-center'>Data Kosong</td>";
+                        echo "</tr>";
+                    } else {
+                        $no = 1;
+                        foreach ($user as $data) :
+                    ?>
+                            <tr>
+                                <td><?php echo $no; ?></td>
+                                <td><?php echo $data->NamaDosen; ?></td>
+                                <td><?php echo $data->Semester; ?></td>
+                                <td><?php echo $data->tahunajaran; ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#Nilai<?= $data->id_group ?>">
+                                        Detail Nilai
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#keluhan<?= $data->id_group  ?>">
+                                        Keluhan
+                                    </button>
+                                </td>
+                                <!--Modal Detail-->
+                                <div class="modal fade" id="Nilai<?= $data->id_group ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Nilai Mahasiswa</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="nilaibimbingan<?= $data->id_group ?>" name="nilaibimbingan" method="post">
+                                                    <div class="mb-3">
+                                                        <label class="form-label"> Nilai IPK </label>
+                                                        <input type="text" class="form-control" value="<?php echo isset($data->IPK) ? $data->IPK  : null; ?>" disabled>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label"> Nilai IPS </label>
+                                                        <input type="text" class="form-control" value="<?php echo isset($data->IPS) ? $data->IPS  : null; ?>" disabled>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label"> Ranking </label>
+                                                        <input type="text" class="form-control" value="<?php echo isset($data->Ranking) ? $data->Ranking  : null; ?>" disabled>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label"> Lain - lain </label>
+                                                        <input type="text" class="form-control" value="<?php echo isset($data->lainnya) ? $data->lainnya  : null; ?>" disabled>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Modal Keluhan-->
+                                <div class="modal fade" id="keluhan<?= $data->id_group ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Keluhan Mahasiswa</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="bimbingan" name="bimbingan" method="post" action="<?php echo base_url('Cbimbingan/simpanbimbingan') ?>">
+                                                    <input type="hidden" id="id_group" name="id_group" value="<?php echo $data->id_group ?>">
+                                                    <div class="mb-3">
+                                                        <label for="Keluhan" class="form-label">Keluhan Mahasiswa</label>
+                                                        <textarea name="keluhan" class="form-control" id="Keluhan" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <input type="hidden" id="VerifDosen" name="VerifDosen" value="Belum Verifikasi">
+                                                    <div class="mb-3">
+                                                        <?php date_default_timezone_set("Asia/Ujung_Pandang"); ?>
+                                                        <input type="hidden" name="TglBimbingan" id="TglBimbingan" value="<?php echo date("Y-m-d H:i:s"); ?>">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                        <button type="button" class="btn btn-primary" onclick="prosessimpan()">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            $no++;
+                        endforeach;
+                    }
+                        ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
